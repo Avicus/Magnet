@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.avicus</groupId>
+    <artifactId>magnet-parent</artifactId>
+    <version>dev-1.8-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>avicus-repo</id>
+            <url>https://repo.avicus.net/content/repositories/snapshots-private/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>avicus-repo</id>
+            <url>https://repo.avicus.net/content/groups/private/</url>
+        </repository>
+    </repositories>
+
+    <modules>
+        <module>Magnet-API</module>
+        <module>Magnet-Server</module>
+    </modules>
+</project>
