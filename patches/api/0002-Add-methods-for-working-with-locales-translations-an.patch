@@ -1,0 +1,186 @@
+From 70399363a9c1da48afec5a9316b04633bc76422e Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Sat, 17 Dec 2016 02:30:37 -0800
+Subject: [PATCH] Add methods for working with locales/translations, and add
+ methods to send components based on type
+
+---
+ .../text/translation/TranslatableComponent.java    | 19 ++++++++++
+ src/main/java/org/bukkit/Bukkit.java               | 12 +++++++
+ src/main/java/org/bukkit/Server.java               | 13 +++++++
+ .../java/org/bukkit/command/CommandSender.java     | 40 ++++++++++++++++++++++
+ src/main/java/org/bukkit/entity/Player.java        | 28 +++++++++++++++
+ 5 files changed, 112 insertions(+)
+ create mode 100644 src/main/java/net/avicus/magnet/api/text/translation/TranslatableComponent.java
+
+diff --git a/src/main/java/net/avicus/magnet/api/text/translation/TranslatableComponent.java b/src/main/java/net/avicus/magnet/api/text/translation/TranslatableComponent.java
+new file mode 100644
+index 00000000..9bf08435
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/text/translation/TranslatableComponent.java
+@@ -0,0 +1,19 @@
++package net.avicus.magnet.api.text.translation;
++
++import net.md_5.bungee.api.chat.BaseComponent;
++
++import java.util.Locale;
++
++/**
++ * A component which can be translated using a {@link Locale}.
++ */
++public interface TranslatableComponent {
++
++    /**
++     * Translate this component into a {@link BaseComponent} in the specified {@link Locale}.
++     *
++     * @param locale the locale to translate this component into
++     * @return the translated component
++     */
++    BaseComponent translate(Locale locale);
++}
+diff --git a/src/main/java/org/bukkit/Bukkit.java b/src/main/java/org/bukkit/Bukkit.java
+index 8fbc8283..ccb9596f 100644
+--- a/src/main/java/org/bukkit/Bukkit.java
++++ b/src/main/java/org/bukkit/Bukkit.java
+@@ -1166,4 +1166,16 @@ public final class Bukkit {
+     {
+         return server.spigot();
+     }
++
++    // Magnet start
++    /**
++     * Broadcasts a translatable component to all {@link Player}s using their {@link CommandSender#getLocale() locale}.
++     *
++     * @param translatable the translatable component
++     * @see Server#broadcast(net.avicus.magnet.api.text.translation.TranslatableComponent)
++     */
++    public static void broadcast(net.avicus.magnet.api.text.translation.TranslatableComponent translatable) {
++        server.broadcast(translatable);
++    }
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
+index 1b62463a..2b604122 100644
+--- a/src/main/java/org/bukkit/Server.java
++++ b/src/main/java/org/bukkit/Server.java
+@@ -1007,4 +1007,17 @@ public interface Server extends PluginMessageRecipient {
+     }
+ 
+     Spigot spigot();
++
++    // Magnet start
++    /**
++     * Broadcasts a translatable component to all {@link Player}s using their {@link CommandSender#getLocale() locale}.
++     *
++     * @param translatable the translatable component
++     */
++    default void broadcast(net.avicus.magnet.api.text.translation.TranslatableComponent translatable) {
++        for (Player player : this.getOnlinePlayers()) {
++            player.sendMessage(translatable.translate(player.getLocale()));
++        }
++    }
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/command/CommandSender.java b/src/main/java/org/bukkit/command/CommandSender.java
+index 148756b9..a9b11f0a 100644
+--- a/src/main/java/org/bukkit/command/CommandSender.java
++++ b/src/main/java/org/bukkit/command/CommandSender.java
+@@ -32,4 +32,44 @@ public interface CommandSender extends Permissible {
+      * @return Name of the sender
+      */
+     public String getName();
++
++    // Magnet start
++    /**
++     * Gets the locale this command source is currently using.
++     *
++     * <p>This is {@link java.util.Locale#US} by default.</p>
++     *
++     * @return the locale
++     */
++    default java.util.Locale getLocale() {
++        return java.util.Locale.US;
++    }
++
++    /**
++     * Sends a component message to this command source.
++     *
++     * @param component the component to send
++     */
++    default void sendMessage(net.md_5.bungee.api.chat.BaseComponent component) {
++        this.sendMessage(component.toLegacyText());
++    }
++
++    /**
++     * Sends an array of components as a single message to this command source.
++     *
++     * @param components the components to send
++     */
++    default void sendMessage(net.md_5.bungee.api.chat.BaseComponent[] components) {
++        this.sendMessage(net.md_5.bungee.api.chat.BaseComponent.toLegacyText(components));
++    }
++
++    /**
++     * Sends a translatable component to this command source using its {@link #getLocale() locale}.
++     *
++     * @param translatable the translatable component
++     */
++    default void sendMessage(net.avicus.magnet.api.text.translation.TranslatableComponent translatable) {
++        this.sendMessage(translatable.translate(this.getLocale()));
++    }
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/entity/Player.java b/src/main/java/org/bukkit/entity/Player.java
+index d02fe560..4282f2e2 100644
+--- a/src/main/java/org/bukkit/entity/Player.java
++++ b/src/main/java/org/bukkit/entity/Player.java
+@@ -339,6 +339,7 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+      *
+      * @param component the components to send
+      */
++    @Override
+     public void sendMessage(net.md_5.bungee.api.chat.BaseComponent component);
+ 
+     /**
+@@ -346,6 +347,7 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+      *
+      * @param components the components to send
+      */
++    @Override
+     public void sendMessage(net.md_5.bungee.api.chat.BaseComponent... components);
+ 
+     /**
+@@ -1336,4 +1338,30 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+ 
+     Spigot spigot();
+     // Spigot end
++
++    // Magnet start
++    /**
++     * Gets the locale this command source is currently using.
++     *
++     * @return the locale
++     */
++    @Override
++    java.util.Locale getLocale();
++
++    /**
++     * Sends a component message to this player using the specified message type.
++     *
++     * @param type the component type/display position
++     * @param component the component to send
++     */
++    void sendMessage(net.md_5.bungee.api.ChatMessageType type, net.md_5.bungee.api.chat.BaseComponent component);
++
++    /**
++     * Sends an array of components as a single message to this player using the specified message type.
++     *
++     * @param type the component type/display position
++     * @param components the components to send
++     */
++    void sendMessage(net.md_5.bungee.api.ChatMessageType type, net.md_5.bungee.api.chat.BaseComponent[] components);
++    // Magnet end
+ }
+-- 
+2.11.0
+
