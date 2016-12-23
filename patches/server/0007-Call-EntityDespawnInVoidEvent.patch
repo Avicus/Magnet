@@ -1,0 +1,32 @@
+From 5f57f17014cc8a6257927aa56433964c428adf82 Mon Sep 17 00:00:00 2001
+From: Austin Mayes <bookofnathan@gmail.com>
+Date: Thu, 23 May 2013 20:09:16 -0500
+Subject: [PATCH] Call EntityDespawnInVoidEvent
+
+---
+ src/main/java/net/minecraft/server/Entity.java | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/Entity.java b/src/main/java/net/minecraft/server/Entity.java
+index 2da303f..5fa68bc 100644
+--- a/src/main/java/net/minecraft/server/Entity.java
++++ b/src/main/java/net/minecraft/server/Entity.java
+@@ -19,6 +19,7 @@ import org.bukkit.entity.Vehicle;
+ import co.aikar.timings.SpigotTimings; // Spigot
+ import co.aikar.timings.Timing; // Spigot
+ import org.bukkit.event.entity.EntityCombustByEntityEvent;
++import org.bukkit.event.entity.EntityDespawnInVoidEvent;
+ import org.bukkit.event.hanging.HangingBreakByEntityEvent;
+ import org.bukkit.event.painting.PaintingBreakByEntityEvent;
+ import org.bukkit.event.vehicle.VehicleBlockCollisionEvent;
+@@ -405,6 +406,7 @@ public abstract class Entity implements ICommandListener {
+     }
+ 
+     protected void O() {
++        this.world.getServer().getPluginManager().callEvent(new EntityDespawnInVoidEvent(this.bukkitEntity));
+         this.die();
+     }
+ 
+-- 
+2.6.4
+

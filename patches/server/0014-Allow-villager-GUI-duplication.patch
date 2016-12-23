@@ -1,0 +1,57 @@
+From 88fcc2a3197f74ea79895c4792b0c66af3d6eb82 Mon Sep 17 00:00:00 2001
+From: Austin Mayes <austin@avicus.net>
+Date: Fri, 23 Dec 2016 03:12:50 -0600
+Subject: [PATCH] Allow villager GUI duplication
+
+---
+ .../bukkit/craftbukkit/entity/CraftHumanEntity.java | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
+index 8a08bab..ec3235e 100644
+--- a/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
++++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
+@@ -2,12 +2,14 @@ package org.bukkit.craftbukkit.entity;
+ 
+ import java.util.Set;
+ 
++import com.google.common.base.Preconditions;
+ import net.minecraft.server.*;
+ 
+ import org.bukkit.GameMode;
+ import org.bukkit.Location;
+ import org.bukkit.Material;
+ import org.bukkit.entity.HumanEntity;
++import org.bukkit.entity.Villager;
+ import org.bukkit.event.inventory.InventoryType;
+ import org.bukkit.inventory.Inventory;
+ import org.bukkit.inventory.InventoryView;
+@@ -110,6 +112,25 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
+         return perm.addAttachment(plugin, name, value);
+     }
+ 
++    @Override
++    public InventoryView openMerchantCopy(Villager trader) {
++        Preconditions.checkNotNull(trader, "villager cannot be null");
++
++        final EntityVillager original = ((CraftVillager) trader).getHandle();
++        final EntityVillager copy = new EntityVillager(original.getWorld());
++
++        final NBTTagCompound nbt = new NBTTagCompound();
++        original.b(nbt);
++        copy.a(nbt);
++
++        copy.dead = false;
++        copy.setAge(1);
++        copy.a_(getHandle());
++
++        getHandle().openTrade(copy);
++        return getHandle().activeContainer.getBukkitView();
++    }
++
+     public PermissionAttachment addAttachment(Plugin plugin) {
+         return perm.addAttachment(plugin);
+     }
+-- 
+2.6.4
+

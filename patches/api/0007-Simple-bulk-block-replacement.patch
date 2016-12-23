@@ -1,0 +1,37 @@
+From c88c0a408d6c719cadf7290377d97f62699f1589 Mon Sep 17 00:00:00 2001
+From: Jedediah Smith <jedediah@silencegreys.com>
+Date: Wed, 28 Dec 2016 02:30:37 -0800
+Subject: [PATCH] Simple bulk block replacement
+
+---
+ src/main/java/org/bukkit/Chunk.java | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/Chunk.java b/src/main/java/org/bukkit/Chunk.java
+index 0510151..b7bc563 100644
+--- a/src/main/java/org/bukkit/Chunk.java
++++ b/src/main/java/org/bukkit/Chunk.java
+@@ -3,6 +3,7 @@ package org.bukkit;
+ import org.bukkit.block.Block;
+ import org.bukkit.block.BlockState;
+ import org.bukkit.entity.Entity;
++import org.bukkit.material.MaterialData;
+ 
+ /**
+  * Represents a chunk of blocks
+@@ -121,4 +122,12 @@ public interface Chunk {
+      * @return true if the chunk has unloaded successfully, otherwise false
+      */
+     boolean unload();
++
++    /**
++     * Replace all blocks of one material with another
++     * @param original       block to replace
++     * @param replacement    new block
++     * @return               number of blocks replaced
++     */
++    int replaceMaterial(Material original, MaterialData replacement);
+ }
+-- 
+2.6.4
+

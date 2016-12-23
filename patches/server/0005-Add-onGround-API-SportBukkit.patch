@@ -1,0 +1,65 @@
+From 78f4a1833096be6496300ca3864bb669dc41bee0 Mon Sep 17 00:00:00 2001
+From: Austin Mayes <bookofnathan@gmail.com>
+Date: Thu, 23 May 2013 20:09:16 -0500
+Subject: [PATCH] Add onGround API (SportBukkit)
+
+---
+ .../net/minecraft/server/PlayerConnection.java     | 28 +++++++++++-----------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
+index 4391ad7..05b5937 100644
+--- a/src/main/java/net/minecraft/server/PlayerConnection.java
++++ b/src/main/java/net/minecraft/server/PlayerConnection.java
+@@ -43,20 +43,7 @@ import org.bukkit.event.inventory.InventoryAction;
+ import org.bukkit.event.inventory.InventoryClickEvent;
+ import org.bukkit.event.inventory.InventoryCreativeEvent;
+ import org.bukkit.event.inventory.InventoryType.SlotType;
+-import org.bukkit.event.player.AsyncPlayerChatEvent;
+-import org.bukkit.event.player.PlayerAnimationEvent;
+-import org.bukkit.event.player.PlayerChatEvent;
+-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+-import org.bukkit.event.player.PlayerInteractEntityEvent;
+-import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+-import org.bukkit.event.player.PlayerItemHeldEvent;
+-import org.bukkit.event.player.PlayerKickEvent;
+-import org.bukkit.event.player.PlayerMoveEvent;
+-import org.bukkit.event.player.PlayerResourcePackStatusEvent;
+-import org.bukkit.event.player.PlayerTeleportEvent;
+-import org.bukkit.event.player.PlayerToggleFlightEvent;
+-import org.bukkit.event.player.PlayerToggleSneakEvent;
+-import org.bukkit.event.player.PlayerToggleSprintEvent;
++import org.bukkit.event.player.*;
+ import org.bukkit.inventory.CraftingInventory;
+ import org.bukkit.inventory.InventoryView;
+ import org.bukkit.util.NumberConversions;
+@@ -242,6 +229,8 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
+                 Location from = new Location(player.getWorld(), lastPosX, lastPosY, lastPosZ, lastYaw, lastPitch); // Get the Players previous Event location.
+                 Location to = player.getLocation().clone(); // Start off the To location as the Players current location.
+ 
++                boolean wasOnGroud = this.player.onGround;
++
+                 // If the packet contains movement information then we update the To location with the correct XYZ.
+                 if (packetplayinflying.hasPos && !(packetplayinflying.hasPos && packetplayinflying.y == -999.0D)) {
+                     to.setX(packetplayinflying.x);
+@@ -456,6 +445,17 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
+ 
+                     this.player.onGround = packetplayinflying.f();
+                     this.minecraftServer.getPlayerList().d(this.player);
++
++                    // Magnet Begin
++
++                    if (wasOnGroud != this.player.onGround) {
++                        PlayerOnGroundEvent event = new PlayerOnGroundEvent(player, this.player.onGround);
++                        this.server.getPluginManager().callEvent(event);
++                    }
++
++                    // Magnet End
++
++
+                     this.player.a(this.player.locY - d10, packetplayinflying.f());
+                 } else if (this.e - this.f > 20) {
+                     this.a(this.o, this.p, this.q, this.player.yaw, this.player.pitch);
+-- 
+2.6.4
+

@@ -1,0 +1,58 @@
+From 06c75ddd40114e0c22cf091debce329c7e18e7e5 Mon Sep 17 00:00:00 2001
+From: YukonAppleGeek <yukonvinecki@gmail.com>
+Date: Tue, 27 Dec 2016 02:30:37 -0800
+Subject: [PATCH] Add BlockFallEvent
+
+---
+ .../org/bukkit/event/block/BlockFallEvent.java     | 39 ++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+ create mode 100644 src/main/java/org/bukkit/event/block/BlockFallEvent.java
+
+diff --git a/src/main/java/org/bukkit/event/block/BlockFallEvent.java b/src/main/java/org/bukkit/event/block/BlockFallEvent.java
+new file mode 100644
+index 0000000..f1f4e84
+--- /dev/null
++++ b/src/main/java/org/bukkit/event/block/BlockFallEvent.java
+@@ -0,0 +1,39 @@
++package org.bukkit.event.block;
++
++import org.bukkit.block.Block;
++import org.bukkit.entity.FallingBlock;
++import org.bukkit.event.Cancellable;
++import org.bukkit.event.HandlerList;
++
++public class BlockFallEvent extends BlockEvent implements Cancellable {
++    private static final HandlerList handlers = new HandlerList();
++    private FallingBlock fallingBlock;
++    private boolean cancelled = false;
++
++    public BlockFallEvent(final Block block, final FallingBlock fallingBlock) {
++        super(block);
++        this.fallingBlock = fallingBlock;
++    }
++
++    public FallingBlock getEntity() {
++        return fallingBlock;
++    }
++
++    public boolean isCancelled() {
++        return cancelled;
++    }
++
++    public void setCancelled(boolean cancel) {
++        this.cancelled = cancel;
++    }
++
++    @Override
++    public HandlerList getHandlers() {
++        return handlers;
++    }
++
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++
++}
+-- 
+2.6.4
+

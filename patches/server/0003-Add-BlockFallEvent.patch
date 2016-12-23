@@ -1,0 +1,44 @@
+From e30e8e115e32ec7e381b93183b578a0574b71e04 Mon Sep 17 00:00:00 2001
+From: YukonAppleGeek <yukonvinecki@gmail.com>
+Date: Thu, 29 Dec 2016 02:31:07 -0800
+Subject: [PATCH] Add BlockFallEvent
+
+---
+ src/main/java/net/minecraft/server/BlockFalling.java | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/BlockFalling.java b/src/main/java/net/minecraft/server/BlockFalling.java
+index 1d952b8..e8a0853 100644
+--- a/src/main/java/net/minecraft/server/BlockFalling.java
++++ b/src/main/java/net/minecraft/server/BlockFalling.java
+@@ -2,6 +2,8 @@ package net.minecraft.server;
+ 
+ import java.util.Random;
+ 
++import org.bukkit.event.block.BlockFallEvent; //Craftbukkit
++
+ public class BlockFalling extends Block {
+ 
+     public static boolean instaFall;
+@@ -42,6 +44,18 @@ public class BlockFalling extends Block {
+                     // PaperSpigot end
+ 
+                     this.a(entityfallingblock);
++
++                    // Craftbukkit begin
++                    org.bukkit.block.Block block = world.getWorld().getBlockAt(blockposition.getX(), blockposition.getY(), blockposition.getZ());
++
++                    BlockFallEvent blockFallEvent = new BlockFallEvent(block, (org.bukkit.entity.FallingBlock) entityfallingblock.getBukkitEntity());
++                    world.getServer().getPluginManager().callEvent(blockFallEvent);
++
++                    if (blockFallEvent.isCancelled()) {
++                        return;
++                    }
++                    // Craftbukkit end
++
+                     world.addEntity(entityfallingblock);
+                 }
+             } else {
+-- 
+2.6.4
+
