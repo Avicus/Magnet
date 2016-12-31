@@ -1,0 +1,381 @@
+From 82010235087e6bbcb0513f7890f0c5e4270cefe4 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Fri, 30 Dec 2016 19:56:34 -0800
+Subject: [PATCH] Add debug reports
+
+---
+ src/main/java/co/aikar/timings/TimingsManager.java |  2 +-
+ .../net/avicus/magnet/api/command/LagCommand.java  | 28 +++++++++
+ .../net/avicus/magnet/api/debug/DebugReport.java   | 65 +++++++++++++++++++
+ .../magnet/api/debug/DebugReportCategory.java      | 73 ++++++++++++++++++++++
+ .../avicus/magnet/api/debug/DebugReportDetail.java | 13 ++++
+ .../magnet/api/debug/DebugReportFactory.java       | 36 +++++++++++
+ .../magnet/api/debug/DebugReportListener.java      | 11 ++++
+ .../magnet/api/debug/DebugReportProvider.java      |  9 +++
+ src/main/java/org/bukkit/Bukkit.java               | 10 +++
+ src/main/java/org/bukkit/Server.java               |  7 +++
+ .../java/org/bukkit/command/SimpleCommandMap.java  |  1 +
+ src/test/java/org/bukkit/TestServer.java           |  1 +
+ 12 files changed, 255 insertions(+), 1 deletion(-)
+ create mode 100644 src/main/java/net/avicus/magnet/api/command/LagCommand.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReport.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReportCategory.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReportDetail.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReportFactory.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReportListener.java
+ create mode 100644 src/main/java/net/avicus/magnet/api/debug/DebugReportProvider.java
+
+diff --git a/src/main/java/co/aikar/timings/TimingsManager.java b/src/main/java/co/aikar/timings/TimingsManager.java
+index 67c39df8..d288a2d5 100644
+--- a/src/main/java/co/aikar/timings/TimingsManager.java
++++ b/src/main/java/co/aikar/timings/TimingsManager.java
+@@ -158,7 +158,7 @@ public final class TimingsManager {
+     public static Timing getCommandTiming(String pluginName, Command command) {
+         Plugin plugin = null;
+         final Server server = Bukkit.getServer();
+-        if (!("minecraft".equals(pluginName) || "bukkit".equals(pluginName) || "Spigot".equals(pluginName) ||
++        if (!("minecraft".equals(pluginName) || "bukkit".equals(pluginName) || "Spigot".equals(pluginName) || "magnet".equals(pluginName) || // Magnet - add magnet to list
+             server == null)) {
+             plugin = server.getPluginManager().getPlugin(pluginName);
+             if (plugin == null) {
+diff --git a/src/main/java/net/avicus/magnet/api/command/LagCommand.java b/src/main/java/net/avicus/magnet/api/command/LagCommand.java
+new file mode 100644
+index 00000000..6f6ce928
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/command/LagCommand.java
+@@ -0,0 +1,28 @@
++package net.avicus.magnet.api.command;
++
++import net.avicus.magnet.api.debug.DebugReport;
++import net.avicus.magnet.api.debug.DebugReportFactory;
++import org.bukkit.Bukkit;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class LagCommand extends Command {
++
++    public LagCommand() {
++        super("lag");
++        this.setDescription("Submit a lag report.");
++    }
++
++    @Override
++    public boolean execute(CommandSender source, String label, String[] args) {
++        this.submitReport(source);
++        return true;
++    }
++
++    protected void submitReport(CommandSender source) {
++        DebugReportFactory factory = Bukkit.getDebugReportFactory();
++        DebugReport report = factory.createReport("Lag report from " + source.getName() + (source instanceof Player ? " (" + ((Player) source).getUniqueId() + ')' : ""));
++        factory.debugReportFilled(source, report);
++    }
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReport.java b/src/main/java/net/avicus/magnet/api/debug/DebugReport.java
+new file mode 100644
+index 00000000..69bee4a8
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReport.java
+@@ -0,0 +1,65 @@
++package net.avicus.magnet.api.debug;
++
++import com.google.common.base.Strings;
++import com.google.common.collect.Lists;
++
++import java.text.SimpleDateFormat;
++import java.util.Date;
++import java.util.List;
++
++/**
++ * A debug report.
++ */
++public class DebugReport {
++
++    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat();
++    private final List<DebugReportCategory> categories = Lists.newArrayList();
++    private final String description;
++
++    public DebugReport(String description) {
++        this.description = description;
++    }
++
++    public String getDescription() {
++        return this.description;
++    }
++
++    public DebugReportCategory createCategory(String name) {
++        DebugReportCategory category = new DebugReportCategory(name);
++        this.categories.add(category);
++        return category;
++    }
++
++    public String asString() {
++        StringBuilder sb = new StringBuilder();
++        sb.append("---- Debug Report ----\n");
++        sb.append("// ").append(getWittyComment());
++        sb.append("\n\n");
++        sb.append("Time: ").append(DATE_FORMAT.format(new Date()));
++        sb.append("\n");
++        sb.append("Description: ").append(this.description);
++        sb.append("\n\nCategories:\n");
++        sb.append(Strings.repeat("-", 87));
++        sb.append("\n\n");
++        this.appendCategories(sb);
++        return sb.toString();
++    }
++
++    private void appendCategories(StringBuilder builder) {
++        for(DebugReportCategory category : this.categories) {
++            category.appendToStringBuilder(builder);
++            builder.append("\n\n");
++        }
++    }
++
++    private static String getWittyComment() {
++        final String[] comments = new String[]{
++            "Oops."
++        };
++        try {
++            return comments[(int) (System.nanoTime() % (long) comments.length)];
++        } catch (Throwable t) {
++            return "Witty comment unavailable :(";
++        }
++    }
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReportCategory.java b/src/main/java/net/avicus/magnet/api/debug/DebugReportCategory.java
+new file mode 100644
+index 00000000..61a97f13
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReportCategory.java
+@@ -0,0 +1,73 @@
++package net.avicus.magnet.api.debug;
++
++import com.google.common.collect.Lists;
++
++import java.util.List;
++
++/**
++ * A debug report category.
++ */
++public class DebugReportCategory {
++
++    private final String name;
++    private final List<Entry> entries = Lists.newArrayList();
++
++    public DebugReportCategory(String name) {
++        this.name = name;
++    }
++
++    public String getName() {
++        return this.name;
++    }
++
++    public void setDetail(String key, DebugReportDetail<String> value) {
++        try {
++            this.setDetail(key, value.call());
++        } catch (Throwable t) {
++            this.setDetail(key, t);
++        }
++    }
++
++    public void setDetail(String key, Object value) {
++        this.entries.add(new Entry(key, value));
++    }
++
++    void appendToStringBuilder(StringBuilder builder) {
++        builder.append("-- ").append(this.name).append(" --\n");
++        builder.append("Details:");
++
++        for(Entry entry : this.entries) {
++            builder.append("\n\t");
++            builder.append(entry.getKey());
++            builder.append(": ");
++            builder.append(entry.getValue());
++        }
++    }
++
++    static class Entry {
++
++        private final String key;
++        private final String value;
++
++        public Entry(String key, Object value) {
++            this.key = key;
++
++            if (value == null) {
++                this.value = "~~NULL~~";
++            } else if (value instanceof Throwable) {
++                final Throwable throwable = (Throwable) value;
++                this.value = "~~ERROR~~ " + throwable.getClass().getSimpleName() + ": " + throwable.getMessage();
++            } else {
++                this.value = value.toString();
++            }
++        }
++
++        public String getKey() {
++            return this.key;
++        }
++
++        public String getValue() {
++            return this.value;
++        }
++    }
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReportDetail.java b/src/main/java/net/avicus/magnet/api/debug/DebugReportDetail.java
+new file mode 100644
+index 00000000..eba76060
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReportDetail.java
+@@ -0,0 +1,13 @@
++package net.avicus.magnet.api.debug;
++
++import java.util.concurrent.Callable;
++
++/**
++ * A detail in a debug report category.
++ *
++ * @param <V> the value type
++ */
++@FunctionalInterface
++public interface DebugReportDetail<V> extends Callable<V> {
++
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReportFactory.java b/src/main/java/net/avicus/magnet/api/debug/DebugReportFactory.java
+new file mode 100644
+index 00000000..8915c50b
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReportFactory.java
+@@ -0,0 +1,36 @@
++package net.avicus.magnet.api.debug;
++
++import com.google.common.collect.Sets;
++import org.bukkit.command.CommandSender;
++
++import java.util.Set;
++
++public class DebugReportFactory {
++
++    private final Set<DebugReportProvider> providers = Sets.newHashSet();
++    private DebugReportListener listener;
++
++    public DebugReport createReport(String description) {
++        DebugReport report = new DebugReport(description);
++        this.providers.forEach(provider -> provider.fillDebugReport(report));
++        return report;
++    }
++
++    public void debugReportFilled(CommandSender source, DebugReport report) {
++        if (this.listener != null) {
++            this.listener.debugReportFilled(source, report);
++        }
++    }
++
++    public void registerProvider(DebugReportProvider provider) {
++        this.providers.add(provider);
++    }
++
++    public void unregisterProvider(DebugReportProvider provider) {
++        this.providers.remove(provider);
++    }
++
++    public void setListener(DebugReportListener listener) {
++        this.listener = listener;
++    }
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReportListener.java b/src/main/java/net/avicus/magnet/api/debug/DebugReportListener.java
+new file mode 100644
+index 00000000..e649de9a
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReportListener.java
+@@ -0,0 +1,11 @@
++package net.avicus.magnet.api.debug;
++
++import org.bukkit.command.CommandSender;
++
++/**
++ * A debug report listener.
++ */
++public interface DebugReportListener {
++
++    void debugReportFilled(CommandSender source, DebugReport report);
++}
+diff --git a/src/main/java/net/avicus/magnet/api/debug/DebugReportProvider.java b/src/main/java/net/avicus/magnet/api/debug/DebugReportProvider.java
+new file mode 100644
+index 00000000..15ba3398
+--- /dev/null
++++ b/src/main/java/net/avicus/magnet/api/debug/DebugReportProvider.java
+@@ -0,0 +1,9 @@
++package net.avicus.magnet.api.debug;
++
++/**
++ * A debug report data provider.
++ */
++public interface DebugReportProvider {
++
++    void fillDebugReport(DebugReport report);
++}
+diff --git a/src/main/java/org/bukkit/Bukkit.java b/src/main/java/org/bukkit/Bukkit.java
+index 1bde563f..de12857e 100644
+--- a/src/main/java/org/bukkit/Bukkit.java
++++ b/src/main/java/org/bukkit/Bukkit.java
+@@ -1185,5 +1185,15 @@ public final class Bukkit {
+     public static void broadcast(net.avicus.magnet.api.text.translation.TranslatableComponent translatable) {
+         server.broadcast(translatable);
+     }
++
++    /**
++     * Gets the debug report factory.
++     *
++     * @return the debug report factory
++     * @see Server#getDebugReportFactory()
++     */
++    public static net.avicus.magnet.api.debug.DebugReportFactory getDebugReportFactory() {
++        return server.getDebugReportFactory();
++    }
+     // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
+index 666c4bc8..66905314 100644
+--- a/src/main/java/org/bukkit/Server.java
++++ b/src/main/java/org/bukkit/Server.java
+@@ -1042,5 +1042,12 @@ public interface Server extends PluginMessageRecipient {
+             player.sendMessage(translatable.translate(player.getLocale()));
+         }
+     }
++
++    /**
++     * Gets the debug report factory.
++     *
++     * @return the debug report factory
++     */
++    net.avicus.magnet.api.debug.DebugReportFactory getDebugReportFactory();
+     // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/command/SimpleCommandMap.java b/src/main/java/org/bukkit/command/SimpleCommandMap.java
+index f35bc092..2a92091c 100644
+--- a/src/main/java/org/bukkit/command/SimpleCommandMap.java
++++ b/src/main/java/org/bukkit/command/SimpleCommandMap.java
+@@ -36,6 +36,7 @@ public class SimpleCommandMap implements CommandMap {
+         register("bukkit", new ReloadCommand("reload"));
+         register("bukkit", new PluginsCommand("plugins"));
+         register("bukkit", new co.aikar.timings.TimingsCommand("timings")); // Spigot
++        this.register("magnet", new net.avicus.magnet.api.command.LagCommand()); // Magnet
+     }
+ 
+     public void setFallbackCommands() {
+diff --git a/src/test/java/org/bukkit/TestServer.java b/src/test/java/org/bukkit/TestServer.java
+index 2d840320..52ebf975 100644
+--- a/src/test/java/org/bukkit/TestServer.java
++++ b/src/test/java/org/bukkit/TestServer.java
+@@ -78,6 +78,7 @@ public class TestServer implements InvocationHandler {
+             Bukkit.setServer(instance);
+             server.pluginManager = new SimplePluginManager(instance, new SimpleCommandMap(instance));
+         } catch (Throwable t) {
++            t.printStackTrace();
+             throw new Error(t);
+         }
+     }
+-- 
+2.11.0
+
