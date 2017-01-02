@@ -20,7 +20,7 @@ export importedmcdev=""
 function import {
 	export importedmcdev="$importedmcdev $1"
 	file="${1}.java"
-	target="$basedir/base/Paper/PaperSpigot-Server/src/main/java/$nms/$file"
+	target="$basedir/Magnet-Server/src/main/java/$nms/$file"
 	base="$decompiledir/$nms/$file"
 
 	if [[ ! -f "$target" ]]; then
@@ -41,7 +41,7 @@ function import {
 )
 
 (
-	cd base/Paper/PaperSpigot-Server/
+	cd Magnet-Server/
 	rm -rf nms-patches
 	git add src -A
 	echo -e "Magnet mc-dev Imports\n\n$MODLOG" | git commit src -F -
