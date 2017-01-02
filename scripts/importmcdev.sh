@@ -35,14 +35,15 @@ function import {
 (
 	cd base/Paper/PaperSpigot-Server/
 	lastlog=$(git log -1 --oneline)
-	if [[ "$lastlog" = *"Magnet mc-dev Imports"* ]]; then
+	if [[ "$lastlog" = *"Magnet-Server mc-dev Imports"* ]]; then
 		git reset --hard HEAD^
 	fi
 )
-
+import PacketPlayOutPlayerInfo
+import PacketPlayOutScoreBoardTeam
 (
 	cd Magnet-Server/
 	rm -rf nms-patches
 	git add src -A
-	echo -e "Magnet mc-dev Imports\n\n$MODLOG" | git commit src -F -
+	echo -e "Magnet-Server mc-dev Imports\n\n$MODLOG" | git commit src -F -
 )
