@@ -1,4 +1,4 @@
-From 6c2fa07d843785fe4cbe2bf5f701625c264bd5eb Mon Sep 17 00:00:00 2001
+From 36496dee13a4311df0c9d1364c67c8d7ae5cb9f1 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Sun, 1 Jan 2017 23:56:23 -0600
 Subject: [PATCH] Magnet-Server mc-dev Imports
@@ -538,7 +538,7 @@ Subject: [PATCH] Magnet-Server mc-dev Imports
 
 diff --git a/nms-patches/BiomeTheEndDecorator.patch b/nms-patches/BiomeTheEndDecorator.patch
 deleted file mode 100644
-index 77ae887..0000000
+index 77ae8879..00000000
 --- a/nms-patches/BiomeTheEndDecorator.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -555,7 +555,7 @@ index 77ae887..0000000
 -     }
 diff --git a/nms-patches/Block.patch b/nms-patches/Block.patch
 deleted file mode 100644
-index 360a2c0..0000000
+index 360a2c0b..00000000
 --- a/nms-patches/Block.patch
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -584,7 +584,7 @@ index 360a2c0..0000000
 - }
 diff --git a/nms-patches/BlockBloodStone.patch b/nms-patches/BlockBloodStone.patch
 deleted file mode 100644
-index 250ed8a..0000000
+index 250ed8a3..00000000
 --- a/nms-patches/BlockBloodStone.patch
 +++ /dev/null
 @@ -1,28 +0,0 @@
@@ -618,7 +618,7 @@ index 250ed8a..0000000
 - }
 diff --git a/nms-patches/BlockButtonAbstract.patch b/nms-patches/BlockButtonAbstract.patch
 deleted file mode 100644
-index 408baab..0000000
+index 408baab4..00000000
 --- a/nms-patches/BlockButtonAbstract.patch
 +++ /dev/null
 @@ -1,110 +0,0 @@
@@ -734,7 +734,7 @@ index 408baab..0000000
 -             world.b(blockposition, blockposition);
 diff --git a/nms-patches/BlockCactus.patch b/nms-patches/BlockCactus.patch
 deleted file mode 100644
-index b8b99b8..0000000
+index b8b99b88..00000000
 --- a/nms-patches/BlockCactus.patch
 +++ /dev/null
 @@ -1,33 +0,0 @@
@@ -773,7 +773,7 @@ index b8b99b8..0000000
 -     public IBlockData fromLegacyData(int i) {
 diff --git a/nms-patches/BlockCake.patch b/nms-patches/BlockCake.patch
 deleted file mode 100644
-index 5545918..0000000
+index 55459181..00000000
 --- a/nms-patches/BlockCake.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -801,7 +801,7 @@ index 5545918..0000000
 -             if (i < 6) {
 diff --git a/nms-patches/BlockCocoa.patch b/nms-patches/BlockCocoa.patch
 deleted file mode 100644
-index d7ba70e..0000000
+index d7ba70e1..00000000
 --- a/nms-patches/BlockCocoa.patch
 +++ /dev/null
 @@ -1,35 +0,0 @@
@@ -842,7 +842,7 @@ index d7ba70e..0000000
 -     public IBlockData fromLegacyData(int i) {
 diff --git a/nms-patches/BlockCommand.patch b/nms-patches/BlockCommand.patch
 deleted file mode 100644
-index 236e740..0000000
+index 236e740f..00000000
 --- a/nms-patches/BlockCommand.patch
 +++ /dev/null
 @@ -1,33 +0,0 @@
@@ -881,7 +881,7 @@ index 236e740..0000000
 -         }
 diff --git a/nms-patches/BlockCrops.patch b/nms-patches/BlockCrops.patch
 deleted file mode 100644
-index bc89bbd..0000000
+index bc89bbd0..00000000
 --- a/nms-patches/BlockCrops.patch
 +++ /dev/null
 @@ -1,35 +0,0 @@
@@ -922,7 +922,7 @@ index bc89bbd..0000000
 -     protected static float a(Block block, World world, BlockPosition blockposition) {
 diff --git a/nms-patches/BlockDaylightDetector.patch b/nms-patches/BlockDaylightDetector.patch
 deleted file mode 100644
-index ba11108..0000000
+index ba111082..00000000
 --- a/nms-patches/BlockDaylightDetector.patch
 +++ /dev/null
 @@ -1,10 +0,0 @@
@@ -938,7 +938,7 @@ index ba11108..0000000
 - 
 diff --git a/nms-patches/BlockDiodeAbstract.patch b/nms-patches/BlockDiodeAbstract.patch
 deleted file mode 100644
-index 8144ad4..0000000
+index 8144ad41..00000000
 --- a/nms-patches/BlockDiodeAbstract.patch
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -974,7 +974,7 @@ index 8144ad4..0000000
 -                     world.a(blockposition, this.e(iblockdata).getBlock(), this.m(iblockdata), -1);
 diff --git a/nms-patches/BlockDispenser.patch b/nms-patches/BlockDispenser.patch
 deleted file mode 100644
-index ff2bdb7..0000000
+index ff2bdb72..00000000
 --- a/nms-patches/BlockDispenser.patch
 +++ /dev/null
 @@ -1,18 +0,0 @@
@@ -998,7 +998,7 @@ index ff2bdb7..0000000
 -                 }
 diff --git a/nms-patches/BlockDoor.patch b/nms-patches/BlockDoor.patch
 deleted file mode 100644
-index 5f6752c..0000000
+index 5f6752c0..00000000
 --- a/nms-patches/BlockDoor.patch
 +++ /dev/null
 @@ -1,44 +0,0 @@
@@ -1048,7 +1048,7 @@ index 5f6752c..0000000
 - 
 diff --git a/nms-patches/BlockDragonEgg.patch b/nms-patches/BlockDragonEgg.patch
 deleted file mode 100644
-index e9860ee..0000000
+index e9860ee3..00000000
 --- a/nms-patches/BlockDragonEgg.patch
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -1084,7 +1084,7 @@ index e9860ee..0000000
 -                             double d0 = world.random.nextDouble();
 diff --git a/nms-patches/BlockDropper.patch b/nms-patches/BlockDropper.patch
 deleted file mode 100644
-index 9f4ff91..0000000
+index 9f4ff914..00000000
 --- a/nms-patches/BlockDropper.patch
 +++ /dev/null
 @@ -1,41 +0,0 @@
@@ -1131,7 +1131,7 @@ index 9f4ff91..0000000
 -                                 itemstack1 = null;
 diff --git a/nms-patches/BlockEnderPortal.patch b/nms-patches/BlockEnderPortal.patch
 deleted file mode 100644
-index 8f130a9..0000000
+index 8f130a95..00000000
 --- a/nms-patches/BlockEnderPortal.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -1159,7 +1159,7 @@ index 8f130a9..0000000
 - 
 diff --git a/nms-patches/BlockFire.patch b/nms-patches/BlockFire.patch
 deleted file mode 100644
-index db1a8fd..0000000
+index db1a8fdf..00000000
 --- a/nms-patches/BlockFire.patch
 +++ /dev/null
 @@ -1,136 +0,0 @@
@@ -1301,7 +1301,7 @@ index db1a8fd..0000000
 - }
 diff --git a/nms-patches/BlockFlowing.patch b/nms-patches/BlockFlowing.patch
 deleted file mode 100644
-index 38caee1..0000000
+index 38caee17..00000000
 --- a/nms-patches/BlockFlowing.patch
 +++ /dev/null
 @@ -1,74 +0,0 @@
@@ -1381,7 +1381,7 @@ index 38caee1..0000000
 -                     this.fizz(world, blockposition);
 diff --git a/nms-patches/BlockGrass.patch b/nms-patches/BlockGrass.patch
 deleted file mode 100644
-index 7014deb..0000000
+index 7014deb3..00000000
 --- a/nms-patches/BlockGrass.patch
 +++ /dev/null
 @@ -1,77 +0,0 @@
@@ -1464,7 +1464,7 @@ index 7014deb..0000000
 -                 }
 diff --git a/nms-patches/BlockIce.patch b/nms-patches/BlockIce.patch
 deleted file mode 100644
-index 05344a7..0000000
+index 05344a7e..00000000
 --- a/nms-patches/BlockIce.patch
 +++ /dev/null
 @@ -1,15 +0,0 @@
@@ -1485,7 +1485,7 @@ index 05344a7..0000000
 -             } else {
 diff --git a/nms-patches/BlockJukeBox.patch b/nms-patches/BlockJukeBox.patch
 deleted file mode 100644
-index 080ba7e..0000000
+index 080ba7ef..00000000
 --- a/nms-patches/BlockJukeBox.patch
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -1505,7 +1505,7 @@ index 080ba7e..0000000
 -         }
 diff --git a/nms-patches/BlockLeaves.patch b/nms-patches/BlockLeaves.patch
 deleted file mode 100644
-index ffdc77a..0000000
+index ffdc77a1..00000000
 --- a/nms-patches/BlockLeaves.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
@@ -1537,7 +1537,7 @@ index ffdc77a..0000000
 -     }
 diff --git a/nms-patches/BlockLever.patch b/nms-patches/BlockLever.patch
 deleted file mode 100644
-index c150122..0000000
+index c150122f..00000000
 --- a/nms-patches/BlockLever.patch
 +++ /dev/null
 @@ -1,32 +0,0 @@
@@ -1575,7 +1575,7 @@ index c150122..0000000
 -             world.makeSound((double) blockposition.getX() + 0.5D, (double) blockposition.getY() + 0.5D, (double) blockposition.getZ() + 0.5D, "random.click", 0.3F, ((Boolean) iblockdata.get(BlockLever.POWERED)).booleanValue() ? 0.6F : 0.5F);
 diff --git a/nms-patches/BlockMinecartDetector.patch b/nms-patches/BlockMinecartDetector.patch
 deleted file mode 100644
-index 625436f..0000000
+index 625436fc..00000000
 --- a/nms-patches/BlockMinecartDetector.patch
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -1610,7 +1610,7 @@ index 625436f..0000000
 -             world.applyPhysics(blockposition, this);
 diff --git a/nms-patches/BlockMinecartTrackAbstract.patch b/nms-patches/BlockMinecartTrackAbstract.patch
 deleted file mode 100644
-index 922347c..0000000
+index 922347c7..00000000
 --- a/nms-patches/BlockMinecartTrackAbstract.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -1627,7 +1627,7 @@ index 922347c..0000000
 -             } else {
 diff --git a/nms-patches/BlockMobSpawner.patch b/nms-patches/BlockMobSpawner.patch
 deleted file mode 100644
-index 870a990..0000000
+index 870a990c..00000000
 --- a/nms-patches/BlockMobSpawner.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -1655,7 +1655,7 @@ index 870a990..0000000
 -     public boolean c() {
 diff --git a/nms-patches/BlockMonsterEggs.patch b/nms-patches/BlockMonsterEggs.patch
 deleted file mode 100644
-index 1a4ae34..0000000
+index 1a4ae342..00000000
 --- a/nms-patches/BlockMonsterEggs.patch
 +++ /dev/null
 @@ -1,20 +0,0 @@
@@ -1681,7 +1681,7 @@ index 1a4ae34..0000000
 - 
 diff --git a/nms-patches/BlockMushroom.patch b/nms-patches/BlockMushroom.patch
 deleted file mode 100644
-index 20bdf91..0000000
+index 20bdf91a..00000000
 --- a/nms-patches/BlockMushroom.patch
 +++ /dev/null
 @@ -1,55 +0,0 @@
@@ -1742,7 +1742,7 @@ index 20bdf91..0000000
 - 
 diff --git a/nms-patches/BlockMycel.patch b/nms-patches/BlockMycel.patch
 deleted file mode 100644
-index 472975d..0000000
+index 472975dc..00000000
 --- a/nms-patches/BlockMycel.patch
 +++ /dev/null
 @@ -1,58 +0,0 @@
@@ -1806,7 +1806,7 @@ index 472975d..0000000
 -                 }
 diff --git a/nms-patches/BlockNetherWart.patch b/nms-patches/BlockNetherWart.patch
 deleted file mode 100644
-index 79e9888..0000000
+index 79e98882..00000000
 --- a/nms-patches/BlockNetherWart.patch
 +++ /dev/null
 @@ -1,12 +0,0 @@
@@ -1824,7 +1824,7 @@ index 79e9888..0000000
 -         super.b(world, blockposition, iblockdata, random);
 diff --git a/nms-patches/BlockOre.patch b/nms-patches/BlockOre.patch
 deleted file mode 100644
-index 4522722..0000000
+index 4522722e..00000000
 --- a/nms-patches/BlockOre.patch
 +++ /dev/null
 @@ -1,45 +0,0 @@
@@ -1875,7 +1875,7 @@ index 4522722..0000000
 -     }
 diff --git a/nms-patches/BlockPiston.patch b/nms-patches/BlockPiston.patch
 deleted file mode 100644
-index b19bcf4..0000000
+index b19bcf46..00000000
 --- a/nms-patches/BlockPiston.patch
 +++ /dev/null
 @@ -1,102 +0,0 @@
@@ -1983,7 +1983,7 @@ index b19bcf4..0000000
 - 
 diff --git a/nms-patches/BlockPlant.patch b/nms-patches/BlockPlant.patch
 deleted file mode 100644
-index 29fb3af..0000000
+index 29fb3af8..00000000
 --- a/nms-patches/BlockPlant.patch
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -2018,7 +2018,7 @@ index 29fb3af..0000000
 -         }
 diff --git a/nms-patches/BlockPortal.patch b/nms-patches/BlockPortal.patch
 deleted file mode 100644
-index d3d3a65..0000000
+index d3d3a650..00000000
 --- a/nms-patches/BlockPortal.patch
 +++ /dev/null
 @@ -1,144 +0,0 @@
@@ -2168,7 +2168,7 @@ index d3d3a65..0000000
 - }
 diff --git a/nms-patches/BlockPoweredRail.patch b/nms-patches/BlockPoweredRail.patch
 deleted file mode 100644
-index 61dcda6..0000000
+index 61dcda6e..00000000
 --- a/nms-patches/BlockPoweredRail.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -2199,7 +2199,7 @@ index 61dcda6..0000000
 -             if (((BlockMinecartTrackAbstract.EnumTrackPosition) iblockdata.get(BlockPoweredRail.SHAPE)).c()) {
 diff --git a/nms-patches/BlockPressurePlateAbstract.patch b/nms-patches/BlockPressurePlateAbstract.patch
 deleted file mode 100644
-index 1260c22..0000000
+index 1260c22b..00000000
 --- a/nms-patches/BlockPressurePlateAbstract.patch
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -2236,7 +2236,7 @@ index 1260c22..0000000
 -             world.setTypeAndData(blockposition, iblockdata, 2);
 diff --git a/nms-patches/BlockPressurePlateBinary.patch b/nms-patches/BlockPressurePlateBinary.patch
 deleted file mode 100644
-index 37a87c1..0000000
+index 37a87c15..00000000
 --- a/nms-patches/BlockPressurePlateBinary.patch
 +++ /dev/null
 @@ -1,38 +0,0 @@
@@ -2280,7 +2280,7 @@ index 37a87c1..0000000
 -                 }
 diff --git a/nms-patches/BlockPressurePlateWeighted.patch b/nms-patches/BlockPressurePlateWeighted.patch
 deleted file mode 100644
-index 4b1f6e2..0000000
+index 4b1f6e2d..00000000
 --- a/nms-patches/BlockPressurePlateWeighted.patch
 +++ /dev/null
 @@ -1,43 +0,0 @@
@@ -2329,7 +2329,7 @@ index 4b1f6e2..0000000
 -             float f = (float) Math.min(this.weight, i) / (float) this.weight;
 diff --git a/nms-patches/BlockPumpkin.patch b/nms-patches/BlockPumpkin.patch
 deleted file mode 100644
-index 224b1e9..0000000
+index 224b1e9d..00000000
 --- a/nms-patches/BlockPumpkin.patch
 +++ /dev/null
 @@ -1,80 +0,0 @@
@@ -2415,7 +2415,7 @@ index 224b1e9..0000000
 -     }
 diff --git a/nms-patches/BlockRedstoneLamp.patch b/nms-patches/BlockRedstoneLamp.patch
 deleted file mode 100644
-index 1aec632..0000000
+index 1aec6322..00000000
 --- a/nms-patches/BlockRedstoneLamp.patch
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -2468,7 +2468,7 @@ index 1aec632..0000000
 - 
 diff --git a/nms-patches/BlockRedstoneOre.patch b/nms-patches/BlockRedstoneOre.patch
 deleted file mode 100644
-index f9614c7..0000000
+index f9614c75..00000000
 --- a/nms-patches/BlockRedstoneOre.patch
 +++ /dev/null
 @@ -1,101 +0,0 @@
@@ -2575,7 +2575,7 @@ index f9614c7..0000000
 -     private void f(World world, BlockPosition blockposition) {
 diff --git a/nms-patches/BlockRedstoneTorch.patch b/nms-patches/BlockRedstoneTorch.patch
 deleted file mode 100644
-index 2eea0e7..0000000
+index 2eea0e70..00000000
 --- a/nms-patches/BlockRedstoneTorch.patch
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -2643,7 +2643,7 @@ index 2eea0e7..0000000
 - 
 diff --git a/nms-patches/BlockRedstoneWire.patch b/nms-patches/BlockRedstoneWire.patch
 deleted file mode 100644
-index ffd86e1..0000000
+index ffd86e1d..00000000
 --- a/nms-patches/BlockRedstoneWire.patch
 +++ /dev/null
 @@ -1,27 +0,0 @@
@@ -2676,7 +2676,7 @@ index ffd86e1..0000000
 -             if (world.getType(blockposition) == iblockdata1) {
 diff --git a/nms-patches/BlockReed.patch b/nms-patches/BlockReed.patch
 deleted file mode 100644
-index 6b9939e..0000000
+index 6b9939e5..00000000
 --- a/nms-patches/BlockReed.patch
 +++ /dev/null
 @@ -1,16 +0,0 @@
@@ -2698,7 +2698,7 @@ index 6b9939e..0000000
 -                     }
 diff --git a/nms-patches/BlockSapling.patch b/nms-patches/BlockSapling.patch
 deleted file mode 100644
-index bdb4074..0000000
+index bdb4074f..00000000
 --- a/nms-patches/BlockSapling.patch
 +++ /dev/null
 @@ -1,125 +0,0 @@
@@ -2829,7 +2829,7 @@ index bdb4074..0000000
 -                         break label90;
 diff --git a/nms-patches/BlockSkull.patch b/nms-patches/BlockSkull.patch
 deleted file mode 100644
-index 84c1dc2..0000000
+index 84c1dc2a..00000000
 --- a/nms-patches/BlockSkull.patch
 +++ /dev/null
 @@ -1,120 +0,0 @@
@@ -2955,7 +2955,7 @@ index 84c1dc2..0000000
 -         }
 diff --git a/nms-patches/BlockSnow.patch b/nms-patches/BlockSnow.patch
 deleted file mode 100644
-index 19b864a..0000000
+index 19b864af..00000000
 --- a/nms-patches/BlockSnow.patch
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -2975,7 +2975,7 @@ index 19b864a..0000000
 -         }
 diff --git a/nms-patches/BlockSoil.patch b/nms-patches/BlockSoil.patch
 deleted file mode 100644
-index 6490edd..0000000
+index 6490edd3..00000000
 --- a/nms-patches/BlockSoil.patch
 +++ /dev/null
 @@ -1,64 +0,0 @@
@@ -3045,7 +3045,7 @@ index 6490edd..0000000
 - 
 diff --git a/nms-patches/BlockStationary.patch b/nms-patches/BlockStationary.patch
 deleted file mode 100644
-index f58767b..0000000
+index f58767ba..00000000
 --- a/nms-patches/BlockStationary.patch
 +++ /dev/null
 @@ -1,40 +0,0 @@
@@ -3091,7 +3091,7 @@ index f58767b..0000000
 -                     }
 diff --git a/nms-patches/BlockStem.patch b/nms-patches/BlockStem.patch
 deleted file mode 100644
-index df06ccf..0000000
+index df06ccfb..00000000
 --- a/nms-patches/BlockStem.patch
 +++ /dev/null
 @@ -1,41 +0,0 @@
@@ -3138,7 +3138,7 @@ index df06ccf..0000000
 -     public void j() {
 diff --git a/nms-patches/BlockTrapdoor.patch b/nms-patches/BlockTrapdoor.patch
 deleted file mode 100644
-index 595644f..0000000
+index 595644f3..00000000
 --- a/nms-patches/BlockTrapdoor.patch
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -3175,7 +3175,7 @@ index 595644f..0000000
 -                     if (flag1 != flag) {
 diff --git a/nms-patches/BlockTripwire.patch b/nms-patches/BlockTripwire.patch
 deleted file mode 100644
-index 524e1a7..0000000
+index 524e1a79..00000000
 --- a/nms-patches/BlockTripwire.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -3233,7 +3233,7 @@ index 524e1a7..0000000
 -             world.setTypeAndData(blockposition, iblockdata, 3);
 diff --git a/nms-patches/BlockTripwireHook.patch b/nms-patches/BlockTripwireHook.patch
 deleted file mode 100644
-index d67644a..0000000
+index d67644aa..00000000
 --- a/nms-patches/BlockTripwireHook.patch
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -3268,7 +3268,7 @@ index d67644a..0000000
 -             world.setTypeAndData(blockposition, iblockdata3.set(BlockTripwireHook.FACING, enumdirection), 3);
 diff --git a/nms-patches/BlockVine.patch b/nms-patches/BlockVine.patch
 deleted file mode 100644
-index e377c24..0000000
+index e377c249..00000000
 --- a/nms-patches/BlockVine.patch
 +++ /dev/null
 @@ -1,75 +0,0 @@
@@ -3349,7 +3349,7 @@ index e377c24..0000000
 -                                 iblockdata3 = iblockdata2;
 diff --git a/nms-patches/ChatBaseComponent.patch b/nms-patches/ChatBaseComponent.patch
 deleted file mode 100644
-index 308ddf9..0000000
+index 308ddf9f..00000000
 --- a/nms-patches/ChatBaseComponent.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -3366,7 +3366,7 @@ index 308ddf9..0000000
 -     public String toString() {
 diff --git a/nms-patches/ChatModifier.patch b/nms-patches/ChatModifier.patch
 deleted file mode 100644
-index a91ca87..0000000
+index a91ca87a..00000000
 --- a/nms-patches/ChatModifier.patch
 +++ /dev/null
 @@ -1,44 +0,0 @@
@@ -3416,7 +3416,7 @@ index a91ca87..0000000
 -     }
 diff --git a/nms-patches/Chunk.patch b/nms-patches/Chunk.patch
 deleted file mode 100644
-index 9ccf30c..0000000
+index 9ccf30c9..00000000
 --- a/nms-patches/Chunk.patch
 +++ /dev/null
 @@ -1,153 +0,0 @@
@@ -3575,7 +3575,7 @@ index 9ccf30c..0000000
 -         }
 diff --git a/nms-patches/ChunkProviderServer.patch b/nms-patches/ChunkProviderServer.patch
 deleted file mode 100644
-index 65c2167..0000000
+index 65c21678..00000000
 --- a/nms-patches/ChunkProviderServer.patch
 +++ /dev/null
 @@ -1,327 +0,0 @@
@@ -3908,7 +3908,7 @@ index 65c2167..0000000
 -     public void recreateStructures(Chunk chunk, int i, int j) {}
 diff --git a/nms-patches/ChunkRegionLoader.patch b/nms-patches/ChunkRegionLoader.patch
 deleted file mode 100644
-index 47a5014..0000000
+index 47a50146..00000000
 --- a/nms-patches/ChunkRegionLoader.patch
 +++ /dev/null
 @@ -1,127 +0,0 @@
@@ -4041,7 +4041,7 @@ index 47a5014..0000000
 - }
 diff --git a/nms-patches/ChunkSection.patch b/nms-patches/ChunkSection.patch
 deleted file mode 100644
-index 6a96a99..0000000
+index 6a96a992..00000000
 --- a/nms-patches/ChunkSection.patch
 +++ /dev/null
 @@ -1,21 +0,0 @@
@@ -4068,7 +4068,7 @@ index 6a96a99..0000000
 - 
 diff --git a/nms-patches/CommandBlockListenerAbstract.patch b/nms-patches/CommandBlockListenerAbstract.patch
 deleted file mode 100644
-index c7dec98..0000000
+index c7dec989..00000000
 --- a/nms-patches/CommandBlockListenerAbstract.patch
 +++ /dev/null
 @@ -1,167 +0,0 @@
@@ -4241,7 +4241,7 @@ index c7dec98..0000000
 -     }
 diff --git a/nms-patches/CommandExecute.patch b/nms-patches/CommandExecute.patch
 deleted file mode 100644
-index 9f93796..0000000
+index 9f937961..00000000
 --- a/nms-patches/CommandExecute.patch
 +++ /dev/null
 @@ -1,58 +0,0 @@
@@ -4305,7 +4305,7 @@ index 9f93796..0000000
 - }
 diff --git a/nms-patches/CommandGamemode.patch b/nms-patches/CommandGamemode.patch
 deleted file mode 100644
-index 6280a4b..0000000
+index 6280a4b1..00000000
 --- a/nms-patches/CommandGamemode.patch
 +++ /dev/null
 @@ -1,28 +0,0 @@
@@ -4339,7 +4339,7 @@ index 6280a4b..0000000
 - }
 diff --git a/nms-patches/CommandGamerule.patch b/nms-patches/CommandGamerule.patch
 deleted file mode 100644
-index c619010..0000000
+index c619010f..00000000
 --- a/nms-patches/CommandGamerule.patch
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -4368,7 +4368,7 @@ index c619010..0000000
 - }
 diff --git a/nms-patches/CommandSpreadPlayers.patch b/nms-patches/CommandSpreadPlayers.patch
 deleted file mode 100644
-index 7f7a938..0000000
+index 7f7a9383..00000000
 --- a/nms-patches/CommandSpreadPlayers.patch
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -4421,7 +4421,7 @@ index 7f7a938..0000000
 - }
 diff --git a/nms-patches/CommandTp.patch b/nms-patches/CommandTp.patch
 deleted file mode 100644
-index 13912dd..0000000
+index 13912dd7..00000000
 --- a/nms-patches/CommandTp.patch
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -4464,7 +4464,7 @@ index 13912dd..0000000
 - }
 diff --git a/nms-patches/Container.patch b/nms-patches/Container.patch
 deleted file mode 100644
-index 55fe26c..0000000
+index 55fe26c7..00000000
 --- a/nms-patches/Container.patch
 +++ /dev/null
 @@ -1,210 +0,0 @@
@@ -4680,7 +4680,7 @@ index 55fe26c..0000000
 -                 if (flag) {
 diff --git a/nms-patches/ContainerAnvil.patch b/nms-patches/ContainerAnvil.patch
 deleted file mode 100644
-index 003cc50..0000000
+index 003cc500..00000000
 --- a/nms-patches/ContainerAnvil.patch
 +++ /dev/null
 @@ -1,51 +0,0 @@
@@ -4737,7 +4737,7 @@ index 003cc50..0000000
 - }
 diff --git a/nms-patches/ContainerBeacon.patch b/nms-patches/ContainerBeacon.patch
 deleted file mode 100644
-index 332ab07..0000000
+index 332ab07f..00000000
 --- a/nms-patches/ContainerBeacon.patch
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -4790,7 +4790,7 @@ index 332ab07..0000000
 - }
 diff --git a/nms-patches/ContainerBrewingStand.patch b/nms-patches/ContainerBrewingStand.patch
 deleted file mode 100644
-index 3de4d47..0000000
+index 3de4d47e..00000000
 --- a/nms-patches/ContainerBrewingStand.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -4848,7 +4848,7 @@ index 3de4d47..0000000
 - }
 diff --git a/nms-patches/ContainerChest.patch b/nms-patches/ContainerChest.patch
 deleted file mode 100644
-index e28d0dc..0000000
+index e28d0dc2..00000000
 --- a/nms-patches/ContainerChest.patch
 +++ /dev/null
 @@ -1,60 +0,0 @@
@@ -4914,7 +4914,7 @@ index e28d0dc..0000000
 - 
 diff --git a/nms-patches/ContainerDispenser.patch b/nms-patches/ContainerDispenser.patch
 deleted file mode 100644
-index 44e157e..0000000
+index 44e157ea..00000000
 --- a/nms-patches/ContainerDispenser.patch
 +++ /dev/null
 @@ -1,53 +0,0 @@
@@ -4973,7 +4973,7 @@ index 44e157e..0000000
 - }
 diff --git a/nms-patches/ContainerEnchantTable.patch b/nms-patches/ContainerEnchantTable.patch
 deleted file mode 100644
-index 5e436ed..0000000
+index 5e436ed1..00000000
 --- a/nms-patches/ContainerEnchantTable.patch
 +++ /dev/null
 @@ -1,177 +0,0 @@
@@ -5156,7 +5156,7 @@ index 5e436ed..0000000
 - }
 diff --git a/nms-patches/ContainerFurnace.patch b/nms-patches/ContainerFurnace.patch
 deleted file mode 100644
-index e64b781..0000000
+index e64b7818..00000000
 --- a/nms-patches/ContainerFurnace.patch
 +++ /dev/null
 @@ -1,50 +0,0 @@
@@ -5212,7 +5212,7 @@ index e64b781..0000000
 - 
 diff --git a/nms-patches/ContainerHopper.patch b/nms-patches/ContainerHopper.patch
 deleted file mode 100644
-index a78872c..0000000
+index a78872ca..00000000
 --- a/nms-patches/ContainerHopper.patch
 +++ /dev/null
 @@ -1,44 +0,0 @@
@@ -5262,7 +5262,7 @@ index a78872c..0000000
 - 
 diff --git a/nms-patches/ContainerHorse.patch b/nms-patches/ContainerHorse.patch
 deleted file mode 100644
-index 845da06..0000000
+index 845da062..00000000
 --- a/nms-patches/ContainerHorse.patch
 +++ /dev/null
 @@ -1,36 +0,0 @@
@@ -5304,7 +5304,7 @@ index 845da06..0000000
 -         byte b0 = 3;
 diff --git a/nms-patches/ContainerMerchant.patch b/nms-patches/ContainerMerchant.patch
 deleted file mode 100644
-index 362f8d7..0000000
+index 362f8d77..00000000
 --- a/nms-patches/ContainerMerchant.patch
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -5347,7 +5347,7 @@ index 362f8d7..0000000
 - 
 diff --git a/nms-patches/ContainerPlayer.patch b/nms-patches/ContainerPlayer.patch
 deleted file mode 100644
-index 482d838..0000000
+index 482d8385..00000000
 --- a/nms-patches/ContainerPlayer.patch
 +++ /dev/null
 @@ -1,104 +0,0 @@
@@ -5457,7 +5457,7 @@ index 482d838..0000000
 - }
 diff --git a/nms-patches/ContainerWorkbench.patch b/nms-patches/ContainerWorkbench.patch
 deleted file mode 100644
-index 850e440..0000000
+index 850e4404..00000000
 --- a/nms-patches/ContainerWorkbench.patch
 +++ /dev/null
 @@ -1,82 +0,0 @@
@@ -5545,7 +5545,7 @@ index 850e440..0000000
 - }
 diff --git a/nms-patches/CraftingManager.patch b/nms-patches/CraftingManager.patch
 deleted file mode 100644
-index 3a7c82e..0000000
+index 3a7c82ec..00000000
 --- a/nms-patches/CraftingManager.patch
 +++ /dev/null
 @@ -1,53 +0,0 @@
@@ -5604,7 +5604,7 @@ index 3a7c82e..0000000
 -     public ItemStack[] b(InventoryCrafting inventorycrafting, World world) {
 diff --git a/nms-patches/CrashReport.patch b/nms-patches/CrashReport.patch
 deleted file mode 100644
-index f0dc064..0000000
+index f0dc0645..00000000
 --- a/nms-patches/CrashReport.patch
 +++ /dev/null
 @@ -1,10 +0,0 @@
@@ -5620,7 +5620,7 @@ index f0dc064..0000000
 -     public String a() {
 diff --git a/nms-patches/DedicatedServer.patch b/nms-patches/DedicatedServer.patch
 deleted file mode 100644
-index e1210d2..0000000
+index e1210d26..00000000
 --- a/nms-patches/DedicatedServer.patch
 +++ /dev/null
 @@ -1,248 +0,0 @@
@@ -5874,7 +5874,7 @@ index e1210d2..0000000
 -     public PlayerList getPlayerList() {
 diff --git a/nms-patches/DispenseBehaviorItem.patch b/nms-patches/DispenseBehaviorItem.patch
 deleted file mode 100644
-index 61fe049..0000000
+index 61fe049e..00000000
 --- a/nms-patches/DispenseBehaviorItem.patch
 +++ /dev/null
 @@ -1,76 +0,0 @@
@@ -5956,7 +5956,7 @@ index 61fe049..0000000
 -     protected void a(ISourceBlock isourceblock) {
 diff --git a/nms-patches/DispenseBehaviorProjectile.patch b/nms-patches/DispenseBehaviorProjectile.patch
 deleted file mode 100644
-index 5cf558a..0000000
+index 5cf558a8..00000000
 --- a/nms-patches/DispenseBehaviorProjectile.patch
 +++ /dev/null
 @@ -1,54 +0,0 @@
@@ -6016,7 +6016,7 @@ index 5cf558a..0000000
 - 
 diff --git a/nms-patches/DispenserRegistry.patch b/nms-patches/DispenserRegistry.patch
 deleted file mode 100644
-index ba9e6a2..0000000
+index ba9e6a2f..00000000
 --- a/nms-patches/DispenserRegistry.patch
 +++ /dev/null
 @@ -1,385 +0,0 @@
@@ -6407,7 +6407,7 @@ index ba9e6a2..0000000
 -         });
 diff --git a/nms-patches/Enchantment.patch b/nms-patches/Enchantment.patch
 deleted file mode 100644
-index 5e419c5..0000000
+index 5e419c5f..00000000
 --- a/nms-patches/Enchantment.patch
 +++ /dev/null
 @@ -1,19 +0,0 @@
@@ -6432,7 +6432,7 @@ index 5e419c5..0000000
 -     public static Enchantment getByName(String s) {
 diff --git a/nms-patches/EnchantmentThorns.patch b/nms-patches/EnchantmentThorns.patch
 deleted file mode 100644
-index 1329a10..0000000
+index 1329a104..00000000
 --- a/nms-patches/EnchantmentThorns.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -6449,7 +6449,7 @@ index 1329a10..0000000
 -                 entity.makeSound("damage.thorns", 0.5F, 1.0F);
 diff --git a/nms-patches/Entity.patch b/nms-patches/Entity.patch
 deleted file mode 100644
-index 6e7195e..0000000
+index 6e7195e1..00000000
 --- a/nms-patches/Entity.patch
 +++ /dev/null
 @@ -1,617 +0,0 @@
@@ -7072,7 +7072,7 @@ index 6e7195e..0000000
 -     public float getHeadHeight() {
 diff --git a/nms-patches/EntityAgeable.patch b/nms-patches/EntityAgeable.patch
 deleted file mode 100644
-index deef0f2..0000000
+index deef0f26..00000000
 --- a/nms-patches/EntityAgeable.patch
 +++ /dev/null
 @@ -1,57 +0,0 @@
@@ -7135,7 +7135,7 @@ index deef0f2..0000000
 -         this.bm = f;
 diff --git a/nms-patches/EntityAnimal.patch b/nms-patches/EntityAnimal.patch
 deleted file mode 100644
-index ee03038..0000000
+index ee030381..00000000
 --- a/nms-patches/EntityAnimal.patch
 +++ /dev/null
 @@ -1,20 +0,0 @@
@@ -7161,7 +7161,7 @@ index ee03038..0000000
 -         return this.world.getType(blockposition.down()).getBlock() == Blocks.GRASS ? 10.0F : this.world.o(blockposition) - 0.5F;
 diff --git a/nms-patches/EntityArmorStand.patch b/nms-patches/EntityArmorStand.patch
 deleted file mode 100644
-index d7b6f74..0000000
+index d7b6f74c..00000000
 --- a/nms-patches/EntityArmorStand.patch
 +++ /dev/null
 @@ -1,71 +0,0 @@
@@ -7238,7 +7238,7 @@ index d7b6f74..0000000
 -     }
 diff --git a/nms-patches/EntityArrow.patch b/nms-patches/EntityArrow.patch
 deleted file mode 100644
-index de6af82..0000000
+index de6af82d..00000000
 --- a/nms-patches/EntityArrow.patch
 +++ /dev/null
 @@ -1,93 +0,0 @@
@@ -7337,7 +7337,7 @@ index de6af82..0000000
 - }
 diff --git a/nms-patches/EntityBoat.patch b/nms-patches/EntityBoat.patch
 deleted file mode 100644
-index 8545c28..0000000
+index 8545c289..00000000
 --- a/nms-patches/EntityBoat.patch
 +++ /dev/null
 @@ -1,225 +0,0 @@
@@ -7568,7 +7568,7 @@ index 8545c28..0000000
 -                 this.fallDistance = 0.0F;
 diff --git a/nms-patches/EntityChicken.patch b/nms-patches/EntityChicken.patch
 deleted file mode 100644
-index 190c725..0000000
+index 190c7252..00000000
 --- a/nms-patches/EntityChicken.patch
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -7588,7 +7588,7 @@ index 190c725..0000000
 -         this.bp = this.bo;
 diff --git a/nms-patches/EntityCow.patch b/nms-patches/EntityCow.patch
 deleted file mode 100644
-index af9721a..0000000
+index af9721a8..00000000
 --- a/nms-patches/EntityCow.patch
 +++ /dev/null
 @@ -1,39 +0,0 @@
@@ -7633,7 +7633,7 @@ index af9721a..0000000
 -         } else {
 diff --git a/nms-patches/EntityCreature.patch b/nms-patches/EntityCreature.patch
 deleted file mode 100644
-index 5101551..0000000
+index 5101551c..00000000
 --- a/nms-patches/EntityCreature.patch
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -7668,7 +7668,7 @@ index 5101551..0000000
 -         } else if (!this.cc() && this.bm) {
 diff --git a/nms-patches/EntityCreeper.patch b/nms-patches/EntityCreeper.patch
 deleted file mode 100644
-index 3b023cb..0000000
+index 3b023cba..00000000
 --- a/nms-patches/EntityCreeper.patch
 +++ /dev/null
 @@ -1,105 +0,0 @@
@@ -7779,7 +7779,7 @@ index 3b023cb..0000000
 -     }
 diff --git a/nms-patches/EntityDamageSourceIndirect.patch b/nms-patches/EntityDamageSourceIndirect.patch
 deleted file mode 100644
-index 6896c49..0000000
+index 6896c49c..00000000
 --- a/nms-patches/EntityDamageSourceIndirect.patch
 +++ /dev/null
 @@ -1,13 +0,0 @@
@@ -7798,7 +7798,7 @@ index 6896c49..0000000
 - }
 diff --git a/nms-patches/EntityEgg.patch b/nms-patches/EntityEgg.patch
 deleted file mode 100644
-index 9b33c18..0000000
+index 9b33c184..00000000
 --- a/nms-patches/EntityEgg.patch
 +++ /dev/null
 @@ -1,66 +0,0 @@
@@ -7870,7 +7870,7 @@ index 9b33c18..0000000
 - 
 diff --git a/nms-patches/EntityEnderCrystal.patch b/nms-patches/EntityEnderCrystal.patch
 deleted file mode 100644
-index 3e39d77..0000000
+index 3e39d778..00000000
 --- a/nms-patches/EntityEnderCrystal.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -7928,7 +7928,7 @@ index 3e39d77..0000000
 -             }
 diff --git a/nms-patches/EntityEnderDragon.patch b/nms-patches/EntityEnderDragon.patch
 deleted file mode 100644
-index 9572a00..0000000
+index 9572a005..00000000
 --- a/nms-patches/EntityEnderDragon.patch
 +++ /dev/null
 @@ -1,277 +0,0 @@
@@ -8211,7 +8211,7 @@ index 9572a00..0000000
 - }
 diff --git a/nms-patches/EntityEnderPearl.patch b/nms-patches/EntityEnderPearl.patch
 deleted file mode 100644
-index 760fad2..0000000
+index 760fad24..00000000
 --- a/nms-patches/EntityEnderPearl.patch
 +++ /dev/null
 @@ -1,64 +0,0 @@
@@ -8281,7 +8281,7 @@ index 760fad2..0000000
 -                 entityliving.enderTeleportTo(this.locX, this.locY, this.locZ);
 diff --git a/nms-patches/EntityEnderman.patch b/nms-patches/EntityEnderman.patch
 deleted file mode 100644
-index b14daaa..0000000
+index b14daaa8..00000000
 --- a/nms-patches/EntityEnderman.patch
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -8349,7 +8349,7 @@ index b14daaa..0000000
 -         }
 diff --git a/nms-patches/EntityExperienceOrb.patch b/nms-patches/EntityExperienceOrb.patch
 deleted file mode 100644
-index b01b0c7..0000000
+index b01b0c7f..00000000
 --- a/nms-patches/EntityExperienceOrb.patch
 +++ /dev/null
 @@ -1,82 +0,0 @@
@@ -8437,7 +8437,7 @@ index b01b0c7..0000000
 - 
 diff --git a/nms-patches/EntityFallingBlock.patch b/nms-patches/EntityFallingBlock.patch
 deleted file mode 100644
-index a0ffb88..0000000
+index a0ffb880..00000000
 --- a/nms-patches/EntityFallingBlock.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -8495,7 +8495,7 @@ index a0ffb88..0000000
 -                 if (flag && (double) this.random.nextFloat() < 0.05000000074505806D + (double) i * 0.05D) {
 diff --git a/nms-patches/EntityFireball.patch b/nms-patches/EntityFireball.patch
 deleted file mode 100644
-index 416b8eb..0000000
+index 416b8ebe..00000000
 --- a/nms-patches/EntityFireball.patch
 +++ /dev/null
 @@ -1,102 +0,0 @@
@@ -8603,7 +8603,7 @@ index 416b8eb..0000000
 -                 return true;
 diff --git a/nms-patches/EntityFireworks.patch b/nms-patches/EntityFireworks.patch
 deleted file mode 100644
-index 4da644d..0000000
+index 4da644db..00000000
 --- a/nms-patches/EntityFireworks.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -8620,7 +8620,7 @@ index 4da644d..0000000
 - 
 diff --git a/nms-patches/EntityFishingHook.patch b/nms-patches/EntityFishingHook.patch
 deleted file mode 100644
-index 899b0f4..0000000
+index 899b0f44..00000000
 --- a/nms-patches/EntityFishingHook.patch
 +++ /dev/null
 @@ -1,92 +0,0 @@
@@ -8718,7 +8718,7 @@ index 899b0f4..0000000
 -             return b0;
 diff --git a/nms-patches/EntityGhast.patch b/nms-patches/EntityGhast.patch
 deleted file mode 100644
-index 681d72e..0000000
+index 681d72ef..00000000
 --- a/nms-patches/EntityGhast.patch
 +++ /dev/null
 @@ -1,13 +0,0 @@
@@ -8737,7 +8737,7 @@ index 681d72e..0000000
 -                     entitylargefireball.locZ = this.b.locZ + vec3d.c * d1;
 diff --git a/nms-patches/EntityHanging.patch b/nms-patches/EntityHanging.patch
 deleted file mode 100644
-index aee058d..0000000
+index aee058d5..00000000
 --- a/nms-patches/EntityHanging.patch
 +++ /dev/null
 @@ -1,182 +0,0 @@
@@ -8925,7 +8925,7 @@ index aee058d..0000000
 -         }
 diff --git a/nms-patches/EntityHorse.patch b/nms-patches/EntityHorse.patch
 deleted file mode 100644
-index 06eece5..0000000
+index 06eece5e..00000000
 --- a/nms-patches/EntityHorse.patch
 +++ /dev/null
 @@ -1,139 +0,0 @@
@@ -9070,7 +9070,7 @@ index 06eece5..0000000
 -     }
 diff --git a/nms-patches/EntityHuman.patch b/nms-patches/EntityHuman.patch
 deleted file mode 100644
-index fad8853..0000000
+index fad88539..00000000
 --- a/nms-patches/EntityHuman.patch
 +++ /dev/null
 @@ -1,430 +0,0 @@
@@ -9506,7 +9506,7 @@ index fad8853..0000000
 -         chatcomponenttext.getChatModifier().setChatClickable(new ChatClickable(ChatClickable.EnumClickAction.SUGGEST_COMMAND, "/msg " + this.getName() + " "));
 diff --git a/nms-patches/EntityInsentient.patch b/nms-patches/EntityInsentient.patch
 deleted file mode 100644
-index 955ebec..0000000
+index 955ebec6..00000000
 --- a/nms-patches/EntityInsentient.patch
 +++ /dev/null
 @@ -1,183 +0,0 @@
@@ -9695,7 +9695,7 @@ index 955ebec..0000000
 -         }
 diff --git a/nms-patches/EntityIronGolem.patch b/nms-patches/EntityIronGolem.patch
 deleted file mode 100644
-index f05036e..0000000
+index f05036e9..00000000
 --- a/nms-patches/EntityIronGolem.patch
 +++ /dev/null
 @@ -1,20 +0,0 @@
@@ -9721,7 +9721,7 @@ index f05036e..0000000
 -         }
 diff --git a/nms-patches/EntityItem.patch b/nms-patches/EntityItem.patch
 deleted file mode 100644
-index dc98445..0000000
+index dc984456..00000000
 --- a/nms-patches/EntityItem.patch
 +++ /dev/null
 @@ -1,135 +0,0 @@
@@ -9862,7 +9862,7 @@ index dc98445..0000000
 -                     entityhuman.b((Statistic) AchievementList.g);
 diff --git a/nms-patches/EntityItemFrame.patch b/nms-patches/EntityItemFrame.patch
 deleted file mode 100644
-index 1859a97..0000000
+index 1859a974..00000000
 --- a/nms-patches/EntityItemFrame.patch
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -9882,7 +9882,7 @@ index 1859a97..0000000
 -             }
 diff --git a/nms-patches/EntityLargeFireball.patch b/nms-patches/EntityLargeFireball.patch
 deleted file mode 100644
-index 09d2680..0000000
+index 09d2680b..00000000
 --- a/nms-patches/EntityLargeFireball.patch
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -9925,7 +9925,7 @@ index 09d2680..0000000
 -     }
 diff --git a/nms-patches/EntityLeash.patch b/nms-patches/EntityLeash.patch
 deleted file mode 100644
-index 0496ad2..0000000
+index 0496ad2f..00000000
 --- a/nms-patches/EntityLeash.patch
 +++ /dev/null
 @@ -1,61 +0,0 @@
@@ -9992,7 +9992,7 @@ index 0496ad2..0000000
 -         return true;
 diff --git a/nms-patches/EntityLightning.patch b/nms-patches/EntityLightning.patch
 deleted file mode 100644
-index 61a2854..0000000
+index 61a28542..00000000
 --- a/nms-patches/EntityLightning.patch
 +++ /dev/null
 @@ -1,106 +0,0 @@
@@ -10104,7 +10104,7 @@ index 61a2854..0000000
 -             } else {
 diff --git a/nms-patches/EntityLiving.patch b/nms-patches/EntityLiving.patch
 deleted file mode 100644
-index c6c9491..0000000
+index c6c94912..00000000
 --- a/nms-patches/EntityLiving.patch
 +++ /dev/null
 @@ -1,546 +0,0 @@
@@ -10656,7 +10656,7 @@ index c6c9491..0000000
 -             }
 diff --git a/nms-patches/EntityMinecartAbstract.patch b/nms-patches/EntityMinecartAbstract.patch
 deleted file mode 100644
-index 252d080..0000000
+index 252d080f..00000000
 --- a/nms-patches/EntityMinecartAbstract.patch
 +++ /dev/null
 @@ -1,226 +0,0 @@
@@ -10888,7 +10888,7 @@ index 252d080..0000000
 - }
 diff --git a/nms-patches/EntityMinecartCommandBlock.patch b/nms-patches/EntityMinecartCommandBlock.patch
 deleted file mode 100644
-index 33aa4bc..0000000
+index 33aa4bcd..00000000
 --- a/nms-patches/EntityMinecartCommandBlock.patch
 +++ /dev/null
 @@ -1,12 +0,0 @@
@@ -10906,7 +10906,7 @@ index 33aa4bc..0000000
 -             EntityMinecartCommandBlock.this.getDataWatcher().watch(24, IChatBaseComponent.ChatSerializer.a(this.k()));
 diff --git a/nms-patches/EntityMinecartContainer.patch b/nms-patches/EntityMinecartContainer.patch
 deleted file mode 100644
-index 2356dae..0000000
+index 2356daee..00000000
 --- a/nms-patches/EntityMinecartContainer.patch
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -10974,7 +10974,7 @@ index 2356dae..0000000
 -     public void c(int i) {
 diff --git a/nms-patches/EntityMonster.patch b/nms-patches/EntityMonster.patch
 deleted file mode 100644
-index 239b570..0000000
+index 239b5701..00000000
 --- a/nms-patches/EntityMonster.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
@@ -11006,7 +11006,7 @@ index 239b570..0000000
 -             this.a((EntityLiving) this, entity);
 diff --git a/nms-patches/EntityMushroomCow.patch b/nms-patches/EntityMushroomCow.patch
 deleted file mode 100644
-index 7702e6d..0000000
+index 7702e6d1..00000000
 --- a/nms-patches/EntityMushroomCow.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -11037,7 +11037,7 @@ index 7702e6d..0000000
 -             if (!this.world.isClientSide) {
 diff --git a/nms-patches/EntityOcelot.patch b/nms-patches/EntityOcelot.patch
 deleted file mode 100644
-index 6f1a161..0000000
+index 6f1a161d..00000000
 --- a/nms-patches/EntityOcelot.patch
 +++ /dev/null
 @@ -1,48 +0,0 @@
@@ -11091,7 +11091,7 @@ index 6f1a161..0000000
 - 
 diff --git a/nms-patches/EntityPainting.patch b/nms-patches/EntityPainting.patch
 deleted file mode 100644
-index 2e0e1c0..0000000
+index 2e0e1c05..00000000
 --- a/nms-patches/EntityPainting.patch
 +++ /dev/null
 @@ -1,10 +0,0 @@
@@ -11107,7 +11107,7 @@ index 2e0e1c0..0000000
 -     public EntityPainting(World world, BlockPosition blockposition, EnumDirection enumdirection) {
 diff --git a/nms-patches/EntityPig.patch b/nms-patches/EntityPig.patch
 deleted file mode 100644
-index 2f7637b..0000000
+index 2f7637bb..00000000
 --- a/nms-patches/EntityPig.patch
 +++ /dev/null
 @@ -1,33 +0,0 @@
@@ -11146,7 +11146,7 @@ index 2f7637b..0000000
 -     }
 diff --git a/nms-patches/EntityPlayer.patch b/nms-patches/EntityPlayer.patch
 deleted file mode 100644
-index fe51ea5..0000000
+index fe51ea53..00000000
 --- a/nms-patches/EntityPlayer.patch
 +++ /dev/null
 @@ -1,609 +0,0 @@
@@ -11761,7 +11761,7 @@ index fe51ea5..0000000
 - }
 diff --git a/nms-patches/EntityPotion.patch b/nms-patches/EntityPotion.patch
 deleted file mode 100644
-index d16a99c..0000000
+index d16a99c9..00000000
 --- a/nms-patches/EntityPotion.patch
 +++ /dev/null
 @@ -1,71 +0,0 @@
@@ -11838,7 +11838,7 @@ index d16a99c..0000000
 -                                 } else {
 diff --git a/nms-patches/EntityProjectile.patch b/nms-patches/EntityProjectile.patch
 deleted file mode 100644
-index 460ea55..0000000
+index 460ea558..00000000
 --- a/nms-patches/EntityProjectile.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -11866,7 +11866,7 @@ index 460ea55..0000000
 - 
 diff --git a/nms-patches/EntityRabbit.patch b/nms-patches/EntityRabbit.patch
 deleted file mode 100644
-index 37dd626..0000000
+index 37dd6265..00000000
 --- a/nms-patches/EntityRabbit.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -11897,7 +11897,7 @@ index 37dd626..0000000
 -         return this.moveController.a() && this.moveController.e() > this.locY + 0.5D ? 0.5F : this.bt.b();
 diff --git a/nms-patches/EntitySheep.patch b/nms-patches/EntitySheep.patch
 deleted file mode 100644
-index a64b2a4..0000000
+index a64b2a45..00000000
 --- a/nms-patches/EntitySheep.patch
 +++ /dev/null
 @@ -1,68 +0,0 @@
@@ -11971,7 +11971,7 @@ index a64b2a4..0000000
 -         }
 diff --git a/nms-patches/EntitySilverfish.patch b/nms-patches/EntitySilverfish.patch
 deleted file mode 100644
-index 9ea99cd..0000000
+index 9ea99cd9..00000000
 --- a/nms-patches/EntitySilverfish.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
@@ -12003,7 +12003,7 @@ index 9ea99cd..0000000
 -                                 } else {
 diff --git a/nms-patches/EntitySkeleton.patch b/nms-patches/EntitySkeleton.patch
 deleted file mode 100644
-index 6da92eb..0000000
+index 6da92eb0..00000000
 --- a/nms-patches/EntitySkeleton.patch
 +++ /dev/null
 @@ -1,96 +0,0 @@
@@ -12105,7 +12105,7 @@ index 6da92eb..0000000
 -     public int getSkeletonType() {
 diff --git a/nms-patches/EntitySlice.patch b/nms-patches/EntitySlice.patch
 deleted file mode 100644
-index 3f38104..0000000
+index 3f381048..00000000
 --- a/nms-patches/EntitySlice.patch
 +++ /dev/null
 @@ -1,38 +0,0 @@
@@ -12149,7 +12149,7 @@ index 3f38104..0000000
 -     public int size() {
 diff --git a/nms-patches/EntitySlime.patch b/nms-patches/EntitySlime.patch
 deleted file mode 100644
-index 2e3333d..0000000
+index 2e3333d6..00000000
 --- a/nms-patches/EntitySlime.patch
 +++ /dev/null
 @@ -1,40 +0,0 @@
@@ -12195,7 +12195,7 @@ index 2e3333d..0000000
 - 
 diff --git a/nms-patches/EntitySmallFireball.patch b/nms-patches/EntitySmallFireball.patch
 deleted file mode 100644
-index be58eb1..0000000
+index be58eb11..00000000
 --- a/nms-patches/EntitySmallFireball.patch
 +++ /dev/null
 @@ -1,39 +0,0 @@
@@ -12240,7 +12240,7 @@ index be58eb1..0000000
 -             }
 diff --git a/nms-patches/EntitySnowman.patch b/nms-patches/EntitySnowman.patch
 deleted file mode 100644
-index fbde5d2..0000000
+index fbde5d23..00000000
 --- a/nms-patches/EntitySnowman.patch
 +++ /dev/null
 @@ -1,42 +0,0 @@
@@ -12288,7 +12288,7 @@ index fbde5d2..0000000
 -         }
 diff --git a/nms-patches/EntitySpider.patch b/nms-patches/EntitySpider.patch
 deleted file mode 100644
-index d4e19fd..0000000
+index d4e19fdb..00000000
 --- a/nms-patches/EntitySpider.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -12305,7 +12305,7 @@ index d4e19fd..0000000
 - 
 diff --git a/nms-patches/EntitySquid.patch b/nms-patches/EntitySquid.patch
 deleted file mode 100644
-index da17073..0000000
+index da170738..00000000
 --- a/nms-patches/EntitySquid.patch
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -12325,7 +12325,7 @@ index da17073..0000000
 -         super.m();
 diff --git a/nms-patches/EntityTNTPrimed.patch b/nms-patches/EntityTNTPrimed.patch
 deleted file mode 100644
-index f9a1bf2..0000000
+index f9a1bf21..00000000
 --- a/nms-patches/EntityTNTPrimed.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -12383,7 +12383,7 @@ index f9a1bf2..0000000
 -     protected void b(NBTTagCompound nbttagcompound) {
 diff --git a/nms-patches/EntityThrownExpBottle.patch b/nms-patches/EntityThrownExpBottle.patch
 deleted file mode 100644
-index 2e68849..0000000
+index 2e688492..00000000
 --- a/nms-patches/EntityThrownExpBottle.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -12411,7 +12411,7 @@ index 2e68849..0000000
 - 
 diff --git a/nms-patches/EntityTracker.patch b/nms-patches/EntityTracker.patch
 deleted file mode 100644
-index d42e4a6..0000000
+index d42e4a60..00000000
 --- a/nms-patches/EntityTracker.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -12434,7 +12434,7 @@ index d42e4a6..0000000
 - 
 diff --git a/nms-patches/EntityTrackerEntry.patch b/nms-patches/EntityTrackerEntry.patch
 deleted file mode 100644
-index 0a6cc77..0000000
+index 0a6cc779..00000000
 --- a/nms-patches/EntityTrackerEntry.patch
 +++ /dev/null
 @@ -1,187 +0,0 @@
@@ -12627,7 +12627,7 @@ index 0a6cc77..0000000
 -         if (this.tracker instanceof EntityItem) {
 diff --git a/nms-patches/EntityVillager.patch b/nms-patches/EntityVillager.patch
 deleted file mode 100644
-index 93c1439..0000000
+index 93c14397..00000000
 --- a/nms-patches/EntityVillager.patch
 +++ /dev/null
 @@ -1,19 +0,0 @@
@@ -12652,7 +12652,7 @@ index 93c1439..0000000
 -         ((Navigation) this.getNavigation()).b(true);
 diff --git a/nms-patches/EntityWither.patch b/nms-patches/EntityWither.patch
 deleted file mode 100644
-index ec2eb5d..0000000
+index ec2eb5d0..00000000
 --- a/nms-patches/EntityWither.patch
 +++ /dev/null
 @@ -1,78 +0,0 @@
@@ -12736,7 +12736,7 @@ index ec2eb5d..0000000
 -         }
 diff --git a/nms-patches/EntityWitherSkull.patch b/nms-patches/EntityWitherSkull.patch
 deleted file mode 100644
-index 119a1b9..0000000
+index 119a1b9a..00000000
 --- a/nms-patches/EntityWitherSkull.patch
 +++ /dev/null
 @@ -1,39 +0,0 @@
@@ -12781,7 +12781,7 @@ index 119a1b9..0000000
 - 
 diff --git a/nms-patches/EntityWolf.patch b/nms-patches/EntityWolf.patch
 deleted file mode 100644
-index d240d76..0000000
+index d240d767..00000000
 --- a/nms-patches/EntityWolf.patch
 +++ /dev/null
 @@ -1,97 +0,0 @@
@@ -12884,7 +12884,7 @@ index d240d76..0000000
 -     public boolean a(EntityLiving entityliving, EntityLiving entityliving1) {
 diff --git a/nms-patches/EntityZombie.patch b/nms-patches/EntityZombie.patch
 deleted file mode 100644
-index 81e4231..0000000
+index 81e42311..00000000
 --- a/nms-patches/EntityZombie.patch
 +++ /dev/null
 @@ -1,136 +0,0 @@
@@ -13026,7 +13026,7 @@ index 81e4231..0000000
 -     static class SyntheticClass_1 {    }
 diff --git a/nms-patches/ExpirableListEntry.patch b/nms-patches/ExpirableListEntry.patch
 deleted file mode 100644
-index aa81c82..0000000
+index aa81c824..00000000
 --- a/nms-patches/ExpirableListEntry.patch
 +++ /dev/null
 @@ -1,42 +0,0 @@
@@ -13074,7 +13074,7 @@ index aa81c82..0000000
 - }
 diff --git a/nms-patches/Explosion.patch b/nms-patches/Explosion.patch
 deleted file mode 100644
-index 5ee04c6..0000000
+index 5ee04c65..00000000
 --- a/nms-patches/Explosion.patch
 +++ /dev/null
 @@ -1,153 +0,0 @@
@@ -13233,7 +13233,7 @@ index 5ee04c6..0000000
 -     public void clearBlocks() {
 diff --git a/nms-patches/FoodMetaData.patch b/nms-patches/FoodMetaData.patch
 deleted file mode 100644
-index aaeab26..0000000
+index aaeab266..00000000
 --- a/nms-patches/FoodMetaData.patch
 +++ /dev/null
 @@ -1,66 +0,0 @@
@@ -13305,7 +13305,7 @@ index aaeab26..0000000
 -             }
 diff --git a/nms-patches/HandshakeListener.patch b/nms-patches/HandshakeListener.patch
 deleted file mode 100644
-index a30ece5..0000000
+index a30ece5b..00000000
 --- a/nms-patches/HandshakeListener.patch
 +++ /dev/null
 @@ -1,70 +0,0 @@
@@ -13381,7 +13381,7 @@ index a30ece5..0000000
 - 
 diff --git a/nms-patches/IDataManager.patch b/nms-patches/IDataManager.patch
 deleted file mode 100644
-index fb0b95c..0000000
+index fb0b95c9..00000000
 --- a/nms-patches/IDataManager.patch
 +++ /dev/null
 @@ -1,9 +0,0 @@
@@ -13396,7 +13396,7 @@ index fb0b95c..0000000
 - }
 diff --git a/nms-patches/IInventory.patch b/nms-patches/IInventory.patch
 deleted file mode 100644
-index 9b2c12b..0000000
+index 9b2c12b2..00000000
 --- a/nms-patches/IInventory.patch
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -13433,7 +13433,7 @@ index 9b2c12b..0000000
 - }
 diff --git a/nms-patches/IRecipe.patch b/nms-patches/IRecipe.patch
 deleted file mode 100644
-index 68aab81..0000000
+index 68aab813..00000000
 --- a/nms-patches/IRecipe.patch
 +++ /dev/null
 @@ -1,9 +0,0 @@
@@ -13448,7 +13448,7 @@ index 68aab81..0000000
 - }
 diff --git a/nms-patches/InventoryCraftResult.patch b/nms-patches/InventoryCraftResult.patch
 deleted file mode 100644
-index de8cd9a..0000000
+index de8cd9a6..00000000
 --- a/nms-patches/InventoryCraftResult.patch
 +++ /dev/null
 @@ -1,49 +0,0 @@
@@ -13503,7 +13503,7 @@ index de8cd9a..0000000
 -     public void update() {}
 diff --git a/nms-patches/InventoryCrafting.patch b/nms-patches/InventoryCrafting.patch
 deleted file mode 100644
-index 59e32a2..0000000
+index 59e32a22..00000000
 --- a/nms-patches/InventoryCrafting.patch
 +++ /dev/null
 @@ -1,65 +0,0 @@
@@ -13574,7 +13574,7 @@ index 59e32a2..0000000
 - 
 diff --git a/nms-patches/InventoryEnderChest.patch b/nms-patches/InventoryEnderChest.patch
 deleted file mode 100644
-index 26b013c..0000000
+index 26b013ce..00000000
 --- a/nms-patches/InventoryEnderChest.patch
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -13632,7 +13632,7 @@ index 26b013c..0000000
 -     }
 diff --git a/nms-patches/InventoryHorseChest.patch b/nms-patches/InventoryHorseChest.patch
 deleted file mode 100644
-index da3394f..0000000
+index da3394f5..00000000
 --- a/nms-patches/InventoryHorseChest.patch
 +++ /dev/null
 @@ -1,63 +0,0 @@
@@ -13701,7 +13701,7 @@ index da3394f..0000000
 - }
 diff --git a/nms-patches/InventoryLargeChest.patch b/nms-patches/InventoryLargeChest.patch
 deleted file mode 100644
-index a23b0cf..0000000
+index a23b0cf5..00000000
 --- a/nms-patches/InventoryLargeChest.patch
 +++ /dev/null
 @@ -1,67 +0,0 @@
@@ -13774,7 +13774,7 @@ index a23b0cf..0000000
 -     public void update() {
 diff --git a/nms-patches/InventoryMerchant.patch b/nms-patches/InventoryMerchant.patch
 deleted file mode 100644
-index 83227eb..0000000
+index 83227eb9..00000000
 --- a/nms-patches/InventoryMerchant.patch
 +++ /dev/null
 @@ -1,60 +0,0 @@
@@ -13840,7 +13840,7 @@ index 83227eb..0000000
 -     public boolean a(EntityHuman entityhuman) {
 diff --git a/nms-patches/InventorySubcontainer.patch b/nms-patches/InventorySubcontainer.patch
 deleted file mode 100644
-index 5cb5243..0000000
+index 5cb52434..00000000
 --- a/nms-patches/InventorySubcontainer.patch
 +++ /dev/null
 @@ -1,58 +0,0 @@
@@ -13904,7 +13904,7 @@ index 5cb5243..0000000
 -         this.b = i;
 diff --git a/nms-patches/ItemArmor.patch b/nms-patches/ItemArmor.patch
 deleted file mode 100644
-index e6beb5e..0000000
+index e6beb5ee..00000000
 --- a/nms-patches/ItemArmor.patch
 +++ /dev/null
 @@ -1,59 +0,0 @@
@@ -13969,7 +13969,7 @@ index e6beb5e..0000000
 -                 return super.b(isourceblock, itemstack);
 diff --git a/nms-patches/ItemBoat.patch b/nms-patches/ItemBoat.patch
 deleted file mode 100644
-index 364ba05..0000000
+index 364ba055..00000000
 --- a/nms-patches/ItemBoat.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -13992,7 +13992,7 @@ index 364ba05..0000000
 -                     }
 diff --git a/nms-patches/ItemBow.patch b/nms-patches/ItemBow.patch
 deleted file mode 100644
-index b21506f..0000000
+index b21506f0..00000000
 --- a/nms-patches/ItemBow.patch
 +++ /dev/null
 @@ -1,49 +0,0 @@
@@ -14047,7 +14047,7 @@ index b21506f..0000000
 - 
 diff --git a/nms-patches/ItemBucket.patch b/nms-patches/ItemBucket.patch
 deleted file mode 100644
-index 955279c..0000000
+index 955279c1..00000000
 --- a/nms-patches/ItemBucket.patch
 +++ /dev/null
 @@ -1,99 +0,0 @@
@@ -14152,7 +14152,7 @@ index 955279c..0000000
 -             return itemstack;
 diff --git a/nms-patches/ItemDye.patch b/nms-patches/ItemDye.patch
 deleted file mode 100644
-index b01d80f..0000000
+index b01d80fa..00000000
 --- a/nms-patches/ItemDye.patch
 +++ /dev/null
 @@ -1,28 +0,0 @@
@@ -14186,7 +14186,7 @@ index b01d80f..0000000
 -             }
 diff --git a/nms-patches/ItemFireball.patch b/nms-patches/ItemFireball.patch
 deleted file mode 100644
-index dc040d9..0000000
+index dc040d9f..00000000
 --- a/nms-patches/ItemFireball.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -14209,7 +14209,7 @@ index dc040d9..0000000
 -                 }
 diff --git a/nms-patches/ItemFishingRod.patch b/nms-patches/ItemFishingRod.patch
 deleted file mode 100644
-index 9091026..0000000
+index 90910268..00000000
 --- a/nms-patches/ItemFishingRod.patch
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -14245,7 +14245,7 @@ index 9091026..0000000
 -             entityhuman.bw();
 diff --git a/nms-patches/ItemFlintAndSteel.patch b/nms-patches/ItemFlintAndSteel.patch
 deleted file mode 100644
-index ab3aef9..0000000
+index ab3aef93..00000000
 --- a/nms-patches/ItemFlintAndSteel.patch
 +++ /dev/null
 @@ -1,45 +0,0 @@
@@ -14296,7 +14296,7 @@ index ab3aef9..0000000
 -             itemstack.damage(1, entityhuman);
 diff --git a/nms-patches/ItemHanging.patch b/nms-patches/ItemHanging.patch
 deleted file mode 100644
-index d6ec92a..0000000
+index d6ec92ab..00000000
 --- a/nms-patches/ItemHanging.patch
 +++ /dev/null
 @@ -1,41 +0,0 @@
@@ -14343,7 +14343,7 @@ index d6ec92a..0000000
 - 
 diff --git a/nms-patches/ItemLeash.patch b/nms-patches/ItemLeash.patch
 deleted file mode 100644
-index c9713f2..0000000
+index c9713f22..00000000
 --- a/nms-patches/ItemLeash.patch
 +++ /dev/null
 @@ -1,35 +0,0 @@
@@ -14384,7 +14384,7 @@ index c9713f2..0000000
 -                 flag = true;
 diff --git a/nms-patches/ItemMapEmpty.patch b/nms-patches/ItemMapEmpty.patch
 deleted file mode 100644
-index cc593bb..0000000
+index cc593bb8..00000000
 --- a/nms-patches/ItemMapEmpty.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -14415,7 +14415,7 @@ index cc593bb..0000000
 -             return itemstack1;
 diff --git a/nms-patches/ItemMinecart.patch b/nms-patches/ItemMinecart.patch
 deleted file mode 100644
-index ed8f094..0000000
+index ed8f094a..00000000
 --- a/nms-patches/ItemMinecart.patch
 +++ /dev/null
 @@ -1,74 +0,0 @@
@@ -14495,7 +14495,7 @@ index ed8f094..0000000
 -                 if (itemstack.hasName()) {
 diff --git a/nms-patches/ItemMonsterEgg.patch b/nms-patches/ItemMonsterEgg.patch
 deleted file mode 100644
-index e423631..0000000
+index e4236317..00000000
 --- a/nms-patches/ItemMonsterEgg.patch
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -14532,7 +14532,7 @@ index e423631..0000000
 - 
 diff --git a/nms-patches/ItemRecord.patch b/nms-patches/ItemRecord.patch
 deleted file mode 100644
-index 0698a9d..0000000
+index 0698a9df..00000000
 --- a/nms-patches/ItemRecord.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -14555,7 +14555,7 @@ index 0698a9d..0000000
 -         } else {
 diff --git a/nms-patches/ItemStack.patch b/nms-patches/ItemStack.patch
 deleted file mode 100644
-index 9a2c9a5..0000000
+index 9a2c9a54..00000000
 --- a/nms-patches/ItemStack.patch
 +++ /dev/null
 @@ -1,251 +0,0 @@
@@ -14812,7 +14812,7 @@ index 9a2c9a5..0000000
 -     public IChatBaseComponent C() {
 diff --git a/nms-patches/ItemWaterLily.patch b/nms-patches/ItemWaterLily.patch
 deleted file mode 100644
-index d4e7af0..0000000
+index d4e7af04..00000000
 --- a/nms-patches/ItemWaterLily.patch
 +++ /dev/null
 @@ -1,18 +0,0 @@
@@ -14836,7 +14836,7 @@ index d4e7af0..0000000
 -                     }
 diff --git a/nms-patches/ItemWorldMap.patch b/nms-patches/ItemWorldMap.patch
 deleted file mode 100644
-index f40ea52..0000000
+index f40ea524..00000000
 --- a/nms-patches/ItemWorldMap.patch
 +++ /dev/null
 @@ -1,73 +0,0 @@
@@ -14915,7 +14915,7 @@ index f40ea52..0000000
 -     }
 diff --git a/nms-patches/JsonList.patch b/nms-patches/JsonList.patch
 deleted file mode 100644
-index 10e6bce..0000000
+index 10e6bce3..00000000
 --- a/nms-patches/JsonList.patch
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -14968,7 +14968,7 @@ index 10e6bce..0000000
 - 
 diff --git a/nms-patches/LoginListener.patch b/nms-patches/LoginListener.patch
 deleted file mode 100644
-index e44493c..0000000
+index e44493cf..00000000
 --- a/nms-patches/LoginListener.patch
 +++ /dev/null
 @@ -1,125 +0,0 @@
@@ -15099,7 +15099,7 @@ index e44493c..0000000
 -                 }
 diff --git a/nms-patches/MethodProfiler.patch b/nms-patches/MethodProfiler.patch
 deleted file mode 100644
-index 71b91ba..0000000
+index 71b91ba1..00000000
 --- a/nms-patches/MethodProfiler.patch
 +++ /dev/null
 @@ -1,145 +0,0 @@
@@ -15250,7 +15250,7 @@ index 71b91ba..0000000
 -     }
 diff --git a/nms-patches/MinecraftServer.patch b/nms-patches/MinecraftServer.patch
 deleted file mode 100644
-index 2568fdd..0000000
+index 2568fdd3..00000000
 --- a/nms-patches/MinecraftServer.patch
 +++ /dev/null
 @@ -1,678 +0,0 @@
@@ -15934,7 +15934,7 @@ index 2568fdd..0000000
 - 
 diff --git a/nms-patches/MobEffectList.patch b/nms-patches/MobEffectList.patch
 deleted file mode 100644
-index dae68b4..0000000
+index dae68b40..00000000
 --- a/nms-patches/MobEffectList.patch
 +++ /dev/null
 @@ -1,73 +0,0 @@
@@ -16013,7 +16013,7 @@ index dae68b4..0000000
 -     }
 diff --git a/nms-patches/MobSpawnerAbstract.patch b/nms-patches/MobSpawnerAbstract.patch
 deleted file mode 100644
-index ccf99ef..0000000
+index ccf99ef2..00000000
 --- a/nms-patches/MobSpawnerAbstract.patch
 +++ /dev/null
 @@ -1,50 +0,0 @@
@@ -16069,7 +16069,7 @@ index ccf99ef..0000000
 -         return entity;
 diff --git a/nms-patches/NBTTagList.patch b/nms-patches/NBTTagList.patch
 deleted file mode 100644
-index a91a3e3..0000000
+index a91a3e34..00000000
 --- a/nms-patches/NBTTagList.patch
 +++ /dev/null
 @@ -1,10 +0,0 @@
@@ -16085,7 +16085,7 @@ index a91a3e3..0000000
 -                 throw new RuntimeException("Missing type on ListTag");
 diff --git a/nms-patches/NameReferencingFileConverter.patch b/nms-patches/NameReferencingFileConverter.patch
 deleted file mode 100644
-index 2d49bf1..0000000
+index 2d49bf12..00000000
 --- a/nms-patches/NameReferencingFileConverter.patch
 +++ /dev/null
 @@ -1,90 +0,0 @@
@@ -16181,7 +16181,7 @@ index 2d49bf1..0000000
 -     }
 diff --git a/nms-patches/NetworkManager.patch b/nms-patches/NetworkManager.patch
 deleted file mode 100644
-index b41fb16..0000000
+index b41fb161..00000000
 --- a/nms-patches/NetworkManager.patch
 +++ /dev/null
 @@ -1,20 +0,0 @@
@@ -16207,7 +16207,7 @@ index b41fb16..0000000
 - 
 diff --git a/nms-patches/PacketDataSerializer.patch b/nms-patches/PacketDataSerializer.patch
 deleted file mode 100644
-index c66b7b5..0000000
+index c66b7b58..00000000
 --- a/nms-patches/PacketDataSerializer.patch
 +++ /dev/null
 @@ -1,67 +0,0 @@
@@ -16280,7 +16280,7 @@ index c66b7b5..0000000
 - }
 diff --git a/nms-patches/PacketPlayInBlockPlace.patch b/nms-patches/PacketPlayInBlockPlace.patch
 deleted file mode 100644
-index c008192..0000000
+index c0081922..00000000
 --- a/nms-patches/PacketPlayInBlockPlace.patch
 +++ /dev/null
 @@ -1,28 +0,0 @@
@@ -16314,7 +16314,7 @@ index c008192..0000000
 - }
 diff --git a/nms-patches/PacketPlayInCloseWindow.patch b/nms-patches/PacketPlayInCloseWindow.patch
 deleted file mode 100644
-index b7678c6..0000000
+index b7678c6d..00000000
 --- a/nms-patches/PacketPlayInCloseWindow.patch
 +++ /dev/null
 @@ -1,24 +0,0 @@
@@ -16344,7 +16344,7 @@ index b7678c6..0000000
 - }
 diff --git a/nms-patches/PacketPlayInResourcePackStatus.patch b/nms-patches/PacketPlayInResourcePackStatus.patch
 deleted file mode 100644
-index b6bbd0d..0000000
+index b6bbd0d4..00000000
 --- a/nms-patches/PacketPlayInResourcePackStatus.patch
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -16372,7 +16372,7 @@ index b6bbd0d..0000000
 -         SUCCESSFULLY_LOADED, DECLINED, FAILED_DOWNLOAD, ACCEPTED;
 diff --git a/nms-patches/PacketStatusListener.patch b/nms-patches/PacketStatusListener.patch
 deleted file mode 100644
-index 075488f..0000000
+index 075488ff..00000000
 --- a/nms-patches/PacketStatusListener.patch
 +++ /dev/null
 @@ -1,119 +0,0 @@
@@ -16497,7 +16497,7 @@ index 075488f..0000000
 -     public void a(PacketStatusInPing packetstatusinping) {
 diff --git a/nms-patches/Path.patch b/nms-patches/Path.patch
 deleted file mode 100644
-index caa5459..0000000
+index caa54590..00000000
 --- a/nms-patches/Path.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16514,7 +16514,7 @@ index caa5459..0000000
 -     public Path() {}
 diff --git a/nms-patches/PathfinderGoalBreakDoor.patch b/nms-patches/PathfinderGoalBreakDoor.patch
 deleted file mode 100644
-index 3f61dbe..0000000
+index 3f61dbea..00000000
 --- a/nms-patches/PathfinderGoalBreakDoor.patch
 +++ /dev/null
 @@ -1,15 +0,0 @@
@@ -16535,7 +16535,7 @@ index 3f61dbe..0000000
 -             this.a.world.triggerEffect(2001, this.b, Block.getId(this.c));
 diff --git a/nms-patches/PathfinderGoalBreed.patch b/nms-patches/PathfinderGoalBreed.patch
 deleted file mode 100644
-index 3ae9587..0000000
+index 3ae9587d..00000000
 --- a/nms-patches/PathfinderGoalBreed.patch
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -16564,7 +16564,7 @@ index 3ae9587..0000000
 -             for (int i = 0; i < 7; ++i) {
 diff --git a/nms-patches/PathfinderGoalDefendVillage.patch b/nms-patches/PathfinderGoalDefendVillage.patch
 deleted file mode 100644
-index ab0ddc4..0000000
+index ab0ddc41..00000000
 --- a/nms-patches/PathfinderGoalDefendVillage.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16581,7 +16581,7 @@ index ab0ddc4..0000000
 - }
 diff --git a/nms-patches/PathfinderGoalEatTile.patch b/nms-patches/PathfinderGoalEatTile.patch
 deleted file mode 100644
-index f3d98e5..0000000
+index f3d98e5c..00000000
 --- a/nms-patches/PathfinderGoalEatTile.patch
 +++ /dev/null
 @@ -1,34 +0,0 @@
@@ -16621,7 +16621,7 @@ index f3d98e5..0000000
 -                     }
 diff --git a/nms-patches/PathfinderGoalHurtByTarget.patch b/nms-patches/PathfinderGoalHurtByTarget.patch
 deleted file mode 100644
-index e385566..0000000
+index e3855668..00000000
 --- a/nms-patches/PathfinderGoalHurtByTarget.patch
 +++ /dev/null
 @@ -1,19 +0,0 @@
@@ -16646,7 +16646,7 @@ index e385566..0000000
 - }
 diff --git a/nms-patches/PathfinderGoalMakeLove.patch b/nms-patches/PathfinderGoalMakeLove.patch
 deleted file mode 100644
-index 2673a6b..0000000
+index 2673a6b2..00000000
 --- a/nms-patches/PathfinderGoalMakeLove.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16663,7 +16663,7 @@ index 2673a6b..0000000
 - }
 diff --git a/nms-patches/PathfinderGoalNearestAttackableTarget.patch b/nms-patches/PathfinderGoalNearestAttackableTarget.patch
 deleted file mode 100644
-index 860671e..0000000
+index 860671e2..00000000
 --- a/nms-patches/PathfinderGoalNearestAttackableTarget.patch
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -16698,7 +16698,7 @@ index 860671e..0000000
 -     }
 diff --git a/nms-patches/PathfinderGoalNearestAttackableTargetInsentient.patch b/nms-patches/PathfinderGoalNearestAttackableTargetInsentient.patch
 deleted file mode 100644
-index 624e0c1..0000000
+index 624e0c10..00000000
 --- a/nms-patches/PathfinderGoalNearestAttackableTargetInsentient.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16715,7 +16715,7 @@ index 624e0c1..0000000
 - 
 diff --git a/nms-patches/PathfinderGoalOwnerHurtByTarget.patch b/nms-patches/PathfinderGoalOwnerHurtByTarget.patch
 deleted file mode 100644
-index 5d62045..0000000
+index 5d620455..00000000
 --- a/nms-patches/PathfinderGoalOwnerHurtByTarget.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16732,7 +16732,7 @@ index 5d62045..0000000
 -         if (entityliving != null) {
 diff --git a/nms-patches/PathfinderGoalOwnerHurtTarget.patch b/nms-patches/PathfinderGoalOwnerHurtTarget.patch
 deleted file mode 100644
-index a837933..0000000
+index a837933f..00000000
 --- a/nms-patches/PathfinderGoalOwnerHurtTarget.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16749,7 +16749,7 @@ index a837933..0000000
 -         if (entityliving != null) {
 diff --git a/nms-patches/PathfinderGoalPanic.patch b/nms-patches/PathfinderGoalPanic.patch
 deleted file mode 100644
-index 8725c76..0000000
+index 8725c766..00000000
 --- a/nms-patches/PathfinderGoalPanic.patch
 +++ /dev/null
 @@ -1,15 +0,0 @@
@@ -16770,7 +16770,7 @@ index 8725c76..0000000
 - }
 diff --git a/nms-patches/PathfinderGoalSelector.patch b/nms-patches/PathfinderGoalSelector.patch
 deleted file mode 100644
-index 27aa230..0000000
+index 27aa2304..00000000
 --- a/nms-patches/PathfinderGoalSelector.patch
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -16806,7 +16806,7 @@ index 27aa230..0000000
 -             }
 diff --git a/nms-patches/PathfinderGoalSit.patch b/nms-patches/PathfinderGoalSit.patch
 deleted file mode 100644
-index e6ee998..0000000
+index e6ee998e..00000000
 --- a/nms-patches/PathfinderGoalSit.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16823,7 +16823,7 @@ index e6ee998..0000000
 -         } else if (!this.entity.onGround) {
 diff --git a/nms-patches/PathfinderGoalTame.patch b/nms-patches/PathfinderGoalTame.patch
 deleted file mode 100644
-index 2d4f3e9..0000000
+index 2d4f3e99..00000000
 --- a/nms-patches/PathfinderGoalTame.patch
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -16860,7 +16860,7 @@ index 2d4f3e9..0000000
 -         }
 diff --git a/nms-patches/PathfinderGoalTargetNearestPlayer.patch b/nms-patches/PathfinderGoalTargetNearestPlayer.patch
 deleted file mode 100644
-index 1bdfde6..0000000
+index 1bdfde60..00000000
 --- a/nms-patches/PathfinderGoalTargetNearestPlayer.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -16877,7 +16877,7 @@ index 1bdfde6..0000000
 - 
 diff --git a/nms-patches/PlayerChunkMap.patch b/nms-patches/PlayerChunkMap.patch
 deleted file mode 100644
-index 1c9ec1d..0000000
+index 1c9ec1d8..00000000
 --- a/nms-patches/PlayerChunkMap.patch
 +++ /dev/null
 @@ -1,271 +0,0 @@
@@ -17154,7 +17154,7 @@ index 1c9ec1d..0000000
 - }
 diff --git a/nms-patches/PlayerConnection.patch b/nms-patches/PlayerConnection.patch
 deleted file mode 100644
-index a1f3b52..0000000
+index a1f3b528..00000000
 --- a/nms-patches/PlayerConnection.patch
 +++ /dev/null
 @@ -1,1540 +0,0 @@
@@ -18700,7 +18700,7 @@ index a1f3b52..0000000
 -     static class SyntheticClass_1 {
 diff --git a/nms-patches/PlayerInteractManager.patch b/nms-patches/PlayerInteractManager.patch
 deleted file mode 100644
-index c4b0f19..0000000
+index c4b0f192..00000000
 --- a/nms-patches/PlayerInteractManager.patch
 +++ /dev/null
 @@ -1,298 +0,0 @@
@@ -19004,7 +19004,7 @@ index c4b0f19..0000000
 -     public void a(WorldServer worldserver) {
 diff --git a/nms-patches/PlayerInventory.patch b/nms-patches/PlayerInventory.patch
 deleted file mode 100644
-index cf26956..0000000
+index cf269568..00000000
 --- a/nms-patches/PlayerInventory.patch
 +++ /dev/null
 @@ -1,100 +0,0 @@
@@ -19110,7 +19110,7 @@ index cf26956..0000000
 - 
 diff --git a/nms-patches/PlayerList.patch b/nms-patches/PlayerList.patch
 deleted file mode 100644
-index 52d22e6..0000000
+index 52d22e6f..00000000
 --- a/nms-patches/PlayerList.patch
 +++ /dev/null
 @@ -1,875 +0,0 @@
@@ -19991,7 +19991,7 @@ index 52d22e6..0000000
 -                     worldserver.getPlayerChunkMap().a(i);
 diff --git a/nms-patches/PortalTravelAgent.patch b/nms-patches/PortalTravelAgent.patch
 deleted file mode 100644
-index 73698d3..0000000
+index 73698d3b..00000000
 --- a/nms-patches/PortalTravelAgent.patch
 +++ /dev/null
 @@ -1,262 +0,0 @@
@@ -20259,7 +20259,7 @@ index 73698d3..0000000
 -                                     d0 = d4;
 diff --git a/nms-patches/PropertyManager.patch b/nms-patches/PropertyManager.patch
 deleted file mode 100644
-index c312cda..0000000
+index c312cda9..00000000
 --- a/nms-patches/PropertyManager.patch
 +++ /dev/null
 @@ -1,93 +0,0 @@
@@ -20358,7 +20358,7 @@ index c312cda..0000000
 - 
 diff --git a/nms-patches/RecipeArmorDye.patch b/nms-patches/RecipeArmorDye.patch
 deleted file mode 100644
-index 2bf96ca..0000000
+index 2bf96ca8..00000000
 --- a/nms-patches/RecipeArmorDye.patch
 +++ /dev/null
 @@ -1,18 +0,0 @@
@@ -20382,7 +20382,7 @@ index 2bf96ca..0000000
 -         ItemStack itemstack = null;
 diff --git a/nms-patches/RecipeBookClone.patch b/nms-patches/RecipeBookClone.patch
 deleted file mode 100644
-index d815fcd..0000000
+index d815fcd2..00000000
 --- a/nms-patches/RecipeBookClone.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -20405,7 +20405,7 @@ index d815fcd..0000000
 -         int i = 0;
 diff --git a/nms-patches/RecipeFireworks.patch b/nms-patches/RecipeFireworks.patch
 deleted file mode 100644
-index 039e6b5..0000000
+index 039e6b5a..00000000
 --- a/nms-patches/RecipeFireworks.patch
 +++ /dev/null
 @@ -1,20 +0,0 @@
@@ -20431,7 +20431,7 @@ index 039e6b5..0000000
 -         this.a = null;
 diff --git a/nms-patches/RecipeMapClone.patch b/nms-patches/RecipeMapClone.patch
 deleted file mode 100644
-index 2349634..0000000
+index 23496349..00000000
 --- a/nms-patches/RecipeMapClone.patch
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -20454,7 +20454,7 @@ index 2349634..0000000
 -         int i = 0;
 diff --git a/nms-patches/RecipeRepair.patch b/nms-patches/RecipeRepair.patch
 deleted file mode 100644
-index 1d0f914..0000000
+index 1d0f9144..00000000
 --- a/nms-patches/RecipeRepair.patch
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -20497,7 +20497,7 @@ index 1d0f914..0000000
 - 
 diff --git a/nms-patches/RecipesBanner.patch b/nms-patches/RecipesBanner.patch
 deleted file mode 100644
-index 8e1e1e2..0000000
+index 8e1e1e25..00000000
 --- a/nms-patches/RecipesBanner.patch
 +++ /dev/null
 @@ -1,34 +0,0 @@
@@ -20537,7 +20537,7 @@ index 8e1e1e2..0000000
 -             ItemStack itemstack = null;
 diff --git a/nms-patches/RecipesFurnace.patch b/nms-patches/RecipesFurnace.patch
 deleted file mode 100644
-index 79bae8a..0000000
+index 79bae8ab..00000000
 --- a/nms-patches/RecipesFurnace.patch
 +++ /dev/null
 @@ -1,56 +0,0 @@
@@ -20599,7 +20599,7 @@ index 79bae8a..0000000
 -             entry = (Entry) iterator.next();
 diff --git a/nms-patches/RegionFile.patch b/nms-patches/RegionFile.patch
 deleted file mode 100644
-index 6153576..0000000
+index 6153576b..00000000
 --- a/nms-patches/RegionFile.patch
 +++ /dev/null
 @@ -1,48 +0,0 @@
@@ -20653,7 +20653,7 @@ index 6153576..0000000
 -             return null;
 diff --git a/nms-patches/RemoteControlCommandListener.patch b/nms-patches/RemoteControlCommandListener.patch
 deleted file mode 100644
-index 6331f69..0000000
+index 6331f69e..00000000
 --- a/nms-patches/RemoteControlCommandListener.patch
 +++ /dev/null
 @@ -1,15 +0,0 @@
@@ -20674,7 +20674,7 @@ index 6331f69..0000000
 -     }
 diff --git a/nms-patches/ScoreboardServer.patch b/nms-patches/ScoreboardServer.patch
 deleted file mode 100644
-index c480fff..0000000
+index c480fff1..00000000
 --- a/nms-patches/ScoreboardServer.patch
 +++ /dev/null
 @@ -1,126 +0,0 @@
@@ -20806,7 +20806,7 @@ index c480fff..0000000
 - }
 diff --git a/nms-patches/SecondaryWorldServer.patch b/nms-patches/SecondaryWorldServer.patch
 deleted file mode 100644
-index a26d9cd..0000000
+index a26d9cd0..00000000
 --- a/nms-patches/SecondaryWorldServer.patch
 +++ /dev/null
 @@ -1,42 +0,0 @@
@@ -20854,7 +20854,7 @@ index a26d9cd..0000000
 - }
 diff --git a/nms-patches/ShapedRecipes.patch b/nms-patches/ShapedRecipes.patch
 deleted file mode 100644
-index 699a2af..0000000
+index 699a2afe..00000000
 --- a/nms-patches/ShapedRecipes.patch
 +++ /dev/null
 @@ -1,76 +0,0 @@
@@ -20936,7 +20936,7 @@ index 699a2af..0000000
 -     }
 diff --git a/nms-patches/ShapelessRecipes.patch b/nms-patches/ShapelessRecipes.patch
 deleted file mode 100644
-index 0ed46af..0000000
+index 0ed46af4..00000000
 --- a/nms-patches/ShapelessRecipes.patch
 +++ /dev/null
 @@ -1,35 +0,0 @@
@@ -20977,7 +20977,7 @@ index 0ed46af..0000000
 -     }
 diff --git a/nms-patches/Slot.patch b/nms-patches/Slot.patch
 deleted file mode 100644
-index a9b73d5..0000000
+index a9b73d5c..00000000
 --- a/nms-patches/Slot.patch
 +++ /dev/null
 @@ -1,12 +0,0 @@
@@ -20995,7 +20995,7 @@ index a9b73d5..0000000
 - 
 diff --git a/nms-patches/SlotFurnaceResult.patch b/nms-patches/SlotFurnaceResult.patch
 deleted file mode 100644
-index cb27c68..0000000
+index cb27c684..00000000
 --- a/nms-patches/SlotFurnaceResult.patch
 +++ /dev/null
 @@ -1,32 +0,0 @@
@@ -21033,7 +21033,7 @@ index cb27c68..0000000
 -                 i -= j;
 diff --git a/nms-patches/SpawnerCreature.patch b/nms-patches/SpawnerCreature.patch
 deleted file mode 100644
-index be143f6..0000000
+index be143f6c..00000000
 --- a/nms-patches/SpawnerCreature.patch
 +++ /dev/null
 @@ -1,108 +0,0 @@
@@ -21147,7 +21147,7 @@ index be143f6..0000000
 - 
 diff --git a/nms-patches/StatisticManager.patch b/nms-patches/StatisticManager.patch
 deleted file mode 100644
-index c935908..0000000
+index c9359086..00000000
 --- a/nms-patches/StatisticManager.patch
 +++ /dev/null
 @@ -1,24 +0,0 @@
@@ -21177,7 +21177,7 @@ index c935908..0000000
 -     public <T extends IJsonStatistic> T a(Statistic statistic, T t0) {
 diff --git a/nms-patches/TileEntity.patch b/nms-patches/TileEntity.patch
 deleted file mode 100644
-index c4c4ea6..0000000
+index c4c4ea66..00000000
 --- a/nms-patches/TileEntity.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -21208,7 +21208,7 @@ index c4c4ea6..0000000
 - }
 diff --git a/nms-patches/TileEntityBanner.patch b/nms-patches/TileEntityBanner.patch
 deleted file mode 100644
-index f8cd7bc..0000000
+index f8cd7bc2..00000000
 --- a/nms-patches/TileEntityBanner.patch
 +++ /dev/null
 @@ -1,26 +0,0 @@
@@ -21240,7 +21240,7 @@ index f8cd7bc..0000000
 -         this.j = null;
 diff --git a/nms-patches/TileEntityBeacon.patch b/nms-patches/TileEntityBeacon.patch
 deleted file mode 100644
-index 7b81e98..0000000
+index 7b81e98c..00000000
 --- a/nms-patches/TileEntityBeacon.patch
 +++ /dev/null
 @@ -1,54 +0,0 @@
@@ -21300,7 +21300,7 @@ index 7b81e98..0000000
 -     public boolean a(EntityHuman entityhuman) {
 diff --git a/nms-patches/TileEntityBrewingStand.patch b/nms-patches/TileEntityBrewingStand.patch
 deleted file mode 100644
-index d0158f5..0000000
+index d0158f54..00000000
 --- a/nms-patches/TileEntityBrewingStand.patch
 +++ /dev/null
 @@ -1,94 +0,0 @@
@@ -21400,7 +21400,7 @@ index d0158f5..0000000
 -     public boolean a(EntityHuman entityhuman) {
 diff --git a/nms-patches/TileEntityChest.patch b/nms-patches/TileEntityChest.patch
 deleted file mode 100644
-index 605ced7..0000000
+index 605ced78..00000000
 --- a/nms-patches/TileEntityChest.patch
 +++ /dev/null
 @@ -1,117 +0,0 @@
@@ -21523,7 +21523,7 @@ index 605ced7..0000000
 -         static final int[] a = new int[EnumDirection.values().length];
 diff --git a/nms-patches/TileEntityCommand.patch b/nms-patches/TileEntityCommand.patch
 deleted file mode 100644
-index 9ef1c0a..0000000
+index 9ef1c0a6..00000000
 --- a/nms-patches/TileEntityCommand.patch
 +++ /dev/null
 @@ -1,12 +0,0 @@
@@ -21541,7 +21541,7 @@ index 9ef1c0a..0000000
 -         }
 diff --git a/nms-patches/TileEntityDispenser.patch b/nms-patches/TileEntityDispenser.patch
 deleted file mode 100644
-index ec176e9..0000000
+index ec176e9d..00000000
 --- a/nms-patches/TileEntityDispenser.patch
 +++ /dev/null
 @@ -1,64 +0,0 @@
@@ -21611,7 +21611,7 @@ index ec176e9..0000000
 -     public boolean a(EntityHuman entityhuman) {
 diff --git a/nms-patches/TileEntityFurnace.patch b/nms-patches/TileEntityFurnace.patch
 deleted file mode 100644
-index 796d323..0000000
+index 796d323f..00000000
 --- a/nms-patches/TileEntityFurnace.patch
 +++ /dev/null
 @@ -1,188 +0,0 @@
@@ -21805,7 +21805,7 @@ index 796d323..0000000
 -                 this.items[1] = new ItemStack(Items.WATER_BUCKET);
 diff --git a/nms-patches/TileEntityHopper.patch b/nms-patches/TileEntityHopper.patch
 deleted file mode 100644
-index e3ed30c..0000000
+index e3ed30c2..00000000
 --- a/nms-patches/TileEntityHopper.patch
 +++ /dev/null
 @@ -1,154 +0,0 @@
@@ -21965,7 +21965,7 @@ index e3ed30c..0000000
 - 
 diff --git a/nms-patches/TileEntityNote.patch b/nms-patches/TileEntityNote.patch
 deleted file mode 100644
-index 3e969b7..0000000
+index 3e969b7f..00000000
 --- a/nms-patches/TileEntityNote.patch
 +++ /dev/null
 @@ -1,16 +0,0 @@
@@ -21987,7 +21987,7 @@ index 3e969b7..0000000
 - }
 diff --git a/nms-patches/TileEntityPiston.patch b/nms-patches/TileEntityPiston.patch
 deleted file mode 100644
-index 6e1f13a..0000000
+index 6e1f13a7..00000000
 --- a/nms-patches/TileEntityPiston.patch
 +++ /dev/null
 @@ -1,10 +0,0 @@
@@ -22003,7 +22003,7 @@ index 6e1f13a..0000000
 -             this.a(1.0F, 0.25F);
 diff --git a/nms-patches/TileEntitySign.patch b/nms-patches/TileEntitySign.patch
 deleted file mode 100644
-index e03d670..0000000
+index e03d6705..00000000
 --- a/nms-patches/TileEntitySign.patch
 +++ /dev/null
 @@ -1,55 +0,0 @@
@@ -22064,7 +22064,7 @@ index e03d670..0000000
 -         }
 diff --git a/nms-patches/TileEntitySkull.patch b/nms-patches/TileEntitySkull.patch
 deleted file mode 100644
-index c420196..0000000
+index c4201967..00000000
 --- a/nms-patches/TileEntitySkull.patch
 +++ /dev/null
 @@ -1,13 +0,0 @@
@@ -22083,7 +22083,7 @@ index c420196..0000000
 - }
 diff --git a/nms-patches/UserCache.patch b/nms-patches/UserCache.patch
 deleted file mode 100644
-index 1433fce..0000000
+index 1433fce9..00000000
 --- a/nms-patches/UserCache.patch
 +++ /dev/null
 @@ -1,25 +0,0 @@
@@ -22114,7 +22114,7 @@ index 1433fce..0000000
 - 
 diff --git a/nms-patches/Village.patch b/nms-patches/Village.patch
 deleted file mode 100644
-index ee57a43..0000000
+index ee57a438..00000000
 --- a/nms-patches/Village.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -22131,7 +22131,7 @@ index ee57a43..0000000
 -         }
 diff --git a/nms-patches/VillageSiege.patch b/nms-patches/VillageSiege.patch
 deleted file mode 100644
-index 9b174ab..0000000
+index 9b174abf..00000000
 --- a/nms-patches/VillageSiege.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -22148,7 +22148,7 @@ index 9b174ab..0000000
 -             entityzombie.a(blockposition, this.f.b());
 diff --git a/nms-patches/World.patch b/nms-patches/World.patch
 deleted file mode 100644
-index 484a9e0..0000000
+index 484a9e04..00000000
 --- a/nms-patches/World.patch
 +++ /dev/null
 @@ -1,654 +0,0 @@
@@ -22808,7 +22808,7 @@ index 484a9e0..0000000
 - }
 diff --git a/nms-patches/WorldBorder.patch b/nms-patches/WorldBorder.patch
 deleted file mode 100644
-index d40f879..0000000
+index d40f879b..00000000
 --- a/nms-patches/WorldBorder.patch
 +++ /dev/null
 @@ -1,39 +0,0 @@
@@ -22853,7 +22853,7 @@ index d40f879..0000000
 - 
 diff --git a/nms-patches/WorldData.patch b/nms-patches/WorldData.patch
 deleted file mode 100644
-index d225068..0000000
+index d2250682..00000000
 --- a/nms-patches/WorldData.patch
 +++ /dev/null
 @@ -1,86 +0,0 @@
@@ -22945,7 +22945,7 @@ index d225068..0000000
 - }
 diff --git a/nms-patches/WorldGenGroundBush.patch b/nms-patches/WorldGenGroundBush.patch
 deleted file mode 100644
-index 4afb31c..0000000
+index 4afb31ce..00000000
 --- a/nms-patches/WorldGenGroundBush.patch
 +++ /dev/null
 @@ -1,15 +0,0 @@
@@ -22966,7 +22966,7 @@ index 4afb31c..0000000
 -     }
 diff --git a/nms-patches/WorldGenMegaTreeAbstract.patch b/nms-patches/WorldGenMegaTreeAbstract.patch
 deleted file mode 100644
-index 99dd51e..0000000
+index 99dd51eb..00000000
 --- a/nms-patches/WorldGenMegaTreeAbstract.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -22983,7 +22983,7 @@ index 99dd51e..0000000
 -                     }
 diff --git a/nms-patches/WorldGenRegistration.patch b/nms-patches/WorldGenRegistration.patch
 deleted file mode 100644
-index 736860c..0000000
+index 736860c6..00000000
 --- a/nms-patches/WorldGenRegistration.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -23000,7 +23000,7 @@ index 736860c..0000000
 - 
 diff --git a/nms-patches/WorldGenVillagePieces.patch b/nms-patches/WorldGenVillagePieces.patch
 deleted file mode 100644
-index 4c46ae3..0000000
+index 4c46ae38..00000000
 --- a/nms-patches/WorldGenVillagePieces.patch
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -23017,7 +23017,7 @@ index 4c46ae3..0000000
 -             }
 diff --git a/nms-patches/WorldManager.patch b/nms-patches/WorldManager.patch
 deleted file mode 100644
-index 4a9fa5b..0000000
+index 4a9fa5b4..00000000
 --- a/nms-patches/WorldManager.patch
 +++ /dev/null
 @@ -1,54 +0,0 @@
@@ -23077,7 +23077,7 @@ index 4a9fa5b..0000000
 -                 }
 diff --git a/nms-patches/WorldMap.patch b/nms-patches/WorldMap.patch
 deleted file mode 100644
-index ab9784f..0000000
+index ab9784f5..00000000
 --- a/nms-patches/WorldMap.patch
 +++ /dev/null
 @@ -1,122 +0,0 @@
@@ -23205,7 +23205,7 @@ index ab9784f..0000000
 -         public void a(int i, int j) {
 diff --git a/nms-patches/WorldNBTStorage.patch b/nms-patches/WorldNBTStorage.patch
 deleted file mode 100644
-index 549de01..0000000
+index 549de015..00000000
 --- a/nms-patches/WorldNBTStorage.patch
 +++ /dev/null
 @@ -1,114 +0,0 @@
@@ -23325,7 +23325,7 @@ index 549de01..0000000
 - }
 diff --git a/nms-patches/WorldServer.patch b/nms-patches/WorldServer.patch
 deleted file mode 100644
-index 5acbfbd..0000000
+index 5acbfbda..00000000
 --- a/nms-patches/WorldServer.patch
 +++ /dev/null
 @@ -1,620 +0,0 @@
@@ -23951,7 +23951,7 @@ index 5acbfbd..0000000
 - 
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java b/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java
 new file mode 100644
-index 0000000..dbfc964
+index 00000000..dbfc9640
 --- /dev/null
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java
 @@ -0,0 +1,254 @@
@@ -24211,7 +24211,7 @@ index 0000000..dbfc964
 +}
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java b/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java
 new file mode 100644
-index 0000000..4b8eb3e
+index 00000000..4b8eb3ee
 --- /dev/null
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java
 @@ -0,0 +1,112 @@
@@ -24328,5 +24328,5 @@ index 0000000..4b8eb3e
 +    }
 +}
 -- 
-2.6.4
+2.11.0
 
