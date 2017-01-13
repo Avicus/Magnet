@@ -1,0 +1,182 @@
+From b457d2775eac0cdb26e2d056b45ca733af2c8bf2 Mon Sep 17 00:00:00 2001
+From: Jedediah Smith <jedediah@silencegreys.com>
+Date: Fri, 3 Jun 2016 02:02:23 -0400
+Subject: [PATCH] Component support for signs
+
+---
+ pom.xml                                            |  4 +--
+ src/main/java/org/bukkit/block/Sign.java           | 21 ++++++++++++
+ src/main/java/org/bukkit/entity/Player.java        |  6 ++++
+ .../org/bukkit/event/block/SignChangeEvent.java    | 40 +++++++++++++++++++---
+ 4 files changed, 64 insertions(+), 7 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index b5ccba34..5448cf94 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -76,9 +76,9 @@
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>net.md-5</groupId>
++            <groupId>tc.oc</groupId>
+             <artifactId>bungeecord-chat</artifactId>
+-            <version>1.8-SNAPSHOT</version>
++            <version>1.11-SNAPSHOT</version>
+             <type>jar</type>
+             <scope>compile</scope>
+         </dependency>
+diff --git a/src/main/java/org/bukkit/block/Sign.java b/src/main/java/org/bukkit/block/Sign.java
+index 5d7a633d..73c60a80 100644
+--- a/src/main/java/org/bukkit/block/Sign.java
++++ b/src/main/java/org/bukkit/block/Sign.java
+@@ -10,6 +10,7 @@ public interface Sign extends BlockState {
+      *
+      * @return Array of Strings containing each line of text
+      */
++    @Deprecated // Magnet
+     public String[] getLines();
+ 
+     /**
+@@ -21,6 +22,7 @@ public interface Sign extends BlockState {
+      * @throws IndexOutOfBoundsException Thrown when the line does not exist
+      * @return Text on the given line
+      */
++    @Deprecated // Magnet
+     public String getLine(int index) throws IndexOutOfBoundsException;
+ 
+     /**
+@@ -33,5 +35,24 @@ public interface Sign extends BlockState {
+      * @param line New text to set at the specified index
+      * @throws IndexOutOfBoundsException If the index is out of the range 0..3
+      */
++    @Deprecated // Magnet
+     public void setLine(int index, String line) throws IndexOutOfBoundsException;
++
++    // Magnet start
++
++    /**
++     * @see #getLines()
++     */
++    net.md_5.bungee.api.chat.BaseComponent[] lines();
++
++    /**
++     * @see #getLine(int)
++     */
++    net.md_5.bungee.api.chat.BaseComponent line(int index);
++
++    /**
++     * @see #setLine(int, String)
++     */
++    void setLine(int index, net.md_5.bungee.api.chat.BaseComponent line);
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/entity/Player.java b/src/main/java/org/bukkit/entity/Player.java
+index d3ddcdd4..91aa7ae4 100644
+--- a/src/main/java/org/bukkit/entity/Player.java
++++ b/src/main/java/org/bukkit/entity/Player.java
+@@ -323,6 +323,7 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+      * @throws IllegalArgumentException if location is null
+      * @throws IllegalArgumentException if lines is non-null and has a length less than 4
+      */
++    @Deprecated // Magnet
+     public void sendSignChange(Location loc, String[] lines) throws IllegalArgumentException;
+ 
+     /**
+@@ -1485,5 +1486,10 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+      * {@link #clearFakeNames} and {@link #clearFakeSkins} seperately would refresh it twice.
+      */
+     void clearFakeNamesAndSkins();
++
++    /**
++     * @see #sendSignChange(Location, String[])
++     */
++    void sendSignChange(Location loc, net.md_5.bungee.api.chat.BaseComponent[] lines);
+     // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/event/block/SignChangeEvent.java b/src/main/java/org/bukkit/event/block/SignChangeEvent.java
+index 83188cf5..bf55d816 100644
+--- a/src/main/java/org/bukkit/event/block/SignChangeEvent.java
++++ b/src/main/java/org/bukkit/event/block/SignChangeEvent.java
+@@ -14,14 +14,24 @@ public class SignChangeEvent extends BlockEvent implements Cancellable {
+     private static final HandlerList handlers = new HandlerList();
+     private boolean cancel = false;
+     private final Player player;
+-    private final String[] lines;
++    //private final String[] lines; // Magnet - comment
++    private final net.md_5.bungee.api.chat.BaseComponent[] lines;
+ 
+     public SignChangeEvent(final Block theBlock, final Player thePlayer, final String[] theLines) {
+         super(theBlock);
+         this.player = thePlayer;
+-        this.lines = theLines;
++        //this.lines = theLines; // Magnet - comment
++        this.lines = net.md_5.bungee.api.chat.TextComponent.fromLegacyArray(theLines, false);
+     }
+ 
++    // Magnet - start
++    public SignChangeEvent(final Block block, final Player player, final net.md_5.bungee.api.chat.BaseComponent[] lines) {
++        super(block);
++        this.player = player;
++        this.lines = lines;
++    }
++    // Magnet - end
++
+     /**
+      * Gets the player changing the sign involved in this event.
+      *
+@@ -37,7 +47,8 @@ public class SignChangeEvent extends BlockEvent implements Cancellable {
+      * @return the String array for the sign's lines new text
+      */
+     public String[] getLines() {
+-        return lines;
++        //return lines; // Magnet - comment
++        return net.md_5.bungee.api.chat.BaseComponent.toLegacyArray(this.lines); // Magnet
+     }
+ 
+     /**
+@@ -50,7 +61,8 @@ public class SignChangeEvent extends BlockEvent implements Cancellable {
+      *     or < 0}
+      */
+     public String getLine(int index) throws IndexOutOfBoundsException {
+-        return lines[index];
++        //return lines[index]; // Magnet - comment
++        return this.lines[index].toLegacyText(); // Magnet
+     }
+ 
+     /**
+@@ -62,7 +74,8 @@ public class SignChangeEvent extends BlockEvent implements Cancellable {
+      *     or < 0}
+      */
+     public void setLine(int index, String line) throws IndexOutOfBoundsException {
+-        lines[index] = line;
++        //lines[index] = line; // Magnet - comment
++        this.lines[index] = net.md_5.bungee.api.chat.TextComponent.fromLegacyToComponent(line, false); // Magnet
+     }
+ 
+     public boolean isCancelled() {
+@@ -81,4 +94,21 @@ public class SignChangeEvent extends BlockEvent implements Cancellable {
+     public static HandlerList getHandlerList() {
+         return handlers;
+     }
++
++    // Magnet start
++
++    /**
++     * @see #getLine(int)
++     */
++    public net.md_5.bungee.api.chat.BaseComponent line(int index) {
++        return this.lines[index];
++    }
++
++    /**
++     * @see #setLine(int, String)
++     */
++    public void setLine(int index, net.md_5.bungee.api.chat.BaseComponent line) {
++        this.lines[index] = line;
++    }
++    // Magnet end
+ }
+-- 
+2.11.0
+

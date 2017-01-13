@@ -1,0 +1,430 @@
+From ea58a68429e24654825f1667f0fcd18b5ba9f592 Mon Sep 17 00:00:00 2001
+From: Jedediah Smith <jedediah@silencegreys.com>
+Date: Fri, 3 Jun 2016 02:02:17 -0400
+Subject: [PATCH] Component support for signs
+
+---
+ .../java/net/minecraft/server/ChatModifier.java    |  12 ++
+ .../net/minecraft/server/PlayerConnection.java     |  13 +-
+ .../org/bukkit/craftbukkit/block/CraftSign.java    |  65 +++++--
+ .../org/bukkit/craftbukkit/entity/CraftPlayer.java |  34 +++-
+ .../bukkit/craftbukkit/util/BungeeChatUtils.java   | 187 +++++++++++++++++++++
+ 5 files changed, 296 insertions(+), 15 deletions(-)
+ create mode 100644 src/main/java/org/bukkit/craftbukkit/util/BungeeChatUtils.java
+
+diff --git a/src/main/java/net/minecraft/server/ChatModifier.java b/src/main/java/net/minecraft/server/ChatModifier.java
+index 21f7e6ba..689c0a1e 100644
+--- a/src/main/java/net/minecraft/server/ChatModifier.java
++++ b/src/main/java/net/minecraft/server/ChatModifier.java
+@@ -300,6 +300,18 @@ public class ChatModifier {
+         return chatmodifier;
+     }
+ 
++    // Magnet start - add raw getters (make sure the fields in these methods match the ones below)
++    public EnumChatFormat getColorRaw() { return this.b; }
++    public Boolean isBoldRaw() { return this.c; }
++    public Boolean isItalicRaw() { return this.d; }
++    public Boolean isStrikethroughRaw() { return this.f; }
++    public Boolean isUnderlinedRaw() { return this.e; }
++    public Boolean isRandomRaw() { return this.g; }
++    public ChatClickable getClickableRaw() { return this.h; }
++    public ChatHoverable getHoverableRaw() { return this.i; }
++    public String getInsertionRaw() { return this.j; }
++    // Magnet end
++
+     public static class ChatModifierSerializer implements JsonDeserializer<ChatModifier>, JsonSerializer<ChatModifier> {
+ 
+         public ChatModifierSerializer() {}
+diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
+index f36bb8a8..6ef37428 100644
+--- a/src/main/java/net/minecraft/server/PlayerConnection.java
++++ b/src/main/java/net/minecraft/server/PlayerConnection.java
+@@ -1948,16 +1948,23 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
+             int x = packetplayinupdatesign.a().getX();
+             int y = packetplayinupdatesign.a().getY();
+             int z = packetplayinupdatesign.a().getZ();
+-            String[] lines = new String[4];
++            //String[] lines = new String[4]; // Magnet - comment
++            net.md_5.bungee.api.chat.BaseComponent[] lines = new net.md_5.bungee.api.chat.BaseComponent[4]; // Magnet
+ 
+             for (int i = 0; i < aichatbasecomponent.length; ++i) {
+-                lines[i] = EnumChatFormat.a(aichatbasecomponent[i].c());
++                //lines[i] = EnumChatFormat.a(aichatbasecomponent[i].c()); // Magnet - comment
++                lines[i] = org.bukkit.craftbukkit.util.BungeeChatUtils.toBungee(aichatbasecomponent[i]); // Magnet
+             }
+             SignChangeEvent event = new SignChangeEvent((org.bukkit.craftbukkit.block.CraftBlock) player.getWorld().getBlockAt(x, y, z), this.server.getPlayer(this.player), lines);
+             this.server.getPluginManager().callEvent(event);
+ 
+             if (!event.isCancelled()) {
+-                System.arraycopy(org.bukkit.craftbukkit.block.CraftSign.sanitizeLines(event.getLines()), 0, tileentitysign.lines, 0, 4);
++                //System.arraycopy(org.bukkit.craftbukkit.block.CraftSign.sanitizeLines(event.getLines()), 0, tileentitysign.lines, 0, 4); // Magnet - comment
++                // Magnet start
++                for(int i = 0; i < tileentitysign.lines.length; i++) {
++                    tileentitysign.lines[i] = org.bukkit.craftbukkit.util.BungeeChatUtils.toNms(event.line(i));
++                }
++                // Magnet end
+                 tileentitysign.isEditable = false;
+              }
+             // CraftBukkit end
+diff --git a/src/main/java/org/bukkit/craftbukkit/block/CraftSign.java b/src/main/java/org/bukkit/craftbukkit/block/CraftSign.java
+index 43adfccd..23428e41 100644
+--- a/src/main/java/org/bukkit/craftbukkit/block/CraftSign.java
++++ b/src/main/java/org/bukkit/craftbukkit/block/CraftSign.java
+@@ -11,40 +11,50 @@ import org.bukkit.craftbukkit.util.CraftChatMessage;
+ 
+ public class CraftSign extends CraftBlockState implements Sign {
+     private final TileEntitySign sign;
+-    private final String[] lines;
++    //private final String[] lines; // Magnet - comment
++    private final net.md_5.bungee.api.chat.BaseComponent[] lines = new net.md_5.bungee.api.chat.BaseComponent[4]; // Magnet
+ 
+     public CraftSign(final Block block) {
+         super(block);
+ 
+         CraftWorld world = (CraftWorld) block.getWorld();
+         sign = (TileEntitySign) world.getTileEntityAt(getX(), getY(), getZ());
+-        // Spigot start
++        // Magnet start
++        /*// Spigot start
+         if (sign == null) {
+             lines = new String[]{"", "", "", ""};
+             return;
+         }
+         // Spigot end
+         lines = new String[sign.lines.length];
+-        System.arraycopy(revertComponents(sign.lines), 0, lines, 0, lines.length);
++        System.arraycopy(revertComponents(sign.lines), 0, lines, 0, lines.length);*/
++        this.importFromNms();
++        // Magnet end
+     }
+ 
+     public CraftSign(final Material material, final TileEntitySign te) {
+         super(material);
+         sign = te;
+-        lines = new String[sign.lines.length];
+-        System.arraycopy(revertComponents(sign.lines), 0, lines, 0, lines.length);
++        // Magnet - start
++        /*lines = new String[sign.lines.length];
++        System.arraycopy(revertComponents(sign.lines), 0, lines, 0, lines.length);*/
++        this.importFromNms();
++        // Magnet end
+     }
+ 
+     public String[] getLines() {
+-        return lines;
++        //return lines; // Magnet - comment
++        return net.md_5.bungee.api.chat.BaseComponent.toLegacyArray(this.lines); // Magnet
+     }
+ 
+     public String getLine(int index) throws IndexOutOfBoundsException {
+-        return lines[index];
++        //return lines[index]; // Magnet - comment
++        return this.lines[index].toLegacyText(); // Magnet
+     }
+ 
+     public void setLine(int index, String line) throws IndexOutOfBoundsException {
+-        lines[index] = line;
++        //lines[index] = line; // Magnet - comment
++        this.lines[index] = net.md_5.bungee.api.chat.TextComponent.fromLegacyToComponent(line, false); // Magnet
+     }
+ 
+     @Override
+@@ -52,8 +62,13 @@ public class CraftSign extends CraftBlockState implements Sign {
+         boolean result = super.update(force, applyPhysics);
+ 
+         if (result) {
+-            IChatBaseComponent[] newLines = sanitizeLines(lines);
+-            System.arraycopy(newLines, 0, sign.lines, 0, 4);
++            // Magnet - start
++            /*IChatBaseComponent[] newLines = sanitizeLines(lines);
++            System.arraycopy(newLines, 0, sign.lines, 0, 4);*/
++            for(int i = 0; i < this.sign.lines.length; i++) {
++                this.sign.lines[i] = org.bukkit.craftbukkit.util.BungeeChatUtils.toNms(this.lines[i]);
++            }
++            // Magnet - end
+             sign.update();
+         }
+ 
+@@ -90,4 +105,34 @@ public class CraftSign extends CraftBlockState implements Sign {
+     public TileEntitySign getTileEntity() {
+         return sign;
+     }
++
++    // Magnet start
++    @Override
++    public net.md_5.bungee.api.chat.BaseComponent[] lines() {
++        return this.lines;
++    }
++
++    @Override
++    public net.md_5.bungee.api.chat.BaseComponent line(int index) {
++        return this.lines[index];
++    }
++
++    @Override
++    public void setLine(int index, net.md_5.bungee.api.chat.BaseComponent line) {
++        this.lines[index] = line;
++    }
++
++    private void importFromNms() {
++        if(this.sign == null) {
++            for(int i = 0; i < this.lines.length; i++) {
++                this.lines[i] = new net.md_5.bungee.api.chat.TextComponent();
++            }
++            return;
++        }
++
++        for(int i = 0; i < this.lines.length; i++) {
++            this.lines[i] = this.sign.lines.length > i ? org.bukkit.craftbukkit.util.BungeeChatUtils.toBungee(this.sign.lines[i]) : new net.md_5.bungee.api.chat.TextComponent();
++        }
++    }
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
+index 2f2340fd..cc29c449 100644
+--- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
++++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
+@@ -469,9 +469,16 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+             throw new IllegalArgumentException("Must have at least 4 lines");
+         }
+ 
+-        IChatBaseComponent[] components = CraftSign.sanitizeLines(lines);
++        // Magnet - start
++        /*IChatBaseComponent[] components = CraftSign.sanitizeLines(lines);
+ 
+-        getHandle().playerConnection.sendPacket(new PacketPlayOutUpdateSign(getHandle().world, new BlockPosition(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()), components));
++        getHandle().playerConnection.sendPacket(new PacketPlayOutUpdateSign(getHandle().world, new BlockPosition(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()), components));*/
++        final IChatBaseComponent[] nms = new IChatBaseComponent[4];
++        for(int i = 0; i < 4; i++) {
++            nms[i] = lines != null && lines[i] == null ? new ChatComponentText("") : CraftChatMessage.fromString(lines[i])[0];
++        }
++        this.sendSignChange(loc, nms);
++        // Magnet - end
+     }
+ 
+     @Override
+@@ -1913,5 +1920,28 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+         }
+         return name;
+     }
++
++    @Override
++    public void sendSignChange(Location loc, BaseComponent[] lines) {
++        final IChatBaseComponent[] nms = new IChatBaseComponent[4];
++        for(int i = 0; i < 4; i++) {
++            nms[i] = lines != null && lines[i] == null ? new ChatComponentText("") : org.bukkit.craftbukkit.util.BungeeChatUtils.toNms(lines[i]);
++        }
++        this.sendSignChange(loc, nms);
++    }
++
++    private void sendSignChange(Location loc, IChatBaseComponent[] lines) {
++        final PlayerConnection connection = this.getHandle().playerConnection;
++        if(connection == null) {
++            return;
++        }
++
++        Validate.notNull(loc, "Location can not be null");
++        if (lines.length < 4) {
++            throw new IllegalArgumentException("Must have at least 4 lines");
++        }
++
++        connection.sendPacket(new PacketPlayOutUpdateSign(this.getHandle().world, new BlockPosition(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()), lines));
++    }
+     // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/BungeeChatUtils.java b/src/main/java/org/bukkit/craftbukkit/util/BungeeChatUtils.java
+new file mode 100644
+index 00000000..c0ff3a1e
+--- /dev/null
++++ b/src/main/java/org/bukkit/craftbukkit/util/BungeeChatUtils.java
+@@ -0,0 +1,187 @@
++package org.bukkit.craftbukkit.util;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import net.md_5.bungee.api.ChatColor;
++import net.md_5.bungee.api.chat.BaseComponent;
++import net.md_5.bungee.api.chat.ClickEvent;
++import net.md_5.bungee.api.chat.HoverEvent;
++import net.md_5.bungee.api.chat.ScoreComponent;
++import net.md_5.bungee.api.chat.SelectorComponent;
++import net.md_5.bungee.api.chat.TextComponent;
++import net.md_5.bungee.api.chat.TranslatableComponent;
++import net.minecraft.server.ChatClickable;
++import net.minecraft.server.ChatClickable.EnumClickAction;
++import net.minecraft.server.ChatComponentScore;
++import net.minecraft.server.ChatComponentSelector;
++import net.minecraft.server.ChatComponentText;
++import net.minecraft.server.ChatHoverable;
++import net.minecraft.server.ChatHoverable.EnumHoverAction;
++import net.minecraft.server.ChatMessage;
++import net.minecraft.server.ChatModifier;
++import net.minecraft.server.EnumChatFormat;
++import net.minecraft.server.IChatBaseComponent;
++
++public final class BungeeChatUtils {
++    private BungeeChatUtils() {}
++
++    private static <T extends Enum<T>> T convertEnum(Enum<?> from, Class<T> to) {
++        return from == null ? null : to.getEnumConstants()[from.ordinal()];
++    }
++
++    public static EnumChatFormat toNms(ChatColor bungee) {
++        return convertEnum(bungee, EnumChatFormat.class);
++    }
++
++    public static EnumHoverAction toNms(HoverEvent.Action bungee) {
++        return convertEnum(bungee, EnumHoverAction.class);
++    }
++
++    public static EnumClickAction toNms(ClickEvent.Action bungee) {
++        return convertEnum(bungee, EnumClickAction.class);
++    }
++
++    public static ChatHoverable toNms(HoverEvent bungee) {
++        return bungee == null ? null : new ChatHoverable(toNms(bungee.getAction()), toNms(bungee.getValue()));
++    }
++
++    public static ChatClickable toNms(ClickEvent bungee) {
++        return bungee == null ? null : new ChatClickable(toNms(bungee.getAction()), bungee.getValue());
++    }
++
++    public static ChatModifier toNmsModifier(BaseComponent bungee) {
++        final ChatModifier mod = new ChatModifier();
++
++        mod.setColor(toNms(bungee.getColorRaw()));
++
++        mod.setRandom(bungee.isObfuscatedRaw());
++        mod.setBold(bungee.isBoldRaw());
++        mod.setStrikethrough(bungee.isStrikethroughRaw());
++        mod.setUnderline(bungee.isUnderlinedRaw());
++        mod.setItalic(bungee.isItalicRaw());
++
++        mod.setChatHoverable(toNms(bungee.getHoverEvent()));
++        mod.setChatClickable(toNms(bungee.getClickEvent()));
++        mod.setInsertion(bungee.getInsertion());
++
++        return mod;
++    }
++
++    public static IChatBaseComponent toNms(BaseComponent bungee) {
++        final IChatBaseComponent nms;
++        if(bungee instanceof TextComponent) {
++            nms = new ChatComponentText(((TextComponent) bungee).getText());
++        } else if(bungee instanceof TranslatableComponent) {
++            final TranslatableComponent trans = (TranslatableComponent) bungee;
++            if(trans.getWith() == null || trans.getWith().isEmpty()) {
++                nms = new ChatMessage(trans.getTranslate());
++            } else {
++                final IChatBaseComponent[] with = new IChatBaseComponent[trans.getWith().size()];
++                for(int i = 0; i < trans.getWith().size(); i++) {
++                    with[i] = toNms(trans.getWith().get(i));
++                }
++                nms = new ChatMessage(trans.getTranslate(), with);
++            }
++        } else if(bungee instanceof SelectorComponent) {
++            nms = new ChatComponentSelector(((SelectorComponent) bungee).getSelector());
++        } else if(bungee instanceof ScoreComponent) {
++            nms = new ChatComponentScore(((ScoreComponent) bungee).getName(),
++                ((ScoreComponent) bungee).getObjective());
++        } else {
++            throw new IllegalArgumentException("Don't know how to convert a " + bungee.getClass().getName());
++        }
++
++        nms.setChatModifier(toNmsModifier(bungee));
++
++        if(bungee.getExtra() != null && !bungee.getExtra().isEmpty()) {
++            for(BaseComponent extra : bungee.getExtra()) {
++                nms.addSibling(toNms(extra));
++            }
++        }
++
++        return nms;
++    }
++
++    public static IChatBaseComponent toNms(BaseComponent[] bungees) {
++        if(bungees.length == 1) {
++            return toNms(bungees[0]);
++        } else {
++            final IChatBaseComponent nms = new ChatComponentText("");
++            for(BaseComponent bungee : bungees) {
++                nms.addSibling(toNms(bungee));
++            }
++            return nms;
++        }
++    }
++
++    public static ChatColor toBungee(EnumChatFormat nms) {
++        return convertEnum(nms, ChatColor.class);
++    }
++
++    public static HoverEvent.Action toBungee(EnumHoverAction nms) {
++        return convertEnum(nms, HoverEvent.Action.class);
++    }
++
++    public static ClickEvent.Action toBungee(EnumClickAction nms) {
++        return convertEnum(nms, ClickEvent.Action.class);
++    }
++
++    public static HoverEvent toBungee(ChatHoverable nms) {
++        return nms == null ? null : new HoverEvent(toBungee(nms.a()), new BaseComponent[]{ toBungee(nms.b()) });
++    }
++
++    public static ClickEvent toBungee(ChatClickable nms) {
++        return nms == null ? null : new ClickEvent(toBungee(nms.a()), nms.b());
++    }
++
++    public static void toBungeeModifier(BaseComponent bungee, ChatModifier nms) {
++        bungee.setColor(toBungee(nms.getColorRaw()));
++
++        bungee.setObfuscated(nms.isRandomRaw());
++        bungee.setBold(nms.isBoldRaw());
++        bungee.setStrikethrough(nms.isStrikethroughRaw());
++        bungee.setUnderlined(nms.isUnderlinedRaw());
++        bungee.setItalic(nms.isItalicRaw());
++
++        bungee.setHoverEvent(toBungee(nms.getHoverableRaw()));
++        bungee.setClickEvent(toBungee(nms.getClickableRaw()));
++        bungee.setInsertion(nms.getInsertionRaw());
++    }
++
++    public static BaseComponent toBungee(IChatBaseComponent nms) {
++        if(nms == null) return new TextComponent();
++
++        final BaseComponent bungee;
++        if(nms instanceof ChatComponentText) {
++            bungee = new TextComponent(((ChatComponentText) nms).g());
++        } else if(nms instanceof ChatMessage) {
++            final ChatMessage nmsMessage = (ChatMessage) nms;
++            final BaseComponent[] with = new BaseComponent[nmsMessage.j().length];
++            for(int i = 0; i < nmsMessage.j().length; i++) {
++                final Object o = nmsMessage.j()[i];
++                with[i] = o instanceof IChatBaseComponent ? toBungee((IChatBaseComponent) o)
++                    : new TextComponent(String.valueOf(o));
++            }
++            bungee = new TranslatableComponent(nmsMessage.i(), with);
++        } else if(nms instanceof ChatComponentSelector) {
++            bungee = new SelectorComponent(((ChatComponentSelector) nms).g());
++        } else if(nms instanceof ChatComponentScore) {
++            bungee = new ScoreComponent(((ChatComponentScore) nms).g(), ((ChatComponentScore) nms).h());
++        } else {
++            throw new IllegalArgumentException("Don't know how to convert a " + nms.getClass().getName());
++        }
++
++        toBungeeModifier(bungee, nms.getChatModifier());
++
++        if(!nms.a().isEmpty()) {
++            List<BaseComponent> extras = new ArrayList<BaseComponent>(nms.a().size());
++            for(IChatBaseComponent c : nms.a()) {
++                extras.add(toBungee(c));
++            }
++            bungee.setExtra(extras);
++        }
++
++        return bungee;
++    }
++}
+-- 
+2.11.0
+

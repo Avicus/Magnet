@@ -23,6 +23,10 @@
             <id>avicus-private</id>
             <url>https://repo.avicus.net/content/groups/private/</url>
         </repository>
+        <repository>
+            <id>ocn-private</id>
+            <url>https://repo.oc.tc/content/groups/public/</url>
+        </repository>
     </repositories>
 
     <modules>
