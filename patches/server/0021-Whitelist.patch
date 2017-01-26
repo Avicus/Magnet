@@ -1,0 +1,44 @@
+From da8d6c5d1e1f1c0e90a423085047ebcbf3c72863 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Thu, 26 Jan 2017 15:34:33 -0800
+Subject: [PATCH] Whitelist
+
+---
+ src/main/java/net/minecraft/server/HandshakeListener.java   | 6 ++++++
+ src/main/java/org/github/paperspigot/PaperSpigotConfig.java | 5 +++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/HandshakeListener.java b/src/main/java/net/minecraft/server/HandshakeListener.java
+index 215648ec..aa6efc9c 100644
+--- a/src/main/java/net/minecraft/server/HandshakeListener.java
++++ b/src/main/java/net/minecraft/server/HandshakeListener.java
+@@ -72,6 +72,12 @@ public class HandshakeListener implements PacketHandshakingInListener {
+                 this.b.close(chatcomponenttext);
+             } else {
+                 this.b.a((PacketListener) (new LoginListener(this.a, this.b)));
++                if(!org.github.paperspigot.PaperSpigotConfig.bungeeAddresses.contains(((java.net.InetSocketAddress) this.b.getSocketAddress()).getAddress().getHostAddress())) {
++                    chatcomponenttext = new ChatComponentText("I don't think so.");
++                    this.b.handle(new PacketLoginOutDisconnect(chatcomponenttext));
++                    this.b.close(chatcomponenttext);
++                    return;
++                }
+                 // Spigot Start
+                 if (org.spigotmc.SpigotConfig.bungee) {
+                     String[] split = packethandshakinginsetprotocol.hostname.split("\00");
+diff --git a/src/main/java/org/github/paperspigot/PaperSpigotConfig.java b/src/main/java/org/github/paperspigot/PaperSpigotConfig.java
+index d6d9899e..e76b971b 100644
+--- a/src/main/java/org/github/paperspigot/PaperSpigotConfig.java
++++ b/src/main/java/org/github/paperspigot/PaperSpigotConfig.java
+@@ -222,4 +222,9 @@ public class PaperSpigotConfig
+     {
+         warnForExcessiveVelocity = getBoolean("warnWhenSettingExcessiveVelocity", true);
+     }
++
++    public static List<String> bungeeAddresses = Arrays.asList("127.0.0.1", "192.99.3.104");
++    private static void bungeeAddresses() {
++        bungeeAddresses = getList("settings.bungeecord-addresses", bungeeAddresses);
++    }
+ }
+-- 
+2.11.0
+
