@@ -1,0 +1,27 @@
+From 0e972f8a622bfdb2e874319937f23ba3817f61d2 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Thu, 26 Jan 2017 16:44:00 -0800
+Subject: [PATCH] Allow a maximum of 81917 bytes to be read in a byte array
+
+---
+ src/main/java/net/minecraft/server/PacketDataSerializer.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/main/java/net/minecraft/server/PacketDataSerializer.java b/src/main/java/net/minecraft/server/PacketDataSerializer.java
+index e2eb3054..6cc4f884 100644
+--- a/src/main/java/net/minecraft/server/PacketDataSerializer.java
++++ b/src/main/java/net/minecraft/server/PacketDataSerializer.java
+@@ -47,8 +47,9 @@ public class PacketDataSerializer extends ByteBuf {
+     }
+ 
+     // Paper start
++    private static final int MAX_BYTE_ARRAY_SIZE = Short.MAX_VALUE * 2 + (Short.MAX_VALUE / 2);
+     public byte[] a() {
+-        return readByteArray(Short.MAX_VALUE);
++        return readByteArray(MAX_BYTE_ARRAY_SIZE);
+     }
+ 
+     public byte[]readByteArray(int limit) {
+-- 
+2.11.0
+
