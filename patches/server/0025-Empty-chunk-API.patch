@@ -1,0 +1,45 @@
+From 621101ee92ec4c58f1fa3d54a8f60db82a942267 Mon Sep 17 00:00:00 2001
+From: Jedediah Smith <jedediah@silencegreys.com>
+Date: Sun, 6 Mar 2016 03:43:35 -0500
+Subject: [PATCH] Empty chunk API
+
+---
+ src/main/java/net/minecraft/server/ChunkSection.java | 1 +
+ src/main/java/org/bukkit/craftbukkit/CraftChunk.java | 9 +++++++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/ChunkSection.java b/src/main/java/net/minecraft/server/ChunkSection.java
+index 907c57b8..598a58d6 100644
+--- a/src/main/java/net/minecraft/server/ChunkSection.java
++++ b/src/main/java/net/minecraft/server/ChunkSection.java
+@@ -71,6 +71,7 @@ public class ChunkSection {
+         return iblockdata.getBlock().toLegacyData(iblockdata);
+     }
+ 
++    public boolean isEmpty() { return this.a(); } // Magnet - alias for following method
+     public boolean a() {
+         return this.nonEmptyBlockCount == 0;
+     }
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
+index 80de4eb1..6ebc283b 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
+@@ -103,6 +103,15 @@ public class CraftChunk implements Chunk {
+         return blocks;
+     }
+ 
++    // Magnet start
++    public boolean isEmpty() {
++        for(ChunkSection section : getHandle().getSections()) {
++            if(section != null && !section.isEmpty()) return false;
++        }
++        return true;
++    }
++    // Magnet end
++
+     public Entity[] getEntities() {
+         int count = 0, index = 0;
+         net.minecraft.server.Chunk chunk = getHandle();
+-- 
+2.11.0
+
