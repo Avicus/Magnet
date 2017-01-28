@@ -1,0 +1,29 @@
+From 1705415130161d8547626a6563aaf00a2a376bd4 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Fri, 27 Jan 2017 20:47:46 -0800
+Subject: [PATCH] Add fast block change methods
+
+---
+ src/main/java/org/bukkit/World.java | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/World.java b/src/main/java/org/bukkit/World.java
+index 325d65a3..dfd99a16 100644
+--- a/src/main/java/org/bukkit/World.java
++++ b/src/main/java/org/bukkit/World.java
+@@ -1327,4 +1327,12 @@ public interface World extends PluginMessageRecipient, Metadatable {
+             }
+         }
+     }
++
++    // Magnet start
++    void fastBlockChange(final Vector vec, final org.bukkit.material.MaterialData material);
++
++    void fastBlockChange(final Iterable<Vector> vecs, final org.bukkit.material.MaterialData material);
++
++    void fastBlockChange(final Vector vec, final short material, final byte data);
++    // Magnet end
+ }
+-- 
+2.11.0
+
