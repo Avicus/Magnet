@@ -1,0 +1,66 @@
+From 072e511d88094c4c56a4ae9da77e44ded5f1a0a2 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Fri, 27 Jan 2017 20:47:55 -0800
+Subject: [PATCH] Add fast block change methods
+
+---
+ .../java/net/minecraft/server/BlockPosition.java   |  6 +++++
+ .../java/org/bukkit/craftbukkit/CraftWorld.java    | 29 ++++++++++++++++++++++
+ 2 files changed, 35 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/BlockPosition.java b/src/main/java/net/minecraft/server/BlockPosition.java
+index 0d0e0abb..fb919462 100644
+--- a/src/main/java/net/minecraft/server/BlockPosition.java
++++ b/src/main/java/net/minecraft/server/BlockPosition.java
+@@ -279,4 +279,10 @@ public class BlockPosition extends BaseBlockPosition {
+             return super.c(baseblockposition);
+         }
+     }
++
++    // Magnet start
++    public static BlockPosition immutableFrom(org.bukkit.util.Vector vec) {
++        return new BlockPosition(vec.getBlockX(), vec.getBlockY(), vec.getBlockZ());
++    }
++    // Magnet end
+ }
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
+index 76400709..9fa833e3 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
+@@ -1507,4 +1507,33 @@ public class CraftWorld implements World {
+         return spigot;
+     }
+     // Spigot end
++
++    // Magnet start
++    private static final int UPDATE_CLIENTS = 2;
++
++    @Override
++    public void fastBlockChange(final Vector vec, final org.bukkit.material.MaterialData material) {
++        final net.minecraft.server.Block block = CraftMagicNumbers.getBlock(material.getItemType());
++        final IBlockData state = block.fromLegacyData(material.getData());
++        this.fastBlockChange(vec, state);
++    }
++
++    @Override
++    public void fastBlockChange(final Iterable<Vector> vecs, final org.bukkit.material.MaterialData material) {
++        final net.minecraft.server.Block block = CraftMagicNumbers.getBlock(material.getItemType());
++        final IBlockData state = block.fromLegacyData(material.getData());
++        for (final Vector vec : vecs) {
++            this.fastBlockChange(vec, state);
++        }
++    }
++
++    private void fastBlockChange(final Vector vec, final IBlockData state) {
++        this.world.setTypeAndData(BlockPosition.immutableFrom(vec), state, UPDATE_CLIENTS);
++    }
++
++    @Override
++    public void fastBlockChange(final Vector vec, final short material, final byte data) {
++        this.fastBlockChange(vec, new org.bukkit.material.MaterialData(material, data));
++    }
++    // Magnet end
+ }
+-- 
+2.11.0
+
