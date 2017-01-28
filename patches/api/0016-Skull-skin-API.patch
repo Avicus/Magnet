@@ -1,0 +1,68 @@
+From f98c17f3b16834eaa3e2c4a501a7830dc80cd765 Mon Sep 17 00:00:00 2001
+From: Jedediah Smith <jedediah@silencegreys.com>
+Date: Thu, 6 Aug 2015 22:18:43 -0400
+Subject: [PATCH] Skull skin API
+
+---
+ src/main/java/org/bukkit/block/Skull.java              | 17 +++++++++++++++++
+ src/main/java/org/bukkit/inventory/meta/SkullMeta.java | 17 +++++++++++++++++
+ 2 files changed, 34 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/block/Skull.java b/src/main/java/org/bukkit/block/Skull.java
+index 4f4896f8..db97d62b 100644
+--- a/src/main/java/org/bukkit/block/Skull.java
++++ b/src/main/java/org/bukkit/block/Skull.java
+@@ -32,6 +32,23 @@ public interface Skull extends BlockState {
+      */
+     public boolean setOwner(String name);
+ 
++    // Magnet start
++    /**
++     * Set the owner and appearance of this skull. A skull with this data set
++     * does not need to fetch anything remotely.
++     *
++     * @param name Username of the skull's owner, can be null (appears in item tooltip)
++     * @param uuid UUID of the skull's owner
++     * @param skin Skull owner's skin
++     */
++    void setOwner(String name, java.util.UUID uuid, org.bukkit.Skin skin);
++
++    /**
++     * Clear any owner data in this skull
++     */
++    void clearOwner();
++    // Magnet end
++
+     /**
+      * Gets the rotation of the skull in the world
+      *
+diff --git a/src/main/java/org/bukkit/inventory/meta/SkullMeta.java b/src/main/java/org/bukkit/inventory/meta/SkullMeta.java
+index fab31190..4e65c040 100644
+--- a/src/main/java/org/bukkit/inventory/meta/SkullMeta.java
++++ b/src/main/java/org/bukkit/inventory/meta/SkullMeta.java
+@@ -32,5 +32,22 @@ public interface SkullMeta extends ItemMeta {
+      */
+     boolean setOwner(String owner);
+ 
++    // Magnet start
++    /**
++     * Set the owner and appearance of this skull. A skull with this data set
++     * does not need to fetch anything remotely.
++     *
++     * @param name Username of the skull's owner, can be null (appears in item tooltip)
++     * @param uuid UUID of the skull's owner
++     * @param skin Skull owner's skin
++     */
++    void setOwner(String name, java.util.UUID uuid, org.bukkit.Skin skin);
++
++    /**
++     * Clear any owner data in this skull
++     */
++    void clearOwner();
++    // Magnet end
++
+     SkullMeta clone();
+ }
+-- 
+2.11.0
+
