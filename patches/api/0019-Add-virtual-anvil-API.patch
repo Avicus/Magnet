@@ -1,0 +1,27 @@
+From f5ba848e16e0e571ac39368e63d52bedbad45e04 Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Sat, 28 Jan 2017 23:44:25 -0800
+Subject: [PATCH] Add virtual anvil API
+
+---
+ src/main/java/org/bukkit/entity/HumanEntity.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/entity/HumanEntity.java b/src/main/java/org/bukkit/entity/HumanEntity.java
+index 8710a7b2..ad2867b1 100644
+--- a/src/main/java/org/bukkit/entity/HumanEntity.java
++++ b/src/main/java/org/bukkit/entity/HumanEntity.java
+@@ -97,6 +97,10 @@ public interface HumanEntity extends LivingEntity, AnimalTamer, Permissible, Inv
+      */
+     public InventoryView openMerchantCopy(Villager trader);
+ 
++    // Magnet start
++    InventoryView openVirtualAnvil(Location location, boolean force);
++    // Magnet end
++
+     /**
+      * Opens an inventory window to the specified inventory view.
+      *
+-- 
+2.11.0
+
