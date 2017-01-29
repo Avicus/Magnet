@@ -1,0 +1,49 @@
+From 160f72331e0ccef69d773fdbf2637c8bca426edf Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Sat, 28 Jan 2017 23:44:34 -0800
+Subject: [PATCH] Add virtual anvil API
+
+---
+ .../craftbukkit/entity/CraftHumanEntity.java       | 26 ++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
+index ec3235e8..f1c66084 100644
+--- a/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
++++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftHumanEntity.java
+@@ -337,6 +337,32 @@ public class CraftHumanEntity extends CraftLivingEntity implements HumanEntity {
+         return getHandle().activeContainer.getBukkitView();
+     }
+ 
++    // Magnet start
++    @Override
++    public InventoryView openVirtualAnvil(Location location, boolean force) {
++        if (!force) {
++            final Block block = location.getBlock();
++            if (block.getType() != Material.ANVIL) {
++                return null;
++            }
++        }
++
++        if (location == null) {
++            location = this.getLocation();
++        }
++
++        final BlockPosition pos = new BlockPosition(location.getBlockX(), location.getBlockY(), location.getBlockZ());
++        final ITileEntityContainer container = new BlockAnvil.TileEntityContainerAnvil(this.getHandle().world, pos);
++        this.getHandle().openTileEntity(container);
++
++        if (force) {
++            this.getHandle().activeContainer.checkReachable = false;
++        }
++
++        return this.getHandle().activeContainer.getBukkitView();
++    }
++    // Magnet end
++
+     public void openInventory(InventoryView inventory) {
+         if (!(getHandle() instanceof EntityPlayer)) return; // TODO: NPC support?
+         if (((EntityPlayer) getHandle()).playerConnection == null) return;
+-- 
+2.11.0
+
