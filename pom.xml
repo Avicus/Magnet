@@ -20,12 +20,12 @@
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
         <repository>
-            <id>avicus-private</id>
+            <id>avicus-public</id>
             <url>https://repo.avicus.net/content/groups/private/</url>
         </repository>
         <repository>
-            <id>ocn-private</id>
-            <url>https://repo.oc.tc/content/groups/public/</url>
+            <id>avicus-private</id>
+            <url>https://repo.avicus.net/content/groups/private/</url>
         </repository>
     </repositories>
 
