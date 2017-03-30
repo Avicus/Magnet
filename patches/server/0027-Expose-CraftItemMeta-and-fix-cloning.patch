@@ -1,0 +1,101 @@
+From 3474714dfbdfc756cfc21f6e4c3ebe8e01c3d2e3 Mon Sep 17 00:00:00 2001
+From: Austin Mayes <austin@avicus.net>
+Date: Thu, 30 Mar 2017 13:54:00 -0500
+Subject: [PATCH] Expose CraftItemMeta and fix cloning
+
+---
+ .../bukkit/craftbukkit/inventory/CraftMetaBanner.java    |  7 +++++++
+ .../craftbukkit/inventory/CraftMetaBlockState.java       |  9 +++++++++
+ .../org/bukkit/craftbukkit/inventory/CraftMetaItem.java  | 16 +++++++++++++++-
+ .../inventory/ItemMetaImplementationOverrideTest.java    |  7 +++++--
+ 4 files changed, 36 insertions(+), 3 deletions(-)
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
+index 80f9ffa..00c7a99 100644
+--- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
++++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
+@@ -201,4 +201,11 @@ public class CraftMetaBanner extends CraftMetaItem implements BannerMeta {
+     boolean applicableTo(Material type) {
+         return type == Material.BANNER;
+     }
++
++    @Override
++    public CraftMetaBanner clone() {
++        final CraftMetaBanner that = (CraftMetaBanner) super.clone();
++        that.patterns = new ArrayList<>(this.patterns);
++        return that;
++    }
+ }
+diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
+index d60686d..92d3e58 100644
+--- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
++++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
+@@ -335,4 +335,13 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
+         blockEntityTag = new NBTTagCompound();
+         te.b(blockEntityTag);
+     }
++
++    @Override
++    public CraftMetaBlockState clone() {
++        final CraftMetaBlockState that = (CraftMetaBlockState) super.clone();
++        if(this.blockEntityTag != null) {
++            that.blockEntityTag = (NBTTagCompound) this.blockEntityTag.clone();
++        }
++        return that;
++    }
+ }
+diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
+index eaaa6a1..c9b1620 100644
+--- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
++++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
+@@ -76,7 +76,7 @@ import net.minecraft.server.IAttribute;
+  * <li> SerializableMeta.Deserializers deserializer()
+  */
+ @DelegateDeserialization(CraftMetaItem.SerializableMeta.class)
+-class CraftMetaItem implements ItemMeta, Repairable {
++public class CraftMetaItem implements ItemMeta, Repairable {
+ 
+     static class ItemMetaKey {
+ 
+@@ -990,6 +990,20 @@ class CraftMetaItem implements ItemMeta, Repairable {
+         }
+     }
+ 
++    /**
++     * This map contains any NBT tags NOT handled by the Bukkit API.
++     * These tags will be loaded and saved verbatim to items.
++     * The returned map can be modified by brave/evil code, in order
++     * to implement custom item state.
++     *
++     * It is not recommended to use this map to interact with standard
++     * tags before Bukkit supports them, because once that support is
++     * added, the tags will disappear from this map.
++     */
++    public Map<String, NBTBase> getUnhandledTags() {
++        return unhandledTags;
++    }
++
+     // Spigot start
+     private final Spigot spigot = new Spigot()
+     {
+diff --git a/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java b/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
+index f1b4ec0..ad35cd4 100644
+--- a/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
++++ b/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
+@@ -47,8 +47,11 @@ public class ItemMetaImplementationOverrideTest {
+                     new Object[] {
+                         new Callable<Method>() {
+                             public Method call() throws Exception {
+-                                return clazz.getDeclaredMethod(method.getName(), method.getParameterTypes());
+-                            }
++                                final Method override = clazz.getDeclaredMethod(method.getName(), method.getParameterTypes());
++                                if(override.isSynthetic() || override.isBridge()) {
++                                    throw new NoSuchMethodException("Override " + override + " is not a real method");
++                                }
++                                return override;                            }
+                         },
+                         clazz.getSimpleName() + " contains " + method.getName()
+                     }
+-- 
+2.6.4
+
