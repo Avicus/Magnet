@@ -1,0 +1,35 @@
+From 9798c1987c777b9300e4d389558cc8403214334c Mon Sep 17 00:00:00 2001
+From: Austin Mayes <austin@avicus.net>
+Date: Wed, 19 Apr 2017 01:08:00 -0500
+Subject: [PATCH] Only enable whitelist when bungee is true
+
+---
+ src/main/java/net/minecraft/server/HandshakeListener.java | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/main/java/net/minecraft/server/HandshakeListener.java b/src/main/java/net/minecraft/server/HandshakeListener.java
+index aa6efc9..ff5543c 100644
+--- a/src/main/java/net/minecraft/server/HandshakeListener.java
++++ b/src/main/java/net/minecraft/server/HandshakeListener.java
+@@ -1,6 +1,8 @@
+ package net.minecraft.server;
+ 
+ // CraftBukkit start
++import org.github.paperspigot.PaperSpigotConfig;
++
+ import java.net.InetAddress;
+ import java.util.HashMap;
+ // CraftBukkit end
+@@ -72,7 +74,8 @@ public class HandshakeListener implements PacketHandshakingInListener {
+                 this.b.close(chatcomponenttext);
+             } else {
+                 this.b.a((PacketListener) (new LoginListener(this.a, this.b)));
+-                if(!org.github.paperspigot.PaperSpigotConfig.bungeeAddresses.contains(((java.net.InetSocketAddress) this.b.getSocketAddress()).getAddress().getHostAddress())) {
++                if(PaperSpigotConfig.config.getBoolean("settings.bungeecord") &&
++                        !org.github.paperspigot.PaperSpigotConfig.bungeeAddresses.contains(((java.net.InetSocketAddress) this.b.getSocketAddress()).getAddress().getHostAddress())) {
+                     chatcomponenttext = new ChatComponentText("I don't think so.");
+                     this.b.handle(new PacketLoginOutDisconnect(chatcomponenttext));
+                     this.b.close(chatcomponenttext);
+-- 
+2.6.4
+
