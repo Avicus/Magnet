@@ -1,0 +1,59 @@
+From 645318b6c8ad55dc3a2e094abc662d803b38be9a Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Fri, 5 May 2017 19:50:49 -0700
+Subject: [PATCH] Add method to get positions in a chunk
+
+---
+ .../java/org/bukkit/craftbukkit/CraftChunk.java    | 36 ++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
+index 6ebc283b6..ddd4d06c4 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
+@@ -110,6 +110,42 @@ public class CraftChunk implements Chunk {
+         }
+         return true;
+     }
++
++    @Override
++    public Set<org.bukkit.util.Vector> findPositions(final Material material, final boolean emptyToVirtual) {
++        final net.minecraft.server.Block block = CraftMagicNumbers.getBlock(material);
++        final net.minecraft.server.Chunk chunk = this.getHandle();
++        final ChunkSection[] sections = chunk.getSections();
++        final Set<org.bukkit.util.Vector> positions = new HashSet<>();
++        for (int i = 0, length = sections.length; i < length; i++) {
++            final ChunkSection section = sections[i];
++            if ((section == null || section.a())) {
++                if (!emptyToVirtual) {
++                    continue;
++                }
++                for (int j = 0; j < 4096; j++) {
++                    positions.add(new org.bukkit.util.Vector(
++                        (this.x << 4) | (j & 0xf),
++                        i | (j >> 8),
++                        (this.z << 4) | (j >> 4) & 0xf
++                    ));
++                }
++            } else {
++                final char[] blocks = section.getIdArray();
++                for (int j = 0; j < blocks.length; j++) {
++                    final IBlockData state = net.minecraft.server.Block.d.a(blocks[j]);
++                    if (state.getBlock() == block) {
++                        positions.add(new org.bukkit.util.Vector(
++                            (this.x << 4) | (j & 0xf),
++                            section.getYPosition() | (j >> 8),
++                            (this.z << 4) | (j >> 4) & 0xf
++                        ));
++                    }
++                }
++            }
++        }
++        return positions;
++    }
+     // Magnet end
+ 
+     public Entity[] getEntities() {
+-- 
+2.12.2
+
