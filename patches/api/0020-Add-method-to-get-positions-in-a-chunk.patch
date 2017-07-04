@@ -1,0 +1,25 @@
+From 6555108fd9df4638ac70fdb37214c60a73f2a44a Mon Sep 17 00:00:00 2001
+From: kashike <kashike@vq.lc>
+Date: Fri, 5 May 2017 19:50:07 -0700
+Subject: [PATCH] Add method to get positions in a chunk
+
+---
+ src/main/java/org/bukkit/Chunk.java | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/main/java/org/bukkit/Chunk.java b/src/main/java/org/bukkit/Chunk.java
+index af6e4ef8..0f2c1b78 100644
+--- a/src/main/java/org/bukkit/Chunk.java
++++ b/src/main/java/org/bukkit/Chunk.java
+@@ -56,6 +56,8 @@ public interface Chunk {
+      * Is this chunk entirely filled with air blocks?
+      */
+     boolean isEmpty();
++
++    Set<org.bukkit.util.Vector> findPositions(final Material material, final boolean emptyToVirtual);
+     // Magnet end
+ 
+     /**
+-- 
+2.12.2
+
