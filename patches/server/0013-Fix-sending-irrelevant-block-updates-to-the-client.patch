@@ -1,4 +1,4 @@
-From 139f8e456630f131b685c75ba6c9618b8476893b Mon Sep 17 00:00:00 2001
+From 3b0801cbaa909bbd2f996d0a58a5e1a52493a6e9 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Fri, 23 Dec 2016 02:33:49 -0600
 Subject: [PATCH] Fix sending irrelevant block updates to the client

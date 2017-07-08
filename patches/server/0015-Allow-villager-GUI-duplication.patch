@@ -1,4 +1,4 @@
-From 88fcc2a3197f74ea79895c4792b0c66af3d6eb82 Mon Sep 17 00:00:00 2001
+From 2249eba2dc8ebaa77f6eb37e17ba3a67087bdad4 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Fri, 23 Dec 2016 03:12:50 -0600
 Subject: [PATCH] Allow villager GUI duplication

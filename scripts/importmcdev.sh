@@ -39,8 +39,6 @@ function import {
 		git reset --hard HEAD^
 	fi
 )
-import PacketPlayOutPlayerInfo
-import PacketPlayOutScoreBoardTeam
 (
 	cd Magnet-Server/
 	rm -rf nms-patches

@@ -1,4 +1,4 @@
-From 6c063574617b76d7f16bacb3949ba11f44014be7 Mon Sep 17 00:00:00 2001
+From 381e49507a64859c634e0c50939d6da77ee63b2a Mon Sep 17 00:00:00 2001
 From: kashike <kashike@vq.lc>
 Date: Fri, 16 Dec 2016 12:49:31 -0800
 Subject: [PATCH] This is Magnet
@@ -88,5 +88,5 @@ index 3a4b142..b820598 100644
  
          if (stream != null) {
 -- 
-2.10.2
+2.6.4
 
