@@ -1,0 +1,33 @@
+From 2b5638b7cf268d49615a86ff8214b39502ad20b1 Mon Sep 17 00:00:00 2001
+From: Austin Mayes <austin@avicus.net>
+Date: Fri, 14 Jul 2017 22:46:17 -0500
+Subject: [PATCH] Add PA Repo
+
+---
+ pom.xml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/pom.xml b/pom.xml
+index 5448cf9..0c3fe9e 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -21,6 +21,17 @@
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+
++    <repositories>
++        <repository>
++            <id>pa-snapshots</id>
++            <url>https://repo.extension.ws/content/repositories/snapshots</url>
++        </repository>
++        <repository>
++            <id>pa-releases</id>
++            <url>https://repo.extension.ws/content/repositories/releases</url>
++        </repository>
++    </repositories>
++
+     <!-- required until fixed plexus-compiler-eclipse is deployed -->
+     <pluginRepositories>
+         <pluginRepository>
+--
+2.6.4

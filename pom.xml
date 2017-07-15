@@ -8,9 +8,13 @@
     <packaging>pom</packaging>
 
     <distributionManagement>
+        <repository>
+            <id>avicus-repo</id>
+            <url>https://repo.avicus.net/content/repositories/releases/</url>
+        </repository>
         <snapshotRepository>
             <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/snapshots-private/</url>
+            <url>https://repo.avicus.net/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -21,10 +25,6 @@
         </repository>
         <repository>
             <id>avicus-public</id>
-            <url>https://repo.avicus.net/content/groups/private/</url>
-        </repository>
-        <repository>
-            <id>avicus-private</id>
             <url>https://repo.avicus.net/content/groups/private/</url>
         </repository>
     </repositories>
