@@ -1,14 +1,14 @@
-From f4661554a77b886b5bd535686ee20eece97898b1 Mon Sep 17 00:00:00 2001
+From 7771ef7c34c373eb285a972da5ac59c140aa89da Mon Sep 17 00:00:00 2001
 From: Austin Mayes <bookofnathan@gmail.com>
 Date: Thu, 23 May 2013 20:09:16 -0500
 Subject: [PATCH] Add onGround API (SportBukkit)
 
 ---
- .../net/minecraft/server/PlayerConnection.java     | 28 +++++++++++-----------
+ .../minecraft/server/PlayerConnection.java    | 28 +++++++++----------
  1 file changed, 14 insertions(+), 14 deletions(-)
 
 diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
-index 4391ad7..05b5937 100644
+index 4391ad7e..05b5937f 100644
 --- a/src/main/java/net/minecraft/server/PlayerConnection.java
 +++ b/src/main/java/net/minecraft/server/PlayerConnection.java
 @@ -43,20 +43,7 @@ import org.bukkit.event.inventory.InventoryAction;
@@ -61,5 +61,5 @@ index 4391ad7..05b5937 100644
                  } else if (this.e - this.f > 20) {
                      this.a(this.o, this.p, this.q, this.player.yaw, this.player.pitch);
 -- 
-2.6.4
+2.23.0
 

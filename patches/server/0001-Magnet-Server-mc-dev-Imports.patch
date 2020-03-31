@@ -1,4 +1,4 @@
-From fc15abcbb5634899c7980c8706aecd8afa7b8f48 Mon Sep 17 00:00:00 2001
+From e2c1445fccffda8e4a3e03e5d051e0d2394b4c4c Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Sun, 1 Jan 2017 23:56:23 -0600
 Subject: [PATCH] Magnet-Server mc-dev Imports
@@ -8,9 +8,9 @@ Subject: [PATCH] Magnet-Server mc-dev Imports
 
   Imported PacketPlayOutEntityMetadata.java from mc-dev
 ---
- .../server/PacketPlayOutEntityMetadata.java        |  40 ++++
- .../minecraft/server/PacketPlayOutPlayerInfo.java  | 254 +++++++++++++++++++++
- .../server/PacketPlayOutScoreboardTeam.java        | 112 +++++++++
+ .../server/PacketPlayOutEntityMetadata.java   |  40 +++
+ .../server/PacketPlayOutPlayerInfo.java       | 254 ++++++++++++++++++
+ .../server/PacketPlayOutScoreboardTeam.java   | 112 ++++++++
  3 files changed, 406 insertions(+)
  create mode 100644 src/main/java/net/minecraft/server/PacketPlayOutEntityMetadata.java
  create mode 100644 src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java
@@ -18,7 +18,7 @@ Subject: [PATCH] Magnet-Server mc-dev Imports
 
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutEntityMetadata.java b/src/main/java/net/minecraft/server/PacketPlayOutEntityMetadata.java
 new file mode 100644
-index 0000000..c5be70f
+index 00000000..c5be70f8
 --- /dev/null
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutEntityMetadata.java
 @@ -0,0 +1,40 @@
@@ -64,7 +64,7 @@ index 0000000..c5be70f
 +}
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java b/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java
 new file mode 100644
-index 0000000..dbfc964
+index 00000000..dbfc9640
 --- /dev/null
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutPlayerInfo.java
 @@ -0,0 +1,254 @@
@@ -324,7 +324,7 @@ index 0000000..dbfc964
 +}
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java b/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java
 new file mode 100644
-index 0000000..4b8eb3e
+index 00000000..4b8eb3ee
 --- /dev/null
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutScoreboardTeam.java
 @@ -0,0 +1,112 @@
@@ -441,5 +441,5 @@ index 0000000..4b8eb3e
 +    }
 +}
 -- 
-2.6.4
+2.23.0
 

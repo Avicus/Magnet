@@ -1,11 +1,11 @@
-From 45ff24d172b4ddfe75b598c3e4a6428e8db31528 Mon Sep 17 00:00:00 2001
+From 3498801ff3ace6e33323f7b3b0484ae893e116fb Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Thu, 6 Aug 2015 22:18:57 -0400
 Subject: [PATCH] Skull skin API
 
 ---
- src/main/java/org/bukkit/craftbukkit/block/CraftSkull.java | 14 ++++++++++++++
- .../org/bukkit/craftbukkit/inventory/CraftMetaSkull.java   | 13 +++++++++++++
+ .../org/bukkit/craftbukkit/block/CraftSkull.java   | 14 ++++++++++++++
+ .../craftbukkit/inventory/CraftMetaSkull.java      | 13 +++++++++++++
  2 files changed, 27 insertions(+)
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/block/CraftSkull.java b/src/main/java/org/bukkit/craftbukkit/block/CraftSkull.java
@@ -58,5 +58,5 @@ index 55bbad76..bec8ec0f 100644
      int applyHash() {
          final int original;
 -- 
-2.11.0
+2.23.0
 

@@ -23,10 +23,6 @@
             <id>sonatype-repo</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
-        <repository>
-            <id>avicus-public</id>
-            <url>https://repo.avicus.net/content/groups/private/</url>
-        </repository>
     </repositories>
 
     <modules>

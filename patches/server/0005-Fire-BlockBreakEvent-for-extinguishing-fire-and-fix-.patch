@@ -1,16 +1,16 @@
-From 4daf776b696ab58cc5940cdb512065b7064fbe11 Mon Sep 17 00:00:00 2001
+From 561d140ad409001d45382259f7c15151f8a893e7 Mon Sep 17 00:00:00 2001
 From: mrapple <tony@oc.tc>
 Date: Wed, 15 May 2013 20:09:16 -0500
 Subject: [PATCH] Fire BlockBreakEvent for extinguishing fire and fix
  cancelling interact events working with fire
 
 ---
- src/main/java/net/minecraft/server/PlayerInteractManager.java | 11 +++++++++--
- src/main/java/net/minecraft/server/World.java                 |  9 +++++++--
+ .../net/minecraft/server/PlayerInteractManager.java   | 11 +++++++++--
+ src/main/java/net/minecraft/server/World.java         |  9 +++++++--
  2 files changed, 16 insertions(+), 4 deletions(-)
 
 diff --git a/src/main/java/net/minecraft/server/PlayerInteractManager.java b/src/main/java/net/minecraft/server/PlayerInteractManager.java
-index 33a0a09..6a6f9b2 100644
+index 33a0a095..6a6f9b25 100644
 --- a/src/main/java/net/minecraft/server/PlayerInteractManager.java
 +++ b/src/main/java/net/minecraft/server/PlayerInteractManager.java
 @@ -108,6 +108,13 @@ public class PlayerInteractManager {
@@ -46,7 +46,7 @@ index 33a0a09..6a6f9b2 100644
  
              if (event.useItemInHand() == Event.Result.DENY) {
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 8f3511f..f273747 100644
+index 8f3511f8..f2737477 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
 @@ -1954,8 +1954,13 @@ public abstract class World implements IBlockAccess {
@@ -66,5 +66,5 @@ index 8f3511f..f273747 100644
          } else {
              return false;
 -- 
-2.6.4
+2.23.0
 

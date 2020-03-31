@@ -1,4 +1,4 @@
-From 16e649c8733b8eab737ae5b9078d4002c5aa34ff Mon Sep 17 00:00:00 2001
+From cb10e3a2f7141a6f8fbfa8d2c3aa92590e63cecd Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Fri, 23 Dec 2016 03:12:17 -0600
 Subject: [PATCH] Allow villager GUI duplication
@@ -8,13 +8,14 @@ Subject: [PATCH] Allow villager GUI duplication
  1 file changed, 8 insertions(+)
 
 diff --git a/src/main/java/org/bukkit/entity/HumanEntity.java b/src/main/java/org/bukkit/entity/HumanEntity.java
-index 3f8646d..8710a7b 100644
+index 3f8646dd..8710a7b2 100644
 --- a/src/main/java/org/bukkit/entity/HumanEntity.java
 +++ b/src/main/java/org/bukkit/entity/HumanEntity.java
-@@ -90,6 +90,14 @@ public interface HumanEntity extends LivingEntity, AnimalTamer, Permissible, Inv
+@@ -89,6 +89,14 @@ public interface HumanEntity extends LivingEntity, AnimalTamer, Permissible, Inv
+      */
      public InventoryView openEnchanting(Location location, boolean force);
  
-     /**
++    /**
 +     * Makes a copy of the given villager's current trading offers and opens
 +     * a trading window for this player, allowing them to interact with those
 +     * offers, without affecting the villager's state, or any other players who
@@ -22,10 +23,9 @@ index 3f8646d..8710a7b 100644
 +     */
 +    public InventoryView openMerchantCopy(Villager trader);
 +
-+    /**
+     /**
       * Opens an inventory window to the specified inventory view.
       *
-      * @param inventory The view to open
 -- 
-2.6.4
+2.23.0
 

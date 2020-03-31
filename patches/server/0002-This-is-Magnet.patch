@@ -1,16 +1,16 @@
-From 381e49507a64859c634e0c50939d6da77ee63b2a Mon Sep 17 00:00:00 2001
+From c2bfd998e01ba70401cea440ca4976aa3ec8557b Mon Sep 17 00:00:00 2001
 From: kashike <kashike@vq.lc>
 Date: Fri, 16 Dec 2016 12:49:31 -0800
 Subject: [PATCH] This is Magnet
 
 ---
- pom.xml                                                | 18 ++++++++----------
- .../java/net/minecraft/server/MinecraftServer.java     |  2 +-
- .../java/org/bukkit/craftbukkit/util/Versioning.java   |  2 +-
+ pom.xml                                        | 18 ++++++++----------
+ .../net/minecraft/server/MinecraftServer.java  |  2 +-
+ .../bukkit/craftbukkit/util/Versioning.java    |  2 +-
  3 files changed, 10 insertions(+), 12 deletions(-)
 
 diff --git a/pom.xml b/pom.xml
-index 6aaba50..f5aa732 100644
+index 6aaba502..f5aa7328 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -1,12 +1,10 @@
@@ -62,7 +62,7 @@ index 6aaba50..f5aa732 100644
              </configuration>
              <executions>
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index b400ce0..a7c8cba 100644
+index b400ce04..a7c8cbac 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
 @@ -1084,7 +1084,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
@@ -75,7 +75,7 @@ index b400ce0..a7c8cba 100644
  
      public CrashReport b(CrashReport crashreport) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index 3a4b142..b820598 100644
+index 3a4b1424..b8205981 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 @@ -11,7 +11,7 @@ public final class Versioning {
@@ -88,5 +88,5 @@ index 3a4b142..b820598 100644
  
          if (stream != null) {
 -- 
-2.6.4
+2.23.0
 

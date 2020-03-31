@@ -1,16 +1,16 @@
-From 6fa1198031ddd0f5b9054d7309abbd99ee0f620c Mon Sep 17 00:00:00 2001
+From 3fcd9b53065a3ee583fdfdec09c9a2a9b2e463be Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Sun, 28 Jun 2015 03:37:39 -0400
 Subject: [PATCH] Override creation settings of existing world
 
 ---
  src/main/java/org/bukkit/Bukkit.java       |  8 ++++++++
- src/main/java/org/bukkit/Server.java       | 23 +++++++++++++++++++++++
+ src/main/java/org/bukkit/Server.java       | 23 ++++++++++++++++++++++
  src/main/java/org/bukkit/WorldCreator.java | 10 ++++++++++
  3 files changed, 41 insertions(+)
 
 diff --git a/src/main/java/org/bukkit/Bukkit.java b/src/main/java/org/bukkit/Bukkit.java
-index ccb9596..1bde563 100644
+index ccb9596f..1bde563f 100644
 --- a/src/main/java/org/bukkit/Bukkit.java
 +++ b/src/main/java/org/bukkit/Bukkit.java
 @@ -471,6 +471,14 @@ public final class Bukkit {
@@ -29,13 +29,14 @@ index ccb9596..1bde563 100644
       * Creates or loads a world with the given name using the specified
       * options.
 diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
-index 2b60412..666c4bc 100644
+index 2b604122..666c4bc8 100644
 --- a/src/main/java/org/bukkit/Server.java
 +++ b/src/main/java/org/bukkit/Server.java
-@@ -388,6 +388,29 @@ public interface Server extends PluginMessageRecipient {
+@@ -387,6 +387,29 @@ public interface Server extends PluginMessageRecipient {
+      */
      public List<World> getWorlds();
  
-     /**
++    /**
 +     * Check for a level.dat file belonging to a world with the given name.
 +     * If found, return a {@link WorldCreator} configured to match the settings
 +     * in the level.dat file. If the file is not found, return null. This works
@@ -58,12 +59,11 @@ index 2b60412..666c4bc 100644
 +     */
 +    World createWorld(String name);
 +
-+    /**
+     /**
       * Creates or loads a world with the given name using the specified
       * options.
-      * <p>
 diff --git a/src/main/java/org/bukkit/WorldCreator.java b/src/main/java/org/bukkit/WorldCreator.java
-index 53980fd..81c95d1 100644
+index 53980fdb..81c95d1f 100644
 --- a/src/main/java/org/bukkit/WorldCreator.java
 +++ b/src/main/java/org/bukkit/WorldCreator.java
 @@ -16,6 +16,7 @@ public class WorldCreator {
@@ -91,5 +91,5 @@ index 53980fd..81c95d1 100644
       * Creates a world with the specified options.
       * <p>
 -- 
-2.6.4
+2.23.0
 

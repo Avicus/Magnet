@@ -1,14 +1,14 @@
-From f8e5d337a58273afa8884ae3edaaaedda346d1d0 Mon Sep 17 00:00:00 2001
+From 98c5939ce11167fb6564f961be6380d98a2a5131 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <bookofnathan@gmail.com>
 Date: Thu, 23 May 2013 20:09:16 -0500
 Subject: [PATCH] Add PlayerSpawnEntityEvent
 
 ---
- .../java/net/minecraft/server/ItemMonsterEgg.java  | 29 +++++++++++++++++++++-
+ .../net/minecraft/server/ItemMonsterEgg.java  | 29 ++++++++++++++++++-
  1 file changed, 28 insertions(+), 1 deletion(-)
 
 diff --git a/src/main/java/net/minecraft/server/ItemMonsterEgg.java b/src/main/java/net/minecraft/server/ItemMonsterEgg.java
-index 84f5da5..daabd6a 100644
+index 84f5da5b..daabd6af 100644
 --- a/src/main/java/net/minecraft/server/ItemMonsterEgg.java
 +++ b/src/main/java/net/minecraft/server/ItemMonsterEgg.java
 @@ -1,5 +1,8 @@
@@ -54,5 +54,5 @@ index 84f5da5..daabd6a 100644
              if (entity != null) {
                  if (entity instanceof EntityLiving && itemstack.hasName()) {
 -- 
-2.6.4
+2.23.0
 

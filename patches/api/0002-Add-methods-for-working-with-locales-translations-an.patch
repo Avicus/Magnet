@@ -1,15 +1,15 @@
-From 70399363a9c1da48afec5a9316b04633bc76422e Mon Sep 17 00:00:00 2001
+From b70a6077867e0eecbdf59519c68cb0dc9667ddd6 Mon Sep 17 00:00:00 2001
 From: kashike <kashike@vq.lc>
 Date: Sat, 17 Dec 2016 02:30:37 -0800
 Subject: [PATCH] Add methods for working with locales/translations, and add
  methods to send components based on type
 
 ---
- .../text/translation/TranslatableComponent.java    | 19 ++++++++++
- src/main/java/org/bukkit/Bukkit.java               | 12 +++++++
- src/main/java/org/bukkit/Server.java               | 13 +++++++
- .../java/org/bukkit/command/CommandSender.java     | 40 ++++++++++++++++++++++
- src/main/java/org/bukkit/entity/Player.java        | 28 +++++++++++++++
+ .../translation/TranslatableComponent.java    | 19 +++++++++
+ src/main/java/org/bukkit/Bukkit.java          | 12 ++++++
+ src/main/java/org/bukkit/Server.java          | 13 ++++++
+ .../org/bukkit/command/CommandSender.java     | 40 +++++++++++++++++++
+ src/main/java/org/bukkit/entity/Player.java   | 28 +++++++++++++
  5 files changed, 112 insertions(+)
  create mode 100644 src/main/java/net/avicus/magnet/api/text/translation/TranslatableComponent.java
 
@@ -182,5 +182,5 @@ index d02fe560..4282f2e2 100644
 +    // Magnet end
  }
 -- 
-2.11.0
+2.23.0
 

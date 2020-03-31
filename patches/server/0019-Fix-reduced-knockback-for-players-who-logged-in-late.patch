@@ -1,11 +1,11 @@
-From dd675b07c9f440296710e5da8c96e424b9c256cd Mon Sep 17 00:00:00 2001
+From 831bc2cb240418b727a3e88ac72837eb34aca76f Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Tue, 13 May 2014 22:42:51 -0400
 Subject: [PATCH] Fix reduced knockback for players who logged in later
 
 ---
- .../java/net/minecraft/server/EntityHuman.java     | 25 +++++++++++++++++--
- .../org/bukkit/craftbukkit/entity/CraftPlayer.java | 28 ++++++++++++++++++++++
+ .../net/minecraft/server/EntityHuman.java     | 25 +++++++++++++++--
+ .../craftbukkit/entity/CraftPlayer.java       | 28 +++++++++++++++++++
  2 files changed, 51 insertions(+), 2 deletions(-)
 
 diff --git a/src/main/java/net/minecraft/server/EntityHuman.java b/src/main/java/net/minecraft/server/EntityHuman.java
@@ -90,5 +90,5 @@ index cc29c449..51ec959c 100644
      // Magnet end
  }
 -- 
-2.11.0
+2.23.0
 

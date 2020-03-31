@@ -1,13 +1,13 @@
-From b457d2775eac0cdb26e2d056b45ca733af2c8bf2 Mon Sep 17 00:00:00 2001
+From ec5c8bb45b984cd06eb0df942463d9119ad3c899 Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Fri, 3 Jun 2016 02:02:23 -0400
 Subject: [PATCH] Component support for signs
 
 ---
- pom.xml                                            |  4 +--
- src/main/java/org/bukkit/block/Sign.java           | 21 ++++++++++++
- src/main/java/org/bukkit/entity/Player.java        |  6 ++++
- .../org/bukkit/event/block/SignChangeEvent.java    | 40 +++++++++++++++++++---
+ pom.xml                                       |  4 +-
+ src/main/java/org/bukkit/block/Sign.java      | 21 ++++++++++
+ src/main/java/org/bukkit/entity/Player.java   |  6 +++
+ .../bukkit/event/block/SignChangeEvent.java   | 40 ++++++++++++++++---
  4 files changed, 64 insertions(+), 7 deletions(-)
 
 diff --git a/pom.xml b/pom.xml
@@ -178,5 +178,5 @@ index 83188cf5..bf55d816 100644
 +    // Magnet end
  }
 -- 
-2.11.0
+2.23.0
 

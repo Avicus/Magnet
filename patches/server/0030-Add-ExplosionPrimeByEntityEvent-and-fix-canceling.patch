@@ -1,18 +1,18 @@
-From 51e5a6f6ca7158e204994c35345d881dfb4d3e7f Mon Sep 17 00:00:00 2001
+From 49c036abbf90656b88f299131cc2d6c8616b31fe Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Mon, 3 Jul 2017 20:31:56 -0500
 Subject: [PATCH] Add ExplosionPrimeByEntityEvent and fix canceling
 
 ---
- src/main/java/net/minecraft/server/BlockTNT.java   | 56 +++++++++++++++++++---
- .../java/net/minecraft/server/EntityCreeper.java   | 27 ++++++++++-
- .../net/minecraft/server/EntityEnderCrystal.java   |  8 +++-
- .../net/minecraft/server/EntityLargeFireball.java  |  8 +---
- .../java/net/minecraft/server/EntityTNTPrimed.java | 10 +---
+ .../java/net/minecraft/server/BlockTNT.java   | 56 +++++++++++++++++--
+ .../net/minecraft/server/EntityCreeper.java   | 27 ++++++++-
+ .../minecraft/server/EntityEnderCrystal.java  |  8 ++-
+ .../minecraft/server/EntityLargeFireball.java |  8 +--
+ .../net/minecraft/server/EntityTNTPrimed.java | 10 +---
  5 files changed, 85 insertions(+), 24 deletions(-)
 
 diff --git a/src/main/java/net/minecraft/server/BlockTNT.java b/src/main/java/net/minecraft/server/BlockTNT.java
-index 3d1e583..831aa72 100644
+index 3d1e583f..831aa723 100644
 --- a/src/main/java/net/minecraft/server/BlockTNT.java
 +++ b/src/main/java/net/minecraft/server/BlockTNT.java
 @@ -2,6 +2,9 @@ package net.minecraft.server;
@@ -123,7 +123,7 @@ index 3d1e583..831aa72 100644
          }
  
 diff --git a/src/main/java/net/minecraft/server/EntityCreeper.java b/src/main/java/net/minecraft/server/EntityCreeper.java
-index fecf94d..63b593e 100644
+index fecf94da..63b593e5 100644
 --- a/src/main/java/net/minecraft/server/EntityCreeper.java
 +++ b/src/main/java/net/minecraft/server/EntityCreeper.java
 @@ -2,6 +2,7 @@ package net.minecraft.server;
@@ -189,7 +189,7 @@ index fecf94d..63b593e 100644
              if (!event.isCancelled()) {
                  this.world.createExplosion(this, this.locX, this.locY, this.locZ, event.getRadius(), event.getFire(), flag);
 diff --git a/src/main/java/net/minecraft/server/EntityEnderCrystal.java b/src/main/java/net/minecraft/server/EntityEnderCrystal.java
-index 07533e4..0a37fd7 100644
+index 07533e4a..0a37fd7b 100644
 --- a/src/main/java/net/minecraft/server/EntityEnderCrystal.java
 +++ b/src/main/java/net/minecraft/server/EntityEnderCrystal.java
 @@ -2,6 +2,7 @@ package net.minecraft.server;
@@ -215,7 +215,7 @@ index 07533e4..0a37fd7 100644
                          if (event.isCancelled()) {
                              this.dead = false;
 diff --git a/src/main/java/net/minecraft/server/EntityLargeFireball.java b/src/main/java/net/minecraft/server/EntityLargeFireball.java
-index b62c037..3cd1a7f 100644
+index b62c0376..3cd1a7f3 100644
 --- a/src/main/java/net/minecraft/server/EntityLargeFireball.java
 +++ b/src/main/java/net/minecraft/server/EntityLargeFireball.java
 @@ -23,14 +23,8 @@ public class EntityLargeFireball extends EntityFireball {
@@ -235,7 +235,7 @@ index b62c037..3cd1a7f 100644
              this.die();
          }
 diff --git a/src/main/java/net/minecraft/server/EntityTNTPrimed.java b/src/main/java/net/minecraft/server/EntityTNTPrimed.java
-index 872d965..3f92fe7 100644
+index 872d9659..3f92fe75 100644
 --- a/src/main/java/net/minecraft/server/EntityTNTPrimed.java
 +++ b/src/main/java/net/minecraft/server/EntityTNTPrimed.java
 @@ -109,18 +109,12 @@ public class EntityTNTPrimed extends Entity {
@@ -260,5 +260,5 @@ index 872d965..3f92fe7 100644
      }
  
 -- 
-2.6.4
+2.23.0
 

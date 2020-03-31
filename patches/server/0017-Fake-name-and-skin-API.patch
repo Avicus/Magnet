@@ -1,21 +1,21 @@
-From 661dd110ce343d6bfda927285603337bbea0329b Mon Sep 17 00:00:00 2001
+From 8b27b3bb2d694d997fd3310a13cb9ac344cb5e7e Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Tue, 11 Feb 2014 22:12:50 -0600
 Subject: [PATCH] Fake name and skin API
 
 ---
- .../java/net/minecraft/server/EntityPlayer.java    |   9 +-
- .../minecraft/server/PacketPlayOutPlayerInfo.java  |  14 ++
- .../server/PacketPlayOutScoreboardTeam.java        |  22 ++
- .../net/minecraft/server/PlayerConnection.java     |  55 ++++-
- src/main/java/net/minecraft/server/PlayerList.java |  20 +-
- .../java/org/bukkit/craftbukkit/CraftServer.java   |  45 +++-
- .../command/ProxiedNativeCommandSender.java        |   6 +
- .../craftbukkit/command/ServerCommandSender.java   |   7 +
- .../org/bukkit/craftbukkit/entity/CraftEntity.java |   7 +
- .../craftbukkit/entity/CraftMinecartCommand.java   |   7 +
- .../org/bukkit/craftbukkit/entity/CraftPlayer.java | 263 ++++++++++++++++++++-
- .../java/org/bukkit/craftbukkit/util/Skins.java    |  61 +++++
+ .../net/minecraft/server/EntityPlayer.java    |   9 +-
+ .../server/PacketPlayOutPlayerInfo.java       |  14 +
+ .../server/PacketPlayOutScoreboardTeam.java   |  22 ++
+ .../minecraft/server/PlayerConnection.java    |  55 +++-
+ .../java/net/minecraft/server/PlayerList.java |  20 +-
+ .../org/bukkit/craftbukkit/CraftServer.java   |  45 ++-
+ .../command/ProxiedNativeCommandSender.java   |   6 +
+ .../command/ServerCommandSender.java          |   7 +
+ .../craftbukkit/entity/CraftEntity.java       |   7 +
+ .../entity/CraftMinecartCommand.java          |   7 +
+ .../craftbukkit/entity/CraftPlayer.java       | 263 +++++++++++++++++-
+ .../org/bukkit/craftbukkit/util/Skins.java    |  61 ++++
  12 files changed, 501 insertions(+), 15 deletions(-)
  create mode 100644 src/main/java/org/bukkit/craftbukkit/util/Skins.java
 
@@ -745,5 +745,5 @@ index 00000000..43345fa5
 +    }
 +}
 -- 
-2.11.0
+2.23.0
 

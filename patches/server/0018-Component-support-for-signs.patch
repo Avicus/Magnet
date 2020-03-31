@@ -1,14 +1,14 @@
-From ea58a68429e24654825f1667f0fcd18b5ba9f592 Mon Sep 17 00:00:00 2001
+From 6ccf21a1e79a87699d974889ee734a9c2a6f4240 Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Fri, 3 Jun 2016 02:02:17 -0400
 Subject: [PATCH] Component support for signs
 
 ---
- .../java/net/minecraft/server/ChatModifier.java    |  12 ++
- .../net/minecraft/server/PlayerConnection.java     |  13 +-
- .../org/bukkit/craftbukkit/block/CraftSign.java    |  65 +++++--
- .../org/bukkit/craftbukkit/entity/CraftPlayer.java |  34 +++-
- .../bukkit/craftbukkit/util/BungeeChatUtils.java   | 187 +++++++++++++++++++++
+ .../net/minecraft/server/ChatModifier.java    |  12 ++
+ .../minecraft/server/PlayerConnection.java    |  13 +-
+ .../bukkit/craftbukkit/block/CraftSign.java   |  65 +++++-
+ .../craftbukkit/entity/CraftPlayer.java       |  34 +++-
+ .../craftbukkit/util/BungeeChatUtils.java     | 187 ++++++++++++++++++
  5 files changed, 296 insertions(+), 15 deletions(-)
  create mode 100644 src/main/java/org/bukkit/craftbukkit/util/BungeeChatUtils.java
 
@@ -426,5 +426,5 @@ index 00000000..c0ff3a1e
 +    }
 +}
 -- 
-2.11.0
+2.23.0
 

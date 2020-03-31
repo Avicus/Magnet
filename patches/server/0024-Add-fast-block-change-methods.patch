@@ -1,11 +1,11 @@
-From 072e511d88094c4c56a4ae9da77e44ded5f1a0a2 Mon Sep 17 00:00:00 2001
+From 5a5e0ee2a4754a982d296d06f373c7117d2e0a53 Mon Sep 17 00:00:00 2001
 From: kashike <kashike@vq.lc>
 Date: Fri, 27 Jan 2017 20:47:55 -0800
 Subject: [PATCH] Add fast block change methods
 
 ---
- .../java/net/minecraft/server/BlockPosition.java   |  6 +++++
- .../java/org/bukkit/craftbukkit/CraftWorld.java    | 29 ++++++++++++++++++++++
+ .../net/minecraft/server/BlockPosition.java   |  6 ++++
+ .../org/bukkit/craftbukkit/CraftWorld.java    | 29 +++++++++++++++++++
  2 files changed, 35 insertions(+)
 
 diff --git a/src/main/java/net/minecraft/server/BlockPosition.java b/src/main/java/net/minecraft/server/BlockPosition.java
@@ -62,5 +62,5 @@ index 76400709..9fa833e3 100644
 +    // Magnet end
  }
 -- 
-2.11.0
+2.23.0
 

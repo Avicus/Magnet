@@ -1,18 +1,18 @@
-From 7200aa46da165c37312152829935111fbefa36f7 Mon Sep 17 00:00:00 2001
+From dc798ffcbf9269b553dc62bd46e33db36dc54108 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Fri, 23 Dec 2016 04:07:10 -0600
 Subject: [PATCH] Add BlockDispenseEntityEvent
 
 ---
- .../net/minecraft/server/DispenseBehaviorItem.java |  8 ++--
- .../server/DispenseBehaviorProjectile.java         |  4 +-
- .../net/minecraft/server/DispenserRegistry.java    | 51 ++++++++++++++--------
- .../java/net/minecraft/server/ItemMinecart.java    | 10 +++--
- .../org/bukkit/craftbukkit/entity/CraftEntity.java |  7 +++
+ .../server/DispenseBehaviorItem.java          |  8 +--
+ .../server/DispenseBehaviorProjectile.java    |  4 +-
+ .../minecraft/server/DispenserRegistry.java   | 51 ++++++++++++-------
+ .../net/minecraft/server/ItemMinecart.java    | 10 ++--
+ .../craftbukkit/entity/CraftEntity.java       |  7 +++
  5 files changed, 53 insertions(+), 27 deletions(-)
 
 diff --git a/src/main/java/net/minecraft/server/DispenseBehaviorItem.java b/src/main/java/net/minecraft/server/DispenseBehaviorItem.java
-index 35a3ff8..8db2f08 100644
+index 35a3ff8f..8db2f085 100644
 --- a/src/main/java/net/minecraft/server/DispenseBehaviorItem.java
 +++ b/src/main/java/net/minecraft/server/DispenseBehaviorItem.java
 @@ -2,6 +2,7 @@ package net.minecraft.server;
@@ -45,7 +45,7 @@ index 35a3ff8..8db2f08 100644
          if (!event.getItem().getType().equals(craftItem.getType())) {
              // Chain to handler for new item
 diff --git a/src/main/java/net/minecraft/server/DispenseBehaviorProjectile.java b/src/main/java/net/minecraft/server/DispenseBehaviorProjectile.java
-index 5cb0363..4accb2d 100644
+index 5cb03637..4accb2d5 100644
 --- a/src/main/java/net/minecraft/server/DispenseBehaviorProjectile.java
 +++ b/src/main/java/net/minecraft/server/DispenseBehaviorProjectile.java
 @@ -2,6 +2,7 @@ package net.minecraft.server;
@@ -74,7 +74,7 @@ index 5cb0363..4accb2d 100644
          ((Entity) iprojectile).projectileSource = new org.bukkit.craftbukkit.projectiles.CraftBlockProjectileSource((TileEntityDispenser) isourceblock.getTileEntity());
          // CraftBukkit end
 diff --git a/src/main/java/net/minecraft/server/DispenserRegistry.java b/src/main/java/net/minecraft/server/DispenserRegistry.java
-index cc7a1e3..873fcc3 100644
+index cc7a1e31..873fcc37 100644
 --- a/src/main/java/net/minecraft/server/DispenserRegistry.java
 +++ b/src/main/java/net/minecraft/server/DispenserRegistry.java
 @@ -9,6 +9,8 @@ import org.apache.logging.log4j.Logger;
@@ -208,7 +208,7 @@ index cc7a1e3..873fcc3 100644
  
                  world.addEntity(entitytntprimed);
 diff --git a/src/main/java/net/minecraft/server/ItemMinecart.java b/src/main/java/net/minecraft/server/ItemMinecart.java
-index e9fc40e..49a72f0 100644
+index e9fc40e9..49a72f01 100644
 --- a/src/main/java/net/minecraft/server/ItemMinecart.java
 +++ b/src/main/java/net/minecraft/server/ItemMinecart.java
 @@ -2,6 +2,7 @@ package net.minecraft.server;
@@ -247,7 +247,7 @@ index e9fc40e..49a72f0 100644
              if (itemstack.hasName()) {
                  entityminecartabstract.setCustomName(itemstack.getName());
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java
-index 4f91799..a2223e4 100644
+index 4f917990..a2223e4a 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java
 +++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftEntity.java
 @@ -201,6 +201,13 @@ public abstract class CraftEntity implements org.bukkit.entity.Entity {
@@ -265,5 +265,5 @@ index 4f91799..a2223e4 100644
          return new Vector(entity.motX, entity.motY, entity.motZ);
      }
 -- 
-2.6.4
+2.23.0
 

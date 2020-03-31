@@ -1,16 +1,16 @@
-From 937603db8096dc61b477ed537be5e25e3d13ad67 Mon Sep 17 00:00:00 2001
+From 8e917bf588589a907d14434c4341e5c3ff44475d Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Mon, 3 Jul 2017 20:32:32 -0500
 Subject: [PATCH] Add ExplosionPrimeByEntityEvent and fix canceling
 
 ---
- .../event/entity/ExplosionPrimeByEntityEvent.java  | 35 ++++++++++++++++++++++
+ .../entity/ExplosionPrimeByEntityEvent.java   | 35 +++++++++++++++++++
  1 file changed, 35 insertions(+)
  create mode 100644 src/main/java/org/bukkit/event/entity/ExplosionPrimeByEntityEvent.java
 
 diff --git a/src/main/java/org/bukkit/event/entity/ExplosionPrimeByEntityEvent.java b/src/main/java/org/bukkit/event/entity/ExplosionPrimeByEntityEvent.java
 new file mode 100644
-index 0000000..473e6f9
+index 00000000..473e6f9d
 --- /dev/null
 +++ b/src/main/java/org/bukkit/event/entity/ExplosionPrimeByEntityEvent.java
 @@ -0,0 +1,35 @@
@@ -50,5 +50,5 @@ index 0000000..473e6f9
 +    }
 +}
 -- 
-2.6.4
+2.23.0
 

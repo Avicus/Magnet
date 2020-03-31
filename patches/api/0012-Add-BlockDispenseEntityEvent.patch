@@ -1,16 +1,16 @@
-From 59419e59ba48d54421cd1926ec519c58706b689e Mon Sep 17 00:00:00 2001
+From ae0d201de73677c19df2619d753a4bf7bfb36f39 Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Fri, 23 Dec 2016 04:07:15 -0600
 Subject: [PATCH] Add BlockDispenseEntityEvent
 
 ---
- .../event/block/BlockDispenseEntityEvent.java      | 49 ++++++++++++++++++++++
+ .../event/block/BlockDispenseEntityEvent.java | 49 +++++++++++++++++++
  1 file changed, 49 insertions(+)
  create mode 100644 src/main/java/org/bukkit/event/block/BlockDispenseEntityEvent.java
 
 diff --git a/src/main/java/org/bukkit/event/block/BlockDispenseEntityEvent.java b/src/main/java/org/bukkit/event/block/BlockDispenseEntityEvent.java
 new file mode 100644
-index 0000000..18f35bd
+index 00000000..18f35bd7
 --- /dev/null
 +++ b/src/main/java/org/bukkit/event/block/BlockDispenseEntityEvent.java
 @@ -0,0 +1,49 @@
@@ -65,5 +65,5 @@ index 0000000..18f35bd
 +}
 \ No newline at end of file
 -- 
-2.6.4
+2.23.0
 

@@ -1,14 +1,14 @@
-From ed6ea0b2292a87b5a6494062f136016b42bba5ca Mon Sep 17 00:00:00 2001
+From c5871c62440135731c975a6ea717e71e69828573 Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Sun, 28 Sep 2014 05:48:35 -0400
 Subject: [PATCH] Simple bulk block replacement
 
 ---
- .../java/org/bukkit/craftbukkit/CraftChunk.java    | 32 ++++++++++++++++++++++
+ .../org/bukkit/craftbukkit/CraftChunk.java    | 32 +++++++++++++++++++
  1 file changed, 32 insertions(+)
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
-index 8a33e28..b425a7d 100644
+index 8a33e282..b425a7d3 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftChunk.java
 @@ -6,12 +6,14 @@ import java.util.Arrays;
@@ -64,5 +64,5 @@ index 8a33e28..b425a7d 100644
          BiomeBase[] biomes = chunkmanager.getBiomes(null, chunkX, chunkZ, 16, 16);
          float[] temps = new float[biomes.length];
 -- 
-2.6.4
+2.23.0
 

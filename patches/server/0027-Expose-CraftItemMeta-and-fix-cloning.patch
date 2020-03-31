@@ -1,17 +1,17 @@
-From 3474714dfbdfc756cfc21f6e4c3ebe8e01c3d2e3 Mon Sep 17 00:00:00 2001
+From 065e68c318c726e566ee38b92b2a513ee75e9a7c Mon Sep 17 00:00:00 2001
 From: Austin Mayes <austin@avicus.net>
 Date: Thu, 30 Mar 2017 13:54:00 -0500
 Subject: [PATCH] Expose CraftItemMeta and fix cloning
 
 ---
- .../bukkit/craftbukkit/inventory/CraftMetaBanner.java    |  7 +++++++
- .../craftbukkit/inventory/CraftMetaBlockState.java       |  9 +++++++++
- .../org/bukkit/craftbukkit/inventory/CraftMetaItem.java  | 16 +++++++++++++++-
- .../inventory/ItemMetaImplementationOverrideTest.java    |  7 +++++--
+ .../craftbukkit/inventory/CraftMetaBanner.java   |  7 +++++++
+ .../inventory/CraftMetaBlockState.java           |  9 +++++++++
+ .../craftbukkit/inventory/CraftMetaItem.java     | 16 +++++++++++++++-
+ .../ItemMetaImplementationOverrideTest.java      |  7 +++++--
  4 files changed, 36 insertions(+), 3 deletions(-)
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
-index 80f9ffa..00c7a99 100644
+index 80f9ffa9..00c7a99f 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBanner.java
 @@ -201,4 +201,11 @@ public class CraftMetaBanner extends CraftMetaItem implements BannerMeta {
@@ -27,7 +27,7 @@ index 80f9ffa..00c7a99 100644
 +    }
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
-index d60686d..92d3e58 100644
+index d60686d6..92d3e589 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaBlockState.java
 @@ -335,4 +335,13 @@ public class CraftMetaBlockState extends CraftMetaItem implements BlockStateMeta
@@ -45,7 +45,7 @@ index d60686d..92d3e58 100644
 +    }
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
-index eaaa6a1..c9b1620 100644
+index eaaa6a11..c9b1620e 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftMetaItem.java
 @@ -76,7 +76,7 @@ import net.minecraft.server.IAttribute;
@@ -79,7 +79,7 @@ index eaaa6a1..c9b1620 100644
      private final Spigot spigot = new Spigot()
      {
 diff --git a/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java b/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
-index f1b4ec0..ad35cd4 100644
+index f1b4ec0d..ad35cd46 100644
 --- a/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
 +++ b/src/test/java/org/bukkit/craftbukkit/inventory/ItemMetaImplementationOverrideTest.java
 @@ -47,8 +47,11 @@ public class ItemMetaImplementationOverrideTest {
@@ -97,5 +97,5 @@ index f1b4ec0..ad35cd4 100644
                          clazz.getSimpleName() + " contains " + method.getName()
                      }
 -- 
-2.6.4
+2.23.0
 

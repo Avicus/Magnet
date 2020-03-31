@@ -1,18 +1,18 @@
-From 58a13e07ead97814a980f4e64ac8434b4d8f176c Mon Sep 17 00:00:00 2001
+From c5d5029108d9eb2156c9c9c4c0e2cf0b2a0e29ea Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Thu, 23 Jan 2014 00:17:31 -0500
 Subject: [PATCH] Fake name and skin API
 
 ---
- src/main/java/org/bukkit/Bukkit.java               |  23 +++-
- src/main/java/org/bukkit/Server.java               |  27 +++++
- src/main/java/org/bukkit/Skin.java                 |  72 ++++++++++++
- src/main/java/org/bukkit/command/Command.java      |   2 +-
- .../java/org/bukkit/command/CommandSender.java     |   6 +
- .../org/bukkit/command/defaults/ListCommand.java   |   2 +-
- .../org/bukkit/command/defaults/TellCommand.java   |   3 +-
- src/main/java/org/bukkit/entity/Player.java        | 122 +++++++++++++++++++++
- .../event/player/PlayerSkinPartsChangeEvent.java   |  32 ++++++
+ src/main/java/org/bukkit/Bukkit.java          |  23 +++-
+ src/main/java/org/bukkit/Server.java          |  27 ++++
+ src/main/java/org/bukkit/Skin.java            |  72 +++++++++++
+ src/main/java/org/bukkit/command/Command.java |   2 +-
+ .../org/bukkit/command/CommandSender.java     |   6 +
+ .../bukkit/command/defaults/ListCommand.java  |   2 +-
+ .../bukkit/command/defaults/TellCommand.java  |   3 +-
+ src/main/java/org/bukkit/entity/Player.java   | 122 ++++++++++++++++++
+ .../player/PlayerSkinPartsChangeEvent.java    |  32 +++++
  9 files changed, 285 insertions(+), 4 deletions(-)
  create mode 100644 src/main/java/org/bukkit/Skin.java
  create mode 100644 src/main/java/org/bukkit/event/player/PlayerSkinPartsChangeEvent.java
@@ -399,5 +399,5 @@ index 00000000..a199f8cf
 +    }
 +}
 -- 
-2.11.0
+2.23.0
 
