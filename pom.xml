@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.avicus</groupId>
-    <artifactId>magnet-parent</artifactId>
-    <version>dev-1.8-SNAPSHOT</version>
-    <packaging>pom</packaging>
+  <groupId>net.avicus</groupId>
+  <artifactId>magnet-parent</artifactId>
+  <version>dev-1.8-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-    <distributionManagement>
-        <repository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>avicus-repo</id>
+      <url>https://repo.avicus.net/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>avicus-repo</id>
+      <url>https://repo.avicus.net/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>sonatype-repo</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-    </repositories>
+  <repositories>
+    <repository>
+      <id>elmakers-repo</id>
+      <url>https://maven.elmakers.com/repository/</url>
+    </repository>
+    <repository>
+      <id>sonatype-repo</id>
+      <url>https://oss.sonatype.org/content/groups/public/</url>
+    </repository>
+  </repositories>
 
-    <modules>
-        <module>Magnet-API</module>
-        <module>Magnet-Server</module>
-    </modules>
+  <modules>
+    <module>Magnet-API</module>
+    <module>Magnet-Server</module>
+  </modules>
 </project>
